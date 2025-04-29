@@ -19,7 +19,7 @@
     yazi.url = "github:sxyazi/yazi";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
     wallpapers = {
-      url = "git+ssh://git@github.com/TSawyer87/wallpapers.git";
+      url = "github:saylesss88/wallpapers";
       flake = false;
     };
   };
