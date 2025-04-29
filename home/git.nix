@@ -17,13 +17,13 @@ in {
 
     userName = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
-      default = userVars.gitUsername or "TSawyer87"; # Fallback to "TSawyer87" if userVars.gitUsername is undefined
+      default = userVars.gitUsername; # or "TSawyer87"; # Fallback to "TSawyer87" if userVars.gitUsername is undefined
       description = "Git user name";
     };
 
     userEmail = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
-      default = userVars.gitEmail or "sawyerjr.25@gmail.com"; # Fallback to email if userVars.gitEmail is undefined
+      default = userVars.gitEmail; # or "sawyerjr.25@gmail.com"; # Fallback to email if userVars.gitEmail is undefined
       description = "Git user email";
     };
 

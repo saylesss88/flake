@@ -34,8 +34,8 @@
     host = "magic";
     userVars = {
       username = "jr";
-      gitEmail = "sawyerjr.25@gmail.com";
-      gitUsername = "TSawyer87";
+      gitEmail = "saylesss87@proton.me";
+      gitUsername = "saylesss88";
       editor = "hx";
       term = "ghostty";
       keys = "us";

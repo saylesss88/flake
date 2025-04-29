@@ -20,8 +20,8 @@
   magic = {
     gitModule = {
       enable = true;
-      userName = "TSawyer87";
-      userEmail = "sawyerjr.25@gmail.com";
+      userName = "saylesss88";
+      userEmail = "saylesss87@proton.me";
     };
     jjModule = {
       enable = true;
