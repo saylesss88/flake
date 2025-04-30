@@ -1,4 +1,4 @@
-{userVars}: {
+{userVars, ...}: {
   programs = {
     nh = {
       enable = true;
