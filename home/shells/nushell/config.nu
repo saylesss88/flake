@@ -161,9 +161,9 @@ set matchit_keybinding
 # $env.config.edit_mode = "vi"
 
 # alias gd = git diff
-nitch
+# nitch
 # pokego --random 1-3
-# fastfetch
+fastfetch
 
 source ~/flake/home/shells/nushell/zoxide.nu
 source ~/flake/home/shells/nushell/carapace.nu
