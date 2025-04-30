@@ -26,11 +26,9 @@ def nix-upgrade [
     | columns
     | str join "\n"
     | fzf --multi --tmux center,20%
-    # | fzf --multi
-    | lines
+    | split row "\n"
 
-    let selections_list = [$selections]
-    nix flake update ...$selections_list
+    nix flake update ...$selections
   } else {
     nix flake update
   }
