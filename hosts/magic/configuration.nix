@@ -39,13 +39,13 @@
     cachixModule.enable = true;
     users.enable = true;
     drivers.amdgpu.enable = true;
+    vm.guest-services.enable = true;
   };
 
   users = {
     mutableUsers = true;
   };
 
-  vm.guest-services.enable = true;
   # virtualisation.libvirtd.enable = true;
   # virtualisation.qemu.package = pkgs.qemu_kvm;
   # virtualisation.qemu.options = ["-enable-kvm"];
