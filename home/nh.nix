@@ -1,11 +1,31 @@
-{userVars, ...}: {
-  programs = {
-    nh = {
+{
+  lib,
+  config,
+  userVars,
+  ...
+}: let
+  cfg = config.magic.nhModule;
+in {
+  options.magic.nhModule = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the nh module";
+    };
+    flake = lib.mkOption {
+      # Suggestion: Define flake as an option
+      type = lib.types.str;
+      default = "/home/jr/flake";
+      description = "Path to the flake.nix file.";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    programs.nh = {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 5";
-      # flake = "/home/jr/flake";
-      inherit (userVars) flake;
+      flake = cfg.flake; # Use the option here
     };
   };
 }

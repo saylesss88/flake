@@ -115,6 +115,7 @@ in {
       description = "Additional Git configuration";
     };
 
+
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = with pkgs; [lazygit delta];

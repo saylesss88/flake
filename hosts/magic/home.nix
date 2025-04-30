@@ -26,6 +26,10 @@
     jjModule = {
       enable = true;
     };
+    nhModule = {
+      enable = true;
+      flake = "/home/jr/flake";
+    };
   };
 
   dont-track-me = {
