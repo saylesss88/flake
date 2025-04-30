@@ -169,5 +169,5 @@ source ~/flake/home/shells/nushell/zoxide.nu
 source ~/flake/home/shells/nushell/carapace.nu
 source ~/flake/home/shells/nushell/atuin.nu
 source ~/flake/home/shells/nushell/nix.nu
-source ~/flake/home/shells/nushell/nu_scripts/themes/nu-themes/ayu.nu
+source ~/flake/home/shells/nushell/nu_scripts/themes/nu-themes/dracula.nu
 source ~/flake/home/shells/nushell/completions-jj.nu
