@@ -33,11 +33,12 @@
 
   nixpkgs.overlays = [inputs.lib.overlays];
 
-  # Enable or Disable Stylix
-  custom.stylixModule.enable = true;
+  # Custom Modules Enable/Disable
+  custom = {
+    stylixModule.enable = true;
+    users.enable = true;
+  };
 
-  # Enable User module
-  users.enable = true;
   users = {
     mutableUsers = true;
   };

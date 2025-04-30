@@ -6,10 +6,10 @@
   ...
 }: {
   options = {
-    users.enable = lib.mkEnableOption "Enables users module";
+    custom.users.enable = lib.mkEnableOption "Enables users module";
   };
 
-  config = lib.mkIf config.users.enable {
+  config = lib.mkIf config.custom.users.enable {
     users.users = {
       # ${username} = {
       jr = {
