@@ -9,7 +9,7 @@ def nix-list-system []: nothing -> list<string> {
 
 # upgrade system packages
 def nix-upgrade [
-  flake_path: string = "/home/jr/my-nixos", # path that contains a flake.nix
+  flake_path: string = "/home/jr/flake", # path that contains a flake.nix
   --interactive (-i) # select packages to upgrade interactively
 ]: nothing -> nothing {
   let working_path = $flake_path | path expand
