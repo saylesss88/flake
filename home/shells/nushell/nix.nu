@@ -67,7 +67,7 @@ def nix-generations [
   if $delete {
     # Interactive deletion with fzf
     let selections = $generations
-      | format "{id}  {date} {time} {current}"
+      | each { |row| $"($row.id)  ($row.date) ($row.time) ($row.current)" }
       | fzf --multi --tmux center,40% --header "Select generations to delete (current generation is marked)"
       | lines
       | parse "{id}  {date} {time} {current}"
