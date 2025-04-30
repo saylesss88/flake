@@ -33,5 +33,6 @@ def nix-upgrade [
     nix flake update
   }
   cd $pwd
-  sudo nixos-rebuild switch --flake $working_path --show-trace
+  nh os switch $working_path
+  # sudo nixos-rebuild switch --flake $working_path --show-trace
 }
