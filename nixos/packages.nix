@@ -3,6 +3,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # system call monitoring
+    teams-for-linux
     strace # system call monitoring
     ltrace # library call monitoring
     tcpdump # network sniffer
