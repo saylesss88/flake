@@ -5,7 +5,7 @@
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 5";
       # flake = "/home/jr/flake";
-      flake = userVars.flake;
+      inherit (userVars) flake;
     };
   };
 }

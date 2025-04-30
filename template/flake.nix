@@ -1,5 +1,5 @@
 {
-  description = "template for hydenix";
+  description = "template for custom nixos";
 
   inputs = {
     # User's nixpkgs - for user packages
