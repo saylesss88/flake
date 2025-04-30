@@ -61,7 +61,8 @@
           cat = "${pkgs.bat}/bin/bat";
           df = "${pkgs.duf}/bin/duf";
           find = "${pkgs.fd}/bin/fd";
-          grep = "${pkgs.ripgrep}/bin/rg";
+          # grep = "${pkgs.ripgrep}/bin/rg";
+          grep = "batgrep";
           tree = "${pkgs.eza}/bin/eza --git --icons --tree";
         };
 
