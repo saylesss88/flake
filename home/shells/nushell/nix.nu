@@ -26,11 +26,11 @@ def nix-upgrade [
     | columns
     | str join "\n"
     | fzf --multi --tmux center,20%
-    | split row "\n"
-
+    | lines
     nix flake update ...$selections
   } else {
-    nix flake update
+    # nix flake update
+    nh os switch -u $working_path
   }
   cd $pwd
   nh os switch $working_path
