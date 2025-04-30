@@ -14,10 +14,10 @@ def nix-upgrade [
 ]: nothing -> nothing {
   let working_path = $flake_path | path expand
   if not ($working_path | path exists) {
-    echo "path not exists: $working_path"
+    echo "path does not exist: $working_path"
     exit 1
   }
-  let pwd = pwd
+  let pwd = $env.PWD
   cd $working_path
   if $interactive {
     let selections = nix flake metadata . --json
@@ -27,12 +27,19 @@ def nix-upgrade [
     | str join "\n"
     | fzf --multi --tmux center,20%
     | lines
-    nix flake update ...$selections
+    # Debug: Print selections to verify
+    print $"Selections: ($selections)"
+    # Check if selections is empty or not a list
+    if ($selections | is-empty) or ($selections | describe | str contains "string") {
+      print "No valid selections made."
+      cd $pwd
+      return
+    }
+    # Pass selections directly as a list
+    nix flake update $selections
   } else {
-    # nix flake update
     nh os switch -u $working_path
   }
   cd $pwd
   nh os switch $working_path
-  # sudo nixos-rebuild switch --flake $working_path --show-trace
 }
