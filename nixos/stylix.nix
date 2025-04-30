@@ -7,7 +7,7 @@
 }:
 with lib; {
   options = {
-    stylixModule = {
+    custom.stylixModule = {
       enable = mkEnableOption "Enables Stylix module.";
       base16Scheme = mkOption {
         type = types.attrs;
@@ -35,7 +35,7 @@ with lib; {
     };
   };
 
-  config = mkIf config.stylixModule.enable {
+  config = mkIf config.custom.stylixModule.enable {
     stylix = {
       enable = true;
       image = "${inputs.wallpapers}/Lofi-Cafe1.png";
