@@ -55,6 +55,7 @@
           ft = "nh os test /home/jr/flake";
           fu = "nh os switch --update /home/jr/flake";
           upd = "nix-upgrade";
+          cleanup = "nh clean all";
           opts = "man home-configuration.nix";
 
           cat = "${pkgs.bat}/bin/bat";
