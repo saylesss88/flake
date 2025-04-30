@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.gytix.cachix;
+  cfg = config.custom.cachixModule;
 in {
   options = {
-    gytix.cachix.enable = mkEnableOption "Enable custom cachix configuration";
+    custom.cachixModule.enable = mkEnableOption "Enable custom cachix configuration";
   };
 
   config = mkIf cfg.enable {

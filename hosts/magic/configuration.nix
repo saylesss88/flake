@@ -36,15 +36,13 @@
   # Custom Modules Enable/Disable
   custom = {
     stylixModule.enable = true;
+    cachixModule.enable = true;
     users.enable = true;
   };
 
   users = {
     mutableUsers = true;
   };
-
-  # Custom Cachix enable
-  gytix.cachix.enable = true;
 
   # Custom amd module
   drivers.amdgpu.enable = true;
