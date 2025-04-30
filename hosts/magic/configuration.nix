@@ -38,14 +38,12 @@
     stylixModule.enable = true;
     cachixModule.enable = true;
     users.enable = true;
+    drivers.amdgpu.enable = true;
   };
 
   users = {
     mutableUsers = true;
   };
-
-  # Custom amd module
-  drivers.amdgpu.enable = true;
 
   vm.guest-services.enable = true;
   # virtualisation.libvirtd.enable = true;

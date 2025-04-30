@@ -16,9 +16,9 @@ with lib; let
 
   needsMesa = hasAmdGpu;
 
-  cfg = config.drivers.amdgpu;
+  cfg = config.custom.drivers.amdgpu;
 in {
-  options.drivers.amdgpu = {
+  options.custom.drivers.amdgpu = {
     enable = mkEnableOption "Enable AMD Drivers";
   };
 
