@@ -25,7 +25,8 @@ def nix-upgrade [
     | get locks.nodes
     | columns
     | str join "\n"
-    | fzf --multi --tmux center,20%
+    # | fzf --multi --tmux center,20%
+    | fzf --multi
     | lines
     nix flake update ...$selections
   } else {
