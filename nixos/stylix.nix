@@ -39,7 +39,7 @@ with lib; {
     stylix = {
       enable = true;
       image = "${inputs.wallpapers}/Lofi-Cafe1.png";
-      inherit (config.stylixModule) base16Scheme;
+      inherit (config.custom.stylixModule) base16Scheme;
       polarity = "dark";
       opacity.terminal = 0.8;
       cursor = {
