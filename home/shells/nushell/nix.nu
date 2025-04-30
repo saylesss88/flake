@@ -25,13 +25,13 @@ def nix-upgrade [
     | get locks.nodes
     | columns
     | str join "\n"
-    # | fzf --multi --tmux center,20%
-    | fzf --multi
+    | fzf --multi --tmux center,20%
+    # | fzf --multi
     | lines
     nix flake update ...$selections
   } else {
     nix flake update
   }
   cd $pwd
-  nixos-rebuild switch --flake $working_path --show-trace
+  sudo nixos-rebuild switch --flake $working_path --show-trace
 }
