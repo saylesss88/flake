@@ -1,6 +1,10 @@
+# NixOS Flake
+
 ### Overview
 
 **Commands**:
+
+- `upd`: nushell alias for `nix-upgrade`
 
 - `fr`: flake-rebuild, runs `nh os switch /home/${username}/my-nixos`
 
@@ -38,6 +42,18 @@ Some custom nushell commands:
 - `nix-upgrade /path/to/flake` upgrade all
 
 - `nix-list-system` # list all installed packages
+
+- `Ctrl+t`: Carapace menu listing available commands
+
+- `Ctrl+r`: Atuin Shell History
+
+- `Ctrl+Space`: Top-level custom command menu
+
+- `man <TAB>`: Search through available man pages with fzf
+
+- `$env.<TAB>`: Search Nushell environment variables
+
+-
 
 **Defaults**:
 
@@ -86,7 +102,6 @@ nix-repl> flake.inputs.nixpkgs.lib.version
 
 - In some situations you may be better off running `nixos-rebuild repl /path/to/flake`.
 
-
 - Search through whole config for 'string':
 
 ```nu
@@ -94,4 +109,3 @@ rg 'initExtra' ~/flake
 ```
 
 - If you found this useful, please consider leaving a star!
-# NixOS Flake

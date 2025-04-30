@@ -14,7 +14,7 @@
       };
       background = [
         {
-          path = lib.mkForce "${inputs.wallpapers}/Aesthetic Scenery.jpg";
+          path = lib.mkForce "${inputs.wallpapers}/wallpaper-theme-converter24.png";
           blur_passes = 3;
           blur_size = 8;
         }
