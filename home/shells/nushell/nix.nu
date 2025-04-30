@@ -27,6 +27,7 @@ def nix-upgrade [
     | str join "\n"
     | fzf --multi --tmux center,20%
     | lines
+    | str join " "
     nix flake update ...$selections
   } else {
     # nix flake update
