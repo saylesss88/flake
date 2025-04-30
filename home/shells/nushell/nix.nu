@@ -29,9 +29,9 @@ def nix-upgrade [
     | lines
     # Debug: Print selections to verify
     print $"Selections: ($selections)"
-    # Check if selections is empty or not a list
-    if ($selections | is-empty) or ($selections | describe | str contains "string") {
-      print "No valid selections made."
+    # Check if selections is empty
+    if ($selections | is-empty) {
+      print "No selections made."
       cd $pwd
       return
     }
