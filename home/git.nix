@@ -5,9 +5,9 @@
   userVars ? {},
   ...
 }: let
-  cfg = config.magic.gitModule;
+  cfg = config.custom.gitModule;
 in {
-  options.magic.gitModule = {
+  options.custom.gitModule = {
     # Changed from options.gitModule
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -114,7 +114,6 @@ in {
       };
       description = "Additional Git configuration";
     };
-
 
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;

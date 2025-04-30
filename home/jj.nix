@@ -5,9 +5,9 @@
   userVars ? {},
   ...
 }: let
-  cfg = config.magic.jjModule;
+  cfg = config.custom.jjModule;
 in {
-  options.magic.jjModule = {
+  options.custom.jjModule = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;

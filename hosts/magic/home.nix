@@ -17,11 +17,14 @@
   ];
 
   # Custom home-manager modules
-  magic = {
+  custom = {
     gitModule = {
       enable = true;
       userName = "saylesss88";
       userEmail = "saylesss87@proton.me";
+      # aliases = "";
+      # ignores = "";
+      # packages = "";
     };
     jjModule = {
       enable = true;

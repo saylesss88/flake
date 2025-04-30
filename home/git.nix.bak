@@ -1,18 +1,35 @@
 {
-  pkgs,
   lib,
+  config,
+  pkgs,
+  userVars ? {},
   ...
-}: {
-  home.packages = with pkgs; [
-    lazygit
-    delta
-  ];
-  programs = {
-    git = {
-      enable = true;
-      userName = "TSawyer87";
-      userEmail = "sawyerjr.25@gmail.com";
-      aliases = {
+}: let
+  cfg = config.magic.gitModule;
+in {
+  options.magic.gitModule = {
+    # Changed from options.gitModule
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable the git module";
+    };
+
+    userName = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = userVars.gitUsername; # or "TSawyer87"; # Fallback to "TSawyer87" if userVars.gitUsername is undefined
+      description = "Git user name";
+    };
+
+    userEmail = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = userVars.gitEmail; # or "sawyerjr.25@gmail.com"; # Fallback to email if userVars.gitEmail is undefined
+      description = "Git user email";
+    };
+
+    aliases = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      default = {
         ci = "commit";
         co = "checkout";
         st = "status";
@@ -30,7 +47,12 @@
         undo = "git reset --soft HEAD^";
         brd = "branch -D";
       };
-      ignores = [
+      description = "Git aliases";
+    };
+
+    ignores = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [
         "*.jj"
         "*.drv"
         "*.out"
@@ -47,13 +69,12 @@
         ".bash_history"
         "wallpapers/*"
       ];
-      extraConfig = {
-        # url = {
-        #   "ssh://git@gitlab.dnm.radiofrance.fr:" = {
-        #     insteadOf = "https://gitlab.dnm.radiofrance.fr/";
-        #   };
-        # };
-        #Sign all commits using ssh key
+      description = "Git ignore patterns";
+    };
+
+    extraConfig = lib.mkOption {
+      type = lib.types.attrs;
+      default = {
         commit.gpgsign = true;
         gpg.format = "ssh";
         user.signingkey = "~/.ssh/id_rsa.pub";
@@ -68,11 +89,7 @@
           reflog = "delta";
           show = "delta";
         };
-
-        credential = {
-          helper = "store";
-        };
-
+        credential.helper = "store";
         color = {
           ui = true;
           pager = true;
@@ -82,7 +99,6 @@
             local = "yellow dim";
             remove = "blue";
           };
-
           showBranch = "auto";
           interactive = "auto";
           grep = "auto";
@@ -96,6 +112,26 @@
           };
         };
       };
+      description = "Additional Git configuration";
+    };
+
+    packages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = with pkgs; [lazygit delta];
+      description = "Additional Git-related packages to install";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    home.packages = cfg.packages;
+
+    programs.git = {
+      enable = true;
+      inherit (cfg) userName;
+      inherit (cfg) userEmail;
+      inherit (cfg) aliases;
+      inherit (cfg) ignores;
+      inherit (cfg) extraConfig;
     };
   };
 }

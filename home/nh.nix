@@ -4,9 +4,9 @@
   userVars,
   ...
 }: let
-  cfg = config.magic.nhModule;
+  cfg = config.custom.nhModule;
 in {
-  options.magic.nhModule = {
+  options.custom.nhModule = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
