@@ -43,7 +43,7 @@ clean:
 # Upgrade
 [group('nix')]
 upd:
-    nix flake update ; nh os switch --hostname {{hostname}} {{flake_path}}
+    nh os switch -u {{flake_path}} ; nh os switch --hostname {{hostname}} {{flake_path}}
 
 # Nix Repl flake:nixpkgs
 [group('nix')]
