@@ -35,8 +35,8 @@ def nix-upgrade [
       cd $pwd
       return
     }
-    # Pass selections directly as a list
-    nix flake update $selections
+    # Use spread operator to pass list items as separate arguments
+    nix flake update ...$selections
   } else {
     nh os switch -u $working_path
   }
