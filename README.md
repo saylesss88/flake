@@ -43,6 +43,8 @@ Some custom nushell commands:
 
 - `nix-list-system` # list all installed packages
 
+- `ns` Shorthand search (`nix search nixpkgs ...`): Usage `ns fzf`
+
 - `Ctrl+t`: Carapace menu listing available commands
 
 - `Ctrl+r`: Atuin Shell History
@@ -53,9 +55,7 @@ Some custom nushell commands:
 
 - `$env.<TAB>`: Search Nushell environment variables
 
--
-
-**Defaults**:
+- **Defaults**:
 
 - Editor | helix
 
