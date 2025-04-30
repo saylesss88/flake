@@ -28,9 +28,7 @@ def nix-upgrade [
     | fzf --multi --tmux center,20%
     # | fzf --multi
     | lines
-
-    let selections_list = [$selections]
-    nix flake update ...$selections_list
+    nix flake update ...$selections
   } else {
     nix flake update
   }
