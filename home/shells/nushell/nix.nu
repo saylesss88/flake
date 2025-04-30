@@ -27,8 +27,10 @@ def nix-upgrade [
     | str join "\n"
     | fzf --multi --tmux center,20%
     | lines
-    | str join " "
-    nix flake update ...$selections
+
+    let selections_string = $selections | str join " "
+
+    nix flake update ($selections_string)
   } else {
     # nix flake update
     nh os switch -u $working_path
