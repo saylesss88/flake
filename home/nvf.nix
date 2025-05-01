@@ -7,6 +7,8 @@
 }: let
   cfg = config.custom.nvfModule;
 in {
+  imports = [inputs.nvf.homeManagerModules.default];
+
   options.custom.nvfModule.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -14,8 +16,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    imports = [inputs.nvf.homeManagerModules.default];
-
     programs.nvf.enable = true;
 
     programs.nvf.settings.vim = {
@@ -31,10 +31,6 @@ in {
       };
 
       keymaps = [
-        # {
-        #   key = "<leader>a";
-        #   action = ":AerialToggle<CR>";
-        # }
         {
           key = "jk";
           mode = ["i"];
@@ -61,13 +57,6 @@ in {
         }
       ];
 
-      # theme = {
-      #   enable = true;
-      #   name = "dracula";
-      #   style = "dark";
-      #   transparent = true;
-      # };
-
       telescope.enable = true;
 
       spellcheck = {
@@ -82,8 +71,6 @@ in {
         trouble.enable = true;
         lspSignature.enable = true;
         otter-nvim.enable = false;
-        # lsplines.enable = false;
-        nvim-docs-view.enable = false;
       };
 
       languages = {
@@ -104,7 +91,6 @@ in {
           format.package = pkgs.rustfmt;
           crates = {
             enable = true;
-            #codeActions.enable = true;
           };
         };
         python.enable = true;
@@ -126,7 +112,6 @@ in {
       statusline = {
         lualine = {
           enable = true;
-          # theme = "dracula";
         };
       };
 
@@ -149,7 +134,7 @@ in {
       git = {
         enable = true;
         gitsigns.enable = true;
-        gitsigns.codeActions.enable = false; # throws an annoying debug message
+        gitsigns.codeActions.enable = false;
       };
 
       projects.project-nvim.enable = true;
