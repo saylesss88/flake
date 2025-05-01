@@ -34,6 +34,7 @@
       flake = "/home/jr/flake";
     };
     nvfModule.enable = true;
+    batModule.enable = true;
   };
 
   dont-track-me = {
