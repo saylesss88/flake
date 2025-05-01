@@ -33,6 +33,7 @@
       enable = true;
       flake = "/home/jr/flake";
     };
+    nvfModule.enable = true;
   };
 
   dont-track-me = {

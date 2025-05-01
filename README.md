@@ -106,6 +106,7 @@ nix-repl> flake.inputs.nixpkgs.lib.version
 
 ```nu
 rg 'initExtra' ~/flake
+grep 'custom' ~/flake
 ```
 
 - If you found this useful, please consider leaving a star!
