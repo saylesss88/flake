@@ -4,7 +4,9 @@
 
 **Commands**:
 
-- `upd`: nushell alias for `nix-upgrade`
+- `upd`: nushell alias for `nix-upgrade` updates and switches to new build
+
+- `upd -i`: Interactive choose which programs to update with fzf. Use Tab to select multiple entries.
 
 - `fr`: flake-rebuild, runs `nh os switch /home/${username}/my-nixos`
 
@@ -44,6 +46,10 @@ Some custom nushell commands:
 - `nix-list-system` # list all installed packages
 
 - `ns` Shorthand search (`nix search nixpkgs ...`): Usage `ns fzf`
+
+- `nufetch`: List system details
+
+- `(nufetch).kernel`: List kernel
 
 - `Ctrl+t`: Carapace menu listing available commands
 

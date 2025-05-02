@@ -6,6 +6,7 @@
     evcxr
     cheat # Display cheat sheets for commands
     sqlite
+    libreoffice
     hugo
     nix-eval-jobs
     nix-diff
