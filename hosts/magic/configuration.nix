@@ -33,7 +33,7 @@
 
   nixpkgs.overlays = [inputs.lib.overlays];
 
-  # Custom Modules Enable/Disable
+  #  Enable/Disable Custom Modules
   custom = {
     stylixModule.enable = true;
     cachixModule.enable = true;
