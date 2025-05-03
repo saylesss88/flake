@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
   ...
@@ -12,10 +10,8 @@
     hash = "sha256-yBcbvzWU2FI7vkeqL7+ZIoQboybaPIiH4fV9yMqdHlM=";
   };
 in {
-  options.custom.yaziModule.enable = lib.mkEnableOption "Enable Yazi file manager module";
-
-  config = lib.mkIf config.custom.yaziModule.enable {
-    programs.yazi = {
+  programs = {
+    yazi = {
       package = inputs.yazi.packages.${pkgs.system}.default;
       enable = true;
       shellWrapperName = "y";
@@ -41,30 +37,30 @@ in {
           owner = "Rolv-Apneseth";
           repo = "starship.yazi";
           rev = "6c639b4";
+          # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           sha256 = "sha256-bhLUziCDnF4QDCyysRn7Az35RAy8ibZIVUzoPgyEO1A=";
         };
       };
 
-      initLua = ''
-        require("full-border"):setup()
-        require("starship"):setup()
-      '';
+      initLua = "	require(\"full-border\"):setup()\n	require(\"starship\"):setup()\n";
 
-      keymap.manager.prepend_keymap = [
-        {
-          on = "T";
-          run = "plugin toggle-pane max-preview";
-          desc = "Maximize or restore the preview pane";
-        }
-        {
-          on = [
-            "c"
-            "m"
-          ];
-          run = "plugin chmod";
-          desc = "Chmod on selected files";
-        }
-      ];
+      keymap = {
+        manager.prepend_keymap = [
+          {
+            on = "T";
+            run = "plugin toggle-pane max-preview";
+            desc = "Maximize or restore the preview pane";
+          }
+          {
+            on = [
+              "c"
+              "m"
+            ];
+            run = "plugin chmod";
+            desc = "Chmod on selected files";
+          }
+        ];
+      };
     };
   };
 }

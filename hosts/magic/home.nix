@@ -35,6 +35,7 @@
     };
     nvfModule.enable = true;
     batModule.enable = true;
+    yaziModule.enable = true;
   };
 
   dont-track-me = {
