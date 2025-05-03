@@ -23,7 +23,7 @@
       simple-completion-language-server
     ];
     settings = {
-      theme = "tokyonight";
+      theme = "kanagawa";
 
       editor = {
         color-modes = true;
