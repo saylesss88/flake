@@ -142,6 +142,7 @@
             "nix"
             "man"
             "cargo"
+            "just"
           ]}
 
           def --env yy [...args] {
