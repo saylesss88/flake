@@ -11,7 +11,7 @@
       atuin.enableNushellIntegration = true;
       direnv = {
         enable = true;
-        # enableNushellIntegration = true;
+        enableNushellIntegration = true;
         nix-direnv.enable = true;
       };
 

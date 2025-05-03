@@ -65,6 +65,10 @@ Some custom nushell commands:
 
 - `powersave`: Runs `sudo cpupower frequency-set -g powersave`
 
+- `gp`: Runs `git push origin main`
+
+- `git ac -m "commit message"`: Runs git commit and git add in 1 command.
+
 - **Defaults**:
 
 - Editor | helix
