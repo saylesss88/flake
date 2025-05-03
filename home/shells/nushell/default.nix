@@ -48,6 +48,8 @@
           vi = "nvim";
           zd = "zeditor";
           fz = "fzf --bind 'enter:become(hx {})'";
+          powersave = "sudo cpupower frequency-set -g powersave";
+          performance = "sudo cpupower frequency-set -g performance";
 
           # Nix
           # fr = "nh os switch --hostname magic /home/jr/flakes";
