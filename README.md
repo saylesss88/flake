@@ -61,6 +61,10 @@ Some custom nushell commands:
 
 - `$env.<TAB>`: Search Nushell environment variables
 
+- `performance`: Runs `sudo cpupower frequency-set -g performance`
+
+- `powersave`: Runs `sudo cpupower frequency-set -g powersave`
+
 - **Defaults**:
 
 - Editor | helix
