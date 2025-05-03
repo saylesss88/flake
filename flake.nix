@@ -57,9 +57,9 @@
         };
       };
 
-    # defaultConfig = import ./hosts/magic {
-    #   inherit inputs;
-    # };
+    defaultConfig = import ./hosts/magic {
+      inherit inputs;
+    };
 
     # vmConfig = import ./lib/vms/nixos-vm.nix {
     #   nixosConfiguration = defaultConfig;
@@ -96,23 +96,23 @@
       inherit inputs;
     };
 
-    # templates = {
-    #   default = {
-    #     path = ./template;
-    #     description = "flake template";
-    #     welcomeText = ''
-    #       👻
-    #         1. edit `configuration.nix` with your preferences
-    #           - visit https://github.com/TSawyer87/flake for
-    #         2. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
-    #         3. `git init && git add .` (flakes have to be managed via git)
-    #         4. run any of the packages in your new `flake.nix`
-    #           - for rebuild, use `sudo nixos-rebuild switch --flake .`
-    #         5. DON'T FORGET: change your password for all users with `passwd` from initialPassword set in `configuration.nix`
-    #         6. NOTE: After rebuild, the first boot may take a while.
-    #     '';
-    #   };
-    # };
+    templates = {
+      default = {
+        path = ./template;
+        description = "flake template";
+        welcomeText = ''
+          👻
+            1. edit `configuration.nix` with your preferences
+              - visit https://github.com/TSawyer87/flake for
+            2. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
+            3. `git init && git add .` (flakes have to be managed via git)
+            4. run any of the packages in your new `flake.nix`
+              - for rebuild, use `sudo nixos-rebuild switch --flake .`
+            5. DON'T FORGET: change your password for all users with `passwd` from initialPassword set in `configuration.nix`
+            6. NOTE: After rebuild, the first boot may take a while.
+        '';
+      };
+    };
 
     # Default package for tools
     packages.${system} = {
@@ -121,7 +121,7 @@
         paths = with pkgs; [helix git ripgrep nh];
       };
       # build and deploy with `nix build .#nixos`
-      # nixos = defaultConfig.config.system.build.toplevel;
+      nixos = defaultConfig.config.system.build.toplevel;
       # Explicitly named Vm Configuration `nix build .#nixos-vm`
       # nixos-vm = vmConfig.config.system.build.vm;
     };
