@@ -23,9 +23,9 @@
 
 - `nix fmt`: When run in root of flake it will format the whole configuration
 
-- `nix flake check`: Run style check with treefmt-nix
+- `nix flake check`: Run style check with treefmt-nix, I recommend running `nix fmt` first.
 
-- `nix flake show`: Show the flakes outputs
+- `nix flake show`: Show the flakes outputs, the VM and configuration as a package outputs cause this to fail. I believe it's because they output derivations at a level not compatable with `nix flake show`.
 
 - I switched default shells to nushell, some commands act differently with nu compared to say zsh such as pipelines and `&&`. That being said I set up `just` and made a `justfile` to simplify some commands, just typing `just` will show you what's available.
 

@@ -39,7 +39,7 @@ def nix-upgrade [
     # Use spread operator to pass list items as separate arguments
     nix flake update ...$selections
   } else {
-    nh os switch -u $working_path
+    nix flake update
   }
   cd $pwd
   nh os switch $working_path
