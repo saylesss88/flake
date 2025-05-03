@@ -23,7 +23,6 @@
     ./keyd.nix
     ./thunar.nix
     ./lsp.nix
-    ./tmpfs.nix
   ];
 }
 # {
