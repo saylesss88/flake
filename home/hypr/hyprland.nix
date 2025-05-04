@@ -44,12 +44,12 @@
     backgroundColor = "#000000";
     textColor = "#ff0000";
     borderColor = "#ff0000";
-    borderRadius = 5;
-    borderSize = 1;
+    borderRadius = "5";
+    borderSize = "1";
     groupBy = "summary";
     icons = true;
     margin = "0,20,,20";
-    defaultTimeout = 10000;
+    defaultTimeout = "10000";
   };
   # Place Files Inside Home Directory
   home.file = {
