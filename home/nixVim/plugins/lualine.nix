@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+_: let
   cond.__raw = ''
     function()
       local buf_size_limit = 1024 * 1024 -- 1MB size limit

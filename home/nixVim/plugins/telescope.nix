@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   programs.nixvim = {
     plugins.telescope = {
       enable = true;

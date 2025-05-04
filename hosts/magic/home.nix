@@ -18,6 +18,8 @@
 
   # Custom home-manager modules
   custom = {
+    hyprland.enable = true;
+    wlogout.enable = true;
     gitModule = {
       enable = true;
       userName = "saylesss88";
