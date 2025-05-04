@@ -62,10 +62,10 @@
       inherit inputs;
     };
 
-    # vmConfig = import ./lib/vms/nixos-vm.nix {
-    #   nixosConfiguration = defaultConfig;
-    #   inherit inputs;
-    # };
+    vmConfig = import ./lib/vms/nixos-vm.nix {
+      nixosConfiguration = defaultConfig;
+      inherit inputs;
+    };
     # Define pkgs with allowUnfree
     pkgs = import inputs.nixpkgs {
       inherit system;
@@ -124,7 +124,7 @@
       # build and deploy with `nix build .#nixos`
       nixos = defaultConfig.config.system.build.toplevel;
       # Explicitly named Vm Configuration `nix build .#nixos-vm`
-      # nixos-vm = vmConfig.config.system.build.vm;
+      nixos-vm = vmConfig.config.system.build.vm;
     };
 
     apps.${system}.deploy-nixos = {

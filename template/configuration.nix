@@ -14,7 +14,7 @@
     ];
   };
 in {
-  # Set pkgs for hydenix globally, any file that imports pkgs will use this
+  # Set pkgs globally, any file that imports pkgs will use this
   nixpkgs.pkgs = pkgs;
 
   imports = [
