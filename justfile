@@ -45,6 +45,9 @@ clean:
 upd:
     nh os switch -u {{flake_path}} ; nh os switch --hostname {{hostname}} {{flake_path}}
 
+[group('nix')]
+eval:
+    nix-instantiate --eval --json --strict | jq
 # Nix Repl flake:nixpkgs
 [group('nix')]
 repl:

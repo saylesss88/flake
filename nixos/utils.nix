@@ -12,6 +12,8 @@
     nix-info
     nix-diff
     nix-tree
+    entr
+    findutils
     inxi # show detailed system info
     mkpasswd
     wget
