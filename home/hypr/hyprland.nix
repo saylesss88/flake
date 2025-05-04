@@ -47,7 +47,7 @@
     borderRadius = "5";
     borderSize = "1";
     groupBy = "summary";
-    icons = true;
+    icons = "true";
     margin = "0,20,,20";
     defaultTimeout = "10000";
   };
