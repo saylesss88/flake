@@ -8,7 +8,7 @@ in {
   options.custom.wlogout = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.custom.wlogout.enable;
+      default = config.custom.hyprland.enable;
       description = "Enable wlogout module";
     };
   };
