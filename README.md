@@ -106,6 +106,14 @@ Some custom nushell commands:
 
   - `repl.nix` has a bunch of comments showing some commands you can try
 
+  - `nix-info -m`: List System Info
+
+  - `journalctl -b`: System Logs
+
+  - `sudo systemctl status home-manager-$HOSTNAME.service`: Home-manager status
+
+  - If a command fails, run it again with `-v` for more verbose output. You can also rerun the command with `--show-trace` to get a more detailed traceback.
+
 Example:
 
 ```nix

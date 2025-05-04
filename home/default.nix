@@ -2,6 +2,7 @@
   imports = [
     ./hypr
     ./shells
+    ./nixVim
     ./terms
     ./git.nix
     ./jj.nix
@@ -9,7 +10,7 @@
     ./gtk.nix
     ./xdg.nix
     ./bat.nix
-    ./nvf.nix
+    # ./nvf.nix
     ./fd.nix
     ./nh.nix
     ./emoji.nix
