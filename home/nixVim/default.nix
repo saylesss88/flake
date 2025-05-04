@@ -27,7 +27,7 @@ in {
     ./plugins/undotree.nix
     ./plugins/codecompanion.nix
     ./plugins/navic.nix
-    ./plugins/harpoon.nix
+    # ./plugins/harpoon.nix
     ./plugins/oil.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
