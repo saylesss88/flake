@@ -15,7 +15,7 @@
     ./environmentVariables.nix
     ./virtualization.nix
     ./vm-guest-services.nix
-    ./binary-cache.nix
+    # ./binary-cache.nix
     ./greetd.nix
     ./cachix.nix
     ./pipewire.nix
