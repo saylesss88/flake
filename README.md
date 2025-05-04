@@ -123,4 +123,4 @@ rg 'initExtra' ~/flake
 grep 'custom' ~/flake
 ```
 
-- If you found this useful, please consider leaving a star!
+- Thank you for reading, please star the repo if you found it useful!

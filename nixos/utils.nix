@@ -9,6 +9,7 @@
     libreoffice
     hugo
     nix-eval-jobs
+    nix-info
     nix-diff
     nix-tree
     inxi # show detailed system info
