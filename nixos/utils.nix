@@ -4,6 +4,7 @@
     # Rust
     rustup
     evcxr
+    zola
     cheat # Display cheat sheets for commands
     sqlite
     libreoffice
