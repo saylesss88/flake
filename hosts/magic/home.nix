@@ -35,7 +35,7 @@
       enable = true;
       flake = "/home/jr/flake";
     };
-    # nvfModule.enable = true;
+    nvfModule.enable = false;
     batModule.enable = true;
     yaziModule.enable = true;
   };
