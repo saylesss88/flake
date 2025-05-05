@@ -30,7 +30,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      (lib.mkIf cfg.discord.enable discord)
       (lib.mkIf cfg.webcord.enable webcord)
       (lib.mkIf cfg.vesktop.enable vesktop)
     ];
