@@ -19,5 +19,6 @@
     ./packages.nix
     ./helix
     ./yazi.nix
+    ./discord.nix
   ];
 }

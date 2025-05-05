@@ -38,6 +38,9 @@
     nvfModule.enable = false;
     batModule.enable = true;
     yaziModule.enable = true;
+    discord.enable = true;
+    webcord.enable = true;
+    vesktop.enable = true;
   };
 
   dont-track-me = {
