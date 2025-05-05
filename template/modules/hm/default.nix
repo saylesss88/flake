@@ -7,12 +7,34 @@
   home.packages = [
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
-    pkgs.helix
-    pkgs.yazi
-    pkgs.nh
   ];
 
   programs.home-manager.enable = true;
+
+  # Custom home-manager modules
+  custom = {
+    hyprland.enable = true;
+    wlogout.enable = true;
+    gitModule = {
+      enable = true;
+      userName = "saylesss88";
+      userEmail = "saylesss87@proton.me";
+      # aliases = "";
+      # ignores = "";
+      # packages = "";
+    };
+    jjModule = {
+      enable = true;
+    };
+    nhModule = {
+      enable = true;
+      flake = "/home/jr/flake";
+    };
+    # nvfModule.enable = true;
+    batModule.enable = true;
+    yaziModule.enable = true;
+  };
+
   # hydenix home-manager options go here
   # hydenix.hm = {
   #   #! Important options

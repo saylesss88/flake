@@ -10,7 +10,7 @@ in {
   options.custom.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.programs.home-manager.enable;
+      default = true;
       description = "Enable hyprland module";
     };
   };

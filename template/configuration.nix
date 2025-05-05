@@ -42,7 +42,7 @@ in {
     inputs.nixos-hardware.nixosModules.common-cpu-amd
 
     # For Intel CPUs
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel
+    # inputs.nixos-hardware.nixosModules.common-cpu-intel
 
     # === Other common modules ===
     inputs.nixos-hardware.nixosModules.common-pc
