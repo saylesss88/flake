@@ -13,7 +13,7 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    # nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf";
     nixvim.url = "github:nix-community/nixvim";
     helix.url = "github:helix-editor/helix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
