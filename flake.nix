@@ -19,6 +19,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     yazi.url = "github:sxyazi/yazi";
     wezterm.url = "github:wezterm/wezterm?dir=nix";
+    wezterm.inputs.nixpkgs.follows = "nixpkgs";
     wallpapers = {
       url = "github:saylesss88/wallpapers";
       flake = false;
