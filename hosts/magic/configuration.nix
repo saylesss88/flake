@@ -46,6 +46,8 @@
     mutableUsers = true;
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [];
   # virtualisation.libvirtd.enable = true;
   # virtualisation.qemu.package = pkgs.qemu_kvm;
   # virtualisation.qemu.options = ["-enable-kvm"];
