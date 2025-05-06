@@ -4,7 +4,6 @@
   host,
   system,
   userVars,
-  lib,
   ...
 }: {
   imports = [
@@ -46,10 +45,6 @@
   users = {
     mutableUsers = true;
   };
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "windsurf-nvim"
-    ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
