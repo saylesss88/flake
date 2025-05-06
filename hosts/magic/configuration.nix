@@ -48,7 +48,7 @@
   };
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "codeium"
+      "windsurf-nvim"
     ];
 
   programs.nix-ld.enable = true;
