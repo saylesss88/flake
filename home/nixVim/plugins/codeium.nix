@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: {
+  nixpkgs.config.allowUnfree = true; # Add this line here
+
   programs.nixvim = {
     plugins = {
       windsurf-nvim = {
