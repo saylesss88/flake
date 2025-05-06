@@ -159,6 +159,9 @@
         inherit inputs system host userVars;
       };
       modules = [
+        {
+          nixpkgs.config.allowUnfree = true;
+        }
         ./hosts/${host}/configuration.nix
         (_: {
           system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
