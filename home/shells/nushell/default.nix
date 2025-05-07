@@ -50,6 +50,10 @@
           fz = "fzf --bind 'enter:become(hx {})'";
           powersave = "sudo cpupower frequency-set -g powersave";
           performance = "sudo cpupower frequency-set -g performance";
+          zi = "zola init";
+          zs = "zola serve";
+          zb = "zola build";
+          zc = "zola check";
 
           # Nix
           # fr = "nh os switch --hostname magic /home/jr/flakes";
