@@ -123,15 +123,15 @@ def nx-completions [] {
  
 def nx-config [] {
     let original_dir = $env.PWD
-    cd /home/mead/nix
-    nvim flake.nix
+    cd /home/jr/flake
+    hx flake.nix
     cd $original_dir
 }
  
 def nx-deploy [] {
     let current_hostname = (hostname | str trim)
     let original_dir = $env.PWD
-    cd /home/mead/nix
+    cd /home/jr/flake
     git diff -U0 **.nix
     print "\n-> NixOS Rebuilding..."
  
@@ -149,8 +149,8 @@ def nx-deploy [] {
 def nx-up [] {
     print "\n-> Updating nix..."
     let current_hostname = (hostname | str trim)
-    sudo nix flake update --flake $"/home/mead/nix"
-    sudo nixos-rebuild switch --flake $"/home/mead/nix#($current_hostname)"
+    sudo nix flake update --flake $"/home/jr/flake"
+    sudo nixos-rebuild switch --flake $"/home/jr/flake#($current_hostname)"
 }
  
 def nx-clean [] {
@@ -171,7 +171,7 @@ def nx-doctor [] {
  
 def nx-pull [] {
     let original_dir = $env.PWD
-    cd /home/mead/nix
+    cd /home/jr/flake
     git pull
     cd $original_dir
 
