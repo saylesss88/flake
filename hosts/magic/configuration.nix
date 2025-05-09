@@ -76,7 +76,7 @@
   # console.keyMap = userVars.keys;
   console.keyMap = "us";
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "magic";
   # This value determines the NixOS release from which the default

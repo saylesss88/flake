@@ -88,7 +88,7 @@
   in {
     inherit (inputs) lib;
 
-    schemas = inputs.flake-schemas.schemas;
+    inherit (inputs.flake-schemas) schemas;
     # inherit (inputs) lib;
     # Formatter for nix fmt
     formatter.${system} = treefmtEval.config.build.wrapper;
