@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-schemas.url = "github:DeterminateSystems/flake-schemas";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     stylix.url = "github:danth/stylix";
@@ -59,14 +60,14 @@
         };
       };
 
-    defaultConfig = import ./hosts/magic {
-      inherit inputs;
-    };
+    # defaultConfig = import ./hosts/magic {
+    #   inherit inputs;
+    # };
 
-    vmConfig = import ./lib/vms/nixos-vm.nix {
-      nixosConfiguration = defaultConfig;
-      inherit inputs;
-    };
+    # vmConfig = import ./lib/vms/nixos-vm.nix {
+    #   nixosConfiguration = defaultConfig;
+    #   inherit inputs;
+    # };
     # Define pkgs with allowUnfree
     pkgs = import inputs.nixpkgs {
       inherit system;
@@ -86,6 +87,8 @@
     };
   in {
     inherit (inputs) lib;
+
+    schemas = inputs.flake-schemas.schemas;
     # inherit (inputs) lib;
     # Formatter for nix fmt
     formatter.${system} = treefmtEval.config.build.wrapper;
@@ -123,9 +126,9 @@
         paths = with pkgs; [helix git ripgrep nh];
       };
       # build and deploy with `nix build .#nixos`
-      nixos = defaultConfig.config.system.build.toplevel;
+      # nixos = defaultConfig.config.system.build.toplevel;
       # Explicitly named Vm Configuration `nix build .#nixos-vm`
-      nixos-vm = vmConfig.config.system.build.vm;
+      # nixos-vm = vmConfig.config.system.build.vm;
     };
 
     apps.${system}.deploy-nixos = {
