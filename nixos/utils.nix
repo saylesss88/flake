@@ -6,6 +6,7 @@
     evcxr
     zola
     cheat # Display cheat sheets for commands
+    yamllint
     sqlite
     libreoffice
     hugo
