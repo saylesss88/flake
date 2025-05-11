@@ -38,10 +38,10 @@
         default-yank-register = "+";
 
         soft-wrap = {
-          enable = true;
-          max-wrap = 10;
+          enable = false;
+          # max-wrap = 10;
           # max-indent-retain = 14;
-          wrap-at-text-width = true;
+          # wrap-at-text-width = true;
         };
 
         auto-save = {
