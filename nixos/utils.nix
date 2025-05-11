@@ -7,6 +7,7 @@
     zola
     cheat # Display cheat sheets for commands
     yamllint
+    github-markdown-toc-go
     sqlite
     libreoffice
     hugo
