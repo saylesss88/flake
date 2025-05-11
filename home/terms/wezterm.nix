@@ -2,7 +2,7 @@
   system = "x86_64-linux";
 in {
   programs.wezterm = {
-    enable = true;
+    enable = false;
     package = inputs.wezterm.packages.${system}.default;
     extraConfig = ''
       local wezterm = require 'wezterm'
