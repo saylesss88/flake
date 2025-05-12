@@ -48,7 +48,7 @@
 
   home.packages = with pkgs; [
     libnotify
-    ventoy
+    # ventoy
     gdb # Nix Debugger
   ];
 
