@@ -4,6 +4,7 @@
     # Rust
     vim
     rustup
+    htop
     evcxr
     zola
     cheat # Display cheat sheets for commands
