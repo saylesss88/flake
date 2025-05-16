@@ -5,7 +5,7 @@
     vim
     rustup
     htop
-    whatsie
+    wasistlos
     evcxr
     zola
     cheat # Display cheat sheets for commands
