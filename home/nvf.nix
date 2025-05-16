@@ -16,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.nvf.enable = true;
+    programs.nvf.enable = false;
 
     programs.nvf.settings.vim = {
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
