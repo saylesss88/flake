@@ -7,7 +7,7 @@
 }: let
   cfg = config.custom.nvfModule;
 in {
-  imports = [inputs.nvf.homeManagerModules.default];
+  # imports = [inputs.nvf.homeManagerModules.default];
 
   options.custom.nvfModule.enable = lib.mkOption {
     type = lib.types.bool;
