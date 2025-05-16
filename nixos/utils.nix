@@ -6,6 +6,7 @@
     rustup
     htop
     wasistlos
+    nufmt
     evcxr
     zola
     cheat # Display cheat sheets for commands

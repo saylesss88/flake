@@ -25,4 +25,4 @@ export def sesh_connect [] {
     --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(󱐋 )+reload(sesh list --icons)'
   )
   sesh connect $session
-}
+ }

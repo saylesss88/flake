@@ -159,7 +159,7 @@ use ~/flake/home/shells/nushell/matchit.nu *
 set matchit_keybinding
 # $env.MANPAGER = "nvim +Man!"
 # $env.config.edit_mode = "vi"
-use ~/flake/home/shells/nushell/scripts/index.nu
+use ~/flake/home/shells/nushell/scripts/id.nu
 
 # alias gd = git diff
 # nitch
