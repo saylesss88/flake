@@ -9,7 +9,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
-      # theme = "Dracula";
+      theme = "Dracula";
       # theme = "catppuccin-mocha";
       keybind = [
         # "alt+n=new_window"

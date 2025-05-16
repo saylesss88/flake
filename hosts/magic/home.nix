@@ -70,7 +70,7 @@
       hyprland.enable = false;
       hyprlock.enable = false;
       helix.enable = false;
-      # ghostty.enable = false
+      ghostty.enable = false;
       # zed.enable = false
       # nvf.enable = false
     };
