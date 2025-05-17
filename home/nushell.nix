@@ -22,7 +22,73 @@
       nushell = {
         enable = true;
         configFile.source = ./shells/nushell/config.nu;
+        extraConfig = let
+          conf = builtins.toJSON {
+            show_banner = false;
+            edit_mode = "vi";
+            ls.clickable_links = true;
+            rm.always_trash = true;
+
+            table = {
+              mode = "rounded";
+              index_mode = "always";
+              header_on_separator = false;
+            };
+
+            cursor_shape = {
+              vi_insert = "line";
+              vi_normal = "block";
+            };
+
+            menus = [
+              {
+                name = "completion_menu";
+                only_buffer_difference = false;
+                marker = "? ";
+                type = {
+                  layout = "columnar";
+                  columns = 4;
+                  col_padding = 2;
+                };
+                style = {
+                  text = "magenta";
+                  selected_text = "blue_reverse";
+                  description_text = "yellow";
+                };
+              }
+            ];
+          };
+          completion = name: ''
+            source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
+          '';
+          completions = names: builtins.foldl' (prev: str: "${prev}\n${str}") "" (map completion names);
+        in ''
+          $env.config = ${conf}
+          ${completions ["git" "nix" "man" "cargo" "just"]}
+
+          def --env yy [...args] {
+            let tmp = (mktemp -t "yazi-cwd.XXXXX")
+            yazi ...$args --cwd-file $tmp
+            let cwd = (open $tmp)
+            if $cwd != "" and $cwd != $env.PWD {
+              cd $cwd
+            }
+            rm -fp $tmp
+          }
+        '';
       };
+    };
+
+    home.sessionVariables = {
+      STARSHIP_SHELL = "nu";
+      PROMPT_INDICATOR = "";
+      PROMPT_INDICATOR_VI_INSERT = ": ";
+      PROMPT_INDICATOR_VI_NORMAL = "> ";
+      PROMPT_MULTILINE_INDICATOR = "::: ";
+      DIRENV_LOG_FORMAT = "";
+      EDITOR = "hx";
+      VISUAL = "hx";
+      MANPAGER = "nvim +Man!";
     };
 
     xdg.configFile."nushell/style.nu".text = let
@@ -40,7 +106,7 @@
         let fg = {fg: $bg_color}
         let bg = {fg: $font_color bg: $bg_color}
         let starship_leading = if $with_starship { $"(ansi --escape {fg: $bg_color bg: $bg1})" } else ""
-        $"($starship_leading)(ansi --escape $bg)($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
+        $"($startship_leading)(ansi --escape $bg)($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
       }
 
       let dev_tag = if (
@@ -112,72 +178,5 @@
       grep = "batgrep";
       tree = "${pkgs.eza}/bin/eza --git --icons --tree";
     };
-
-    home.sessionVariables = {
-      STARSHIP_SHELL = "nu";
-      PROMPT_INDICATOR = "";
-      PROMPT_INDICATOR_VI_INSERT = ": ";
-      PROMPT_INDICATOR_VI_NORMAL = "> ";
-      PROMPT_MULTILINE_INDICATOR = "::: ";
-      DIRENV_LOG_FORMAT = "";
-      EDITOR = "hx";
-      VISUAL = "hx";
-      MANPAGER = "nvim +Man!";
-    };
-
-    extraConfig = let
-      conf = builtins.toJSON {
-        show_banner = false;
-        edit_mode = "vi";
-        ls.clickable_links = true;
-        rm.always_trash = true;
-
-        table = {
-          mode = "rounded";
-          index_mode = "always";
-          header_on_separator = false;
-        };
-
-        cursor_shape = {
-          vi_insert = "line";
-          vi_normal = "block";
-        };
-
-        menus = [
-          {
-            name = "completion_menu";
-            only_buffer_difference = false;
-            marker = "? ";
-            type = {
-              layout = "columnar";
-              columns = 4;
-              col_padding = 2;
-            };
-            style = {
-              text = "magenta";
-              selected_text = "blue_reverse";
-              description_text = "yellow";
-            };
-          }
-        ];
-      };
-      completion = name: ''
-        source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
-      '';
-      completions = names: builtins.foldl' (prev: str: "${prev}\n${str}") "" (map completion names);
-    in ''
-      $env.config = ${conf}
-      ${completions ["git" "nix" "man" "cargo" "just"]}
-
-      def --env yy [...args] {
-        let tmp = (mktemp -t "yazi-cwd.XXXXX")
-        yazi ...$args --cwd-file $tmp
-        let cwd = (open $tmp)
-        if $cwd != "" and $cwd != $env.PWD {
-          cd $cwd
-        }
-        rm -fp $tmp
-      }
-    '';
   };
 }
