@@ -18,8 +18,8 @@
     ./programs.nix
     ./packages.nix
     ./helix
-    ./nushell.nix
     ./yazi.nix
     ./discord.nix
+    ./nushell
   ];
 }
