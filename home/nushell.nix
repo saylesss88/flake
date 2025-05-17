@@ -76,6 +76,55 @@
             rm -fp $tmp
           }
         '';
+        shellAliases = let
+          g = lib.getExe pkgs.git;
+          c = "cargo";
+        in {
+          # Cargo
+          cb = "${c} build";
+          cc = "${c} check";
+          cn = "${c} new";
+          cr = "${c} run";
+          cs = "${c} search";
+          ct = "${c} test";
+          repl = "evcxr";
+
+          # Git
+          ga = "${g} add";
+          gc = "${g} commit";
+          gd = "${g} diff";
+          gl = "${g} log";
+          gs = "${g} status";
+          gp = "${g} push origin main";
+
+          # Miscellaneous
+          c = "clear";
+          yz = "${pkgs.yazi}/bin/yazi";
+          la = "ls -la";
+          ll = "ls -l";
+          n = "${pkgs.nitch}/bin/nitch";
+          vi = "nvim";
+          zd = "zeditor";
+          fz = "fzf --bind 'enter:become(hx {})'";
+          powersave = "sudo cpupower frequency-set -g powersave";
+          performance = "sudo cpupower frequency-set -g performance";
+          zi = "__zoxide_zi";
+
+          # Nix
+          fr = "nh os switch /home/jr/flake";
+          ft = "nh os test /home/jr/flake";
+          fu = "nh os switch --update /home/jr/flake";
+          upd = "nix-upgrade";
+          cleanup = "nh clean all";
+          opts = "man home-configuration.nix";
+
+          # Replacements
+          cat = "${pkgs.bat}/bin/bat";
+          df = "${pkgs.duf}/bin/duf";
+          find = "${pkgs.fd}/bin/fd";
+          grep = "batgrep";
+          tree = "${pkgs.eza}/bin/eza --git --icons --tree";
+        };
       };
     };
 
@@ -128,55 +177,5 @@
         + "--color=marker:${cs.white},spinner:${cs.green},header:${cs.white}"
       )
     '';
-
-    shellAliases = let
-      g = lib.getExe pkgs.git;
-      c = "cargo";
-    in {
-      # Cargo
-      cb = "${c} build";
-      cc = "${c} check";
-      cn = "${c} new";
-      cr = "${c} run";
-      cs = "${c} search";
-      ct = "${c} test";
-      repl = "evcxr";
-
-      # Git
-      ga = "${g} add";
-      gc = "${g} commit";
-      gd = "${g} diff";
-      gl = "${g} log";
-      gs = "${g} status";
-      gp = "${g} push origin main";
-
-      # Miscellaneous
-      c = "clear";
-      yz = "${pkgs.yazi}/bin/yazi";
-      la = "ls -la";
-      ll = "ls -l";
-      n = "${pkgs.nitch}/bin/nitch";
-      vi = "nvim";
-      zd = "zeditor";
-      fz = "fzf --bind 'enter:become(hx {})'";
-      powersave = "sudo cpupower frequency-set -g powersave";
-      performance = "sudo cpupower frequency-set -g performance";
-      zi = "__zoxide_zi";
-
-      # Nix
-      fr = "nh os switch /home/jr/flake";
-      ft = "nh os test /home/jr/flake";
-      fu = "nh os switch --update /home/jr/flake";
-      upd = "nix-upgrade";
-      cleanup = "nh clean all";
-      opts = "man home-configuration.nix";
-
-      # Replacements
-      cat = "${pkgs.bat}/bin/bat";
-      df = "${pkgs.duf}/bin/duf";
-      find = "${pkgs.fd}/bin/fd";
-      grep = "batgrep";
-      tree = "${pkgs.eza}/bin/eza --git --icons --tree";
-    };
   };
 }
