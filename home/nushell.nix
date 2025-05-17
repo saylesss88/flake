@@ -19,12 +19,15 @@
       nushell = {
         enable = true;
         configFile.source = ./shells/nushell/config.nu;
+      };
+    };
 
-        xdg.configFile."nushell/style.nu".text = let
-          colorscheme = "tokyonight_night"; # Or your preferred colorscheme
-          cs = import ./colorscheme.nix {inherit colorscheme;}; # Ensure colorscheme.nix is in the same directory or adjust path
-          colorscheme-dash = builtins.replaceStrings ["_"] ["-"] colorscheme;
-        in ''
+    #  Use xdg.configFile to create style.nu
+    xdg.configFile."nushell/style.nu".text = let
+      colorscheme = "tokyonight_night";
+      cs = import ./colorscheme.nix { inherit colorscheme; };
+      colorscheme-dash = builtins.replaceStrings ["_"] ["-"] colorscheme;
+    in ''
           def prompt_decorator [
             font_color: string
             bg_color: string
