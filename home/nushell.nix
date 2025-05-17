@@ -133,11 +133,11 @@
 
     home.sessionVariables = {
       STARSHIP_SHELL = "nu";
-      PROMPT_INDICATOR = "";
-      PROMPT_INDICATOR_VI_INSERT = ": ";
-      PROMPT_INDICATOR_VI_NORMAL = "> ";
-      PROMPT_MULTILINE_INDICATOR = "::: ";
-      DIRENV_LOG_FORMAT = "";
+      # PROMPT_INDICATOR = "";
+      # PROMPT_INDICATOR_VI_INSERT = ": ";
+      # PROMPT_INDICATOR_VI_NORMAL = "> ";
+      # PROMPT_MULTILINE_INDICATOR = "::: ";
+      # DIRENV_LOG_FORMAT = "";
       EDITOR = "hx";
       VISUAL = "hx";
       MANPAGER = "nvim +Man!";
