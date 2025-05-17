@@ -157,8 +157,8 @@
         let bg1 = if $with_starship { '${cs.white}' } else $bg_color
         let fg = {fg: $bg_color}
         let bg = {fg: $font_color bg: $bg_color}
-        let starship_leading = if $with_starship { $"(ansi --escape {fg: $bg_color bg: $bg1})" } else ""
-        $"({$starship_leading})(ansi --escape $bg)($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
+        # let starship_leading = if $with_starship { $"(ansi --escape {fg: $bg_color bg: $bg1})" } else ""
+        # $"({$starship_leading})(ansi --escape $bg)($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
       }
 
       let dev_tag = if (
