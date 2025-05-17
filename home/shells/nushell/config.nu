@@ -15,7 +15,7 @@ $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
 $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 
-use fzf.nu [
+use /home/jr/flake/home/shells/nushell/fzf.nu [
   carapace_by_fzf
   complete_line_by_fzf
   update_manpage_cache
