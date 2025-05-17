@@ -10,6 +10,9 @@
         enable = true;
         enableNushellIntegration = true;
       };
+      starship = {
+        enable = true;
+      };
       atuin = {
         enable = true;
         enableNushellIntegration = true;
