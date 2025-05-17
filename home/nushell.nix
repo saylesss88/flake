@@ -113,7 +113,7 @@
       tree = "${pkgs.eza}/bin/eza --git --icons --tree";
     };
 
-    environmentVariables = {
+    home.sessionVariables = {
       STARSHIP_SHELL = "nu";
       PROMPT_INDICATOR = "";
       PROMPT_INDICATOR_VI_INSERT = ": ";
