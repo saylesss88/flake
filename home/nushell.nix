@@ -112,6 +112,7 @@
           powersave = "sudo cpupower frequency-set -g powersave";
           performance = "sudo cpupower frequency-set -g performance";
           zi = "__zoxide_zi";
+          keys = "ghostty +list-keybinds";
 
           # Nix
           fr = "nh os switch /home/jr/flake";
@@ -120,6 +121,7 @@
           upd = "nix-upgrade";
           cleanup = "nh clean all";
           opts = "man home-configuration.nix";
+          jctl = "journalctl -p 3 -xb";
 
           # Replacements
           cat = "${pkgs.bat}/bin/bat";
