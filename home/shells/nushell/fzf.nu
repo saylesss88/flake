@@ -4,7 +4,7 @@ const fd_default_args = [--hidden --exclude .git --exclude .cache --max-depth 9]
 const fd_executable_args = [--exclude .git --exclude .cache --hidden --max-depth 5 --type x --color always '']
 const carapace_preview_description = true
 const manpage_preview_cmd = 'man {} | col -bx | bat -l man -p --color=always --line-range :200'
-const dir_preview_cmd = "eza --tree -L 3 --color=always {} | head -200"
+const dir_preview_cmd = "eza --tree -L 3 --icons=always --color=always {} | head -200"
 const file_preview_cmd = "bat -n --color=always --line-range :200 {}"
 const process_preview_cmd = 'ps | where pid == ({1} | into int) | transpose Property Value | table -i false'
 const remote_preview_cmd = "dig {} | jc --dig | from json | get -i answer.0 | table -i false"
@@ -29,7 +29,7 @@ const fzf_prompt_info = {
   Internals: {bg: '#0dcf6f' symbol: ''}
   Externals: {bg: '#7aa2f7' symbol: ''}
 }
-use ~/flake/home/shells/nushell/lib.nu [
+use lib.nu [
   substring_from_idx
   substring_to_idx
 ]
@@ -65,7 +65,7 @@ def _quote_if_not_empty [] {
   if ($in | str trim | is-empty) { '' } else { $"`($in)`" }
 }
 
-export def prompt_decorator [
+def _prompt_decorator [
   fg_color: string
   bg_color: string
   symbol: string
@@ -86,7 +86,7 @@ def _build_fzf_prompt [
   | default $fzf_prompt_default_setting.bg bg
   | default $fzf_prompt_default_setting.symbol symbol
   (
-    prompt_decorator
+    _prompt_decorator
     $prompt_config.fg
     $prompt_config.bg
     $prompt_config.symbol
@@ -433,7 +433,7 @@ def _env_by_fzf [
           _build_fzf_args ($segs | last)
           'Variable'
           (
-            $"const raw = ($content | to json); " +
+            $"$env.config.use_ansi_coloring = true; const raw = ($content | to json --serialize); " +
             `(match ($raw | describe | str substring ..4) {
 'list<' => {$raw | get -i ({} | into int)},
 _ => {$raw | table -i false -t basic | find {}
@@ -441,8 +441,7 @@ _ => {$raw | table -i false -t basic | find {}
 {$'name': ($segs | get 1)
 $'value': ($segs | get (($segs | length) - 2))}}
 | table -i false}})
-| str replace --regex '((│(\s*\w+\s*))*│)\n├' $"(ansi green)$1(ansi reset)\n├"
-| str replace --regex --all '([╭├][┬┼─]+[┤╮])' $'(ansi green)$1(ansi reset)'`
+`
           )
         )
         --tmux center,90%,50%
@@ -489,6 +488,7 @@ export def carapace_by_fzf [
 ] {
   let query = $spans | last
   let res = try {
+    let spans = $spans | skip 1 | prepend (_expand_alias_if_exist $spans.0)
     match $spans.0 {
       _ if "$" in $query => {
         _env_by_fzf $query
