@@ -7,6 +7,7 @@
     htop
     vivid
     wasistlos
+    obsidian
     nufmt
     evcxr
     zola
