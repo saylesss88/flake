@@ -3,6 +3,7 @@
   inputs,
   host,
   system,
+  colorscheme,
   userVars,
   ...
 }: {
@@ -21,7 +22,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit pkgs inputs host system userVars;};
+    extraSpecialArgs = {inherit pkgs inputs host system colorscheme userVars;};
     users.jr = {...}: {
       imports = [
         inputs.lib.homeModules
@@ -30,6 +31,7 @@
     };
   };
   ############################################################################
+  nix.settings.experimental-features = ["pipe-operators" "flakes" "nix-command"];
 
   nixpkgs.overlays = [inputs.lib.overlays];
 

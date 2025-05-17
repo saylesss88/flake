@@ -35,6 +35,7 @@
   }: let
     system = "x86_64-linux";
     host = "magic";
+    colorscheme = "tokyonight_night";
     userVars = {
       username = "jr";
       gitEmail = "saylesss87@proton.me";
@@ -159,7 +160,7 @@
     nixosConfigurations.${host} = lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit inputs system host userVars;
+        inherit inputs system host userVars colorscheme;
       };
       modules = [
         ./hosts/${host}/configuration.nix
