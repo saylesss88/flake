@@ -60,7 +60,7 @@ $env.config.menus ++= [
     marker: ' '
     type: {layout: ide}
     style: {}
-    source: (atuin_menus_func)
+    source: (atuin_menus_func ' ')
   }
   {
     name: completion_menu
