@@ -4,6 +4,5 @@
     ./bash.nix
     ./starship.nix
     ./fastfetch
-    ./nushell
   ];
 }
