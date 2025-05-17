@@ -5,6 +5,7 @@
     vim
     rustup
     htop
+    vivid
     wasistlos
     nufmt
     evcxr

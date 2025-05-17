@@ -165,7 +165,13 @@
       $env.PROMPT_INDICATOR = {|| "> " }
       $env.PROMPT_INDICATOR_VI_INSERT = {|| prompt_decorator "${cs.black}" "${cs.light_green}" ($dev_tag + "󰏫") }
       $env.PROMPT_INDICATOR_VI_NORMAL = {|| prompt_decorator "${cs.black}" "${cs.yellow}" ($dev_tag + "") }
-      $env.LS_COLORS = (vivid generate ${colorscheme-dash} | str trim)
+      $env.LS_COLORS = (
+        try {
+          vivid generate ${colorscheme-dash} | str trim
+        } catch {
+          "" # Set LS_COLORS to an empty string if vivid fails
+        }
+      )
       $env.FZF_DEFAULT_OPTS = (
         "--layout reverse --header-first --tmux center,80%,60% "
         + "--pointer ▶ --marker 󰍕 --preview-window right,65% "
