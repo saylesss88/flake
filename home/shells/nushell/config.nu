@@ -13,6 +13,8 @@ $env.CARAPACE_BRIDGES = 'zsh'
 $env.MANPAGER = "col -bx | bat -l man -p"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
+# $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
+# $env.TOPIARY_LANGUAGE_DIR = (path join $env.XDG_CONFIG_HOME "topiary" "languages")
 
 use /home/jr/flake/home/shells/nushell/fzf.nu [
   carapace_by_fzf
@@ -22,9 +24,6 @@ use /home/jr/flake/home/shells/nushell/fzf.nu [
 ]
 use /home/jr/flake/home/shells/nushell/sesh.nu sesh_connect
 source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
-
-# Source Starship initialization
-source ~/.cache/starship/init.nu
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
 $env.config.edit_mode = "vi"
@@ -37,8 +36,9 @@ $env.config.table.index_mode = 'auto'
 $env.config.render_right_prompt_on_last_line = true
 
 $env.config.cursor_shape = {
-  vi_insert: line
-  vi_normal: block
+  emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
+  vi_insert: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
+  vi_normal: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
 }
 
 $env.config.explore = {
@@ -54,22 +54,33 @@ $env.config.explore = {
 }
 
 $env.config.menus ++= [
+  # Configuration for default nushell menus
+  # Note the lack of source parameter
   {
     name: my_history_menu
     only_buffer_difference: false
-    marker: ' '
+    marker: ''
     type: {layout: ide}
     style: {}
-    source: (atuin_menus_func ' ')
+    source: (
+      atuin_menus_func
+      (
+        prompt_decorator
+        $extra_colors.prompt_symbol_color
+        'light_blue'
+        '▓▒░ Ctrl-d to del '
+        false
+      )
+    )
   }
   {
     name: completion_menu
     only_buffer_difference: false
-    marker: " "
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "")
     type: {
       layout: columnar
       columns: 4
-      col_width: 20
+      col_width: 20 # Optional value. If missing all the screen width is used to calculate column width
       col_padding: 2
     }
     style: {
@@ -83,7 +94,7 @@ $env.config.menus ++= [
   {
     name: history_menu
     only_buffer_difference: false
-    marker: " "
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "light_blue" "")
     type: {
       layout: list
       page_size: 30
@@ -103,6 +114,7 @@ $env.config.keybindings ++= [
     keycode: char_h
     mode: [emacs vi_insert vi_normal]
     event: {send: menu name: my_history_menu}
+    # event: {send: menu name: ide_completion_menu}
   }
   {
     name: sesh
@@ -148,6 +160,7 @@ $env.config.keybindings ++= [
 ]
 
 # load scripts
+# use starship.nu
 use /home/jr/flake/home/shells/nushell/scripts/extractor.nu extract
 use /home/jr/flake/home/shells/nushell/auto-pair.nu *
 set auto_pair_keybindings
@@ -155,6 +168,7 @@ use /home/jr/flake/home/shells/nushell/matchit.nu *
 set matchit_keybinding
 source /home/jr/flake/home/shells/nushell/zoxide.nu
 source /home/jr/flake/home/shells/nushell/nix.nu
+# source auth/llm.nu
 source /home/jr/flake/home/shells/nushell/atuin.nu
 
 # alias
