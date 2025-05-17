@@ -152,7 +152,7 @@
         font_color: string
         bg_color: string
         symbol: string
-        with_starship?: bool = false
+        with_starship?: bool = true
       ] {
         let bg1 = if $with_starship { '${cs.white}' } else $bg_color
         let fg = {fg: $bg_color}
