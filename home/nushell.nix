@@ -18,7 +18,7 @@
 
       nushell = {
         enable = true;
-        configFile.source = ./config.nu;
+        configFile.source = ./shells/nushell/config.nu;
 
         xdg.configFile."nushell/style.nu".text = let
           colorscheme = "tokyonight_night"; # Or your preferred colorscheme

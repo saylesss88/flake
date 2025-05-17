@@ -1,14 +1,5 @@
-# def build-config [] { { footer_mode: "50" } }
-
-# let config = build-config
-
-const extra_colors = {
-  menu_text_color: "#aaeaea"
-  prompt_symbol_color: "#111726"
-  explore_bg: "#1D1F21"
-  explore_fg: "#C4C9C6"
-}
-
+# env-vars
+source ~/.config/nushell/style.nu
 $env.PATH = $env.PATH
 | split row (char esep)
 | append '/usr/local/bin'
@@ -17,22 +8,37 @@ $env.PATH = $env.PATH
 | prepend ($env.HOME | path join ".local" "bin")
 | uniq
 $env.FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git --exclude .cache --max-depth 9"
-# $env.CARAPACE_LENIENT = 1
+$env.CARAPACE_LENIENT = 1
 $env.CARAPACE_BRIDGES = 'zsh'
-# $env.MANPAGER = "col -bx | bat -l man -p"
+$env.MANPAGER = "col -bx | bat -l man -p"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
-$env.XDG_CONFIG_HOME = $env.HOME + "/.config"
-$env.TOPIARY_CONFIG_FILE = ($env.XDG_CONFIG_HOME | path join topiary languages.ncl)
 $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 
-use ~/flake/home/shells/nushell/fzf.nu [
+use fzf.nu [
   carapace_by_fzf
   complete_line_by_fzf
   update_manpage_cache
   atuin_menus_func
-  prompt_decorator
 ]
+use sesh.nu sesh_connect
+source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
+
+$env.config.completions.external.completer = {|span| carapace_by_fzf $span }
+$env.config.edit_mode = "vi"
+$env.config.highlight_resolved_externals = true
+$env.config.history.file_format = "sqlite"
+$env.config.history.max_size = 10000
+$env.config.show_banner = false
+$env.config.table.header_on_separator = true
+$env.config.table.index_mode = 'auto'
+$env.config.render_right_prompt_on_last_line = true
+
+$env.config.cursor_shape = {
+  emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
+  vi_insert: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
+  vi_normal: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
+}
 
 $env.config.explore = {
   status_bar_background: {bg: $extra_colors.explore_bg fg: $extra_colors.explore_fg}
@@ -62,14 +68,14 @@ $env.config.menus ++= [
         $extra_colors.prompt_symbol_color
         'light_blue'
         '▓▒░ Ctrl-d to del '
-        "false"
+        false
       )
     )
   }
   {
     name: completion_menu
     only_buffer_difference: false
-    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "" "")
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "")
     type: {
       layout: columnar
       columns: 4
@@ -87,7 +93,7 @@ $env.config.menus ++= [
   {
     name: history_menu
     only_buffer_difference: false
-    marker: (prompt_decorator $extra_colors.prompt_symbol_color "light_blue" "" "")
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "light_blue" "")
     type: {
       layout: list
       page_size: 30
@@ -151,24 +157,22 @@ $env.config.keybindings ++= [
     }
   }
 ]
-use ~/flake/home/shells/nushell/sesh.nu sesh_connect
-use ~/flake/home/shells/nushell/auto-pair.nu * 
+
+# load scripts
+# use starship.nu
+use /home/jr/flake/home/shells/nushell/scripts/extractor.nu extract
+use /home/jr/flake/home/shells/nushell/auto-pair.nu *
 set auto_pair_keybindings
-use ~/flake/home/shells/nushell/scripts/extractor.nu extract
-use ~/flake/home/shells/nushell/matchit.nu *
+use /home/jr/flake/home/shells/nushell/matchit.nu *
 set matchit_keybinding
-# $env.MANPAGER = "nvim +Man!"
-# $env.config.edit_mode = "vi"
-use ~/flake/home/shells/nushell/scripts/id.nu
+source /home/jr/flake/home/shells/nushell/zoxide.nu
+source /home/jr/flake/home/shells/nushell/nix.nu
+# source auth/llm.nu
+source /home/jr/flake/home/shells/nushell/atuin.nu
 
-# alias gd = git diff
-# nitch
-# pokego --random 1-3
-fastfetch
-
-source ~/flake/home/shells/nushell/zoxide.nu
-source ~/flake/home/shells/nushell/carapace.nu
-source ~/flake/home/shells/nushell/atuin.nu
-source ~/flake/home/shells/nushell/nix.nu
-source ~/flake/home/shells/nushell/nu_scripts/themes/nu-themes/dracula.nu
-source ~/flake/home/shells/nushell/completions-jj.nu
+# alias
+alias vim = nvim
+alias boc = brew outdated --cask --greedy
+alias ll = ls -al
+alias c = zi
+alias less = less -R
