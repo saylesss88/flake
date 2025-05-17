@@ -132,7 +132,7 @@
     };
 
     home.sessionVariables = {
-      STARSHIP_SHELL = "nu";
+      # STARSHIP_SHELL = "nu";
       # PROMPT_INDICATOR = "";
       # PROMPT_INDICATOR_VI_INSERT = ": ";
       # PROMPT_INDICATOR_VI_NORMAL = "> ";
