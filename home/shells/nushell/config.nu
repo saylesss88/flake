@@ -21,7 +21,7 @@ use /home/jr/flake/home/shells/nushell/fzf.nu [
   update_manpage_cache
   atuin_menus_func
 ]
-use sesh.nu sesh_connect
+use /home/jr/flake/home/shells/nushell/sesh.nu sesh_connect
 source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
