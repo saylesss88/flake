@@ -20,6 +20,5 @@
     ./helix
     ./yazi.nix
     ./discord.nix
-    ./nushell.nix
   ];
 }
