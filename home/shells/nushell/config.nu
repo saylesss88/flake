@@ -13,8 +13,8 @@ $env.CARAPACE_BRIDGES = 'zsh'
 $env.MANPAGER = "col -bx | bat -l man -p"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
-$env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
-$env.TOPIARY_LANGUAGE_DIR = (path join $env.XDG_CONFIG_HOME "topiary" "languages")
+# $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
+# $env.TOPIARY_LANGUAGE_DIR = (path join $env.XDG_CONFIG_HOME "topiary" "languages")
 
 use /home/jr/flake/home/shells/nushell/fzf.nu [
   carapace_by_fzf
