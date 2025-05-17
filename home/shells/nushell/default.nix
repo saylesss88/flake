@@ -24,7 +24,7 @@
       };
       nushell = {
         enable = true;
-        configFile.source = ./shells/nushell/config.nu;
+        configFile.source = ./config.nu;
         extraConfig = let
           conf = builtins.toJSON {
             show_banner = false;
