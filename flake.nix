@@ -145,11 +145,6 @@
       };
     };
 
-    # Custom outputs in legacyPackages
-    legacyPackages.${system} = {
-      inherit userVars repl;
-    };
-
     # NixOS configuration
     nixosConfigurations.${host} = lib.nixosSystem {
       inherit system;
