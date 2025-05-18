@@ -37,7 +37,7 @@
 
   #  Enable/Disable Custom Modules
   custom = {
-    stylixModule.enable = true;
+    # stylixModule.enable = true;
     cachixModule.enable = true;
     users.enable = true;
     drivers.amdgpu.enable = true;
