@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  # This came from the Aylur config
   xdg.configFile."starship.toml" = let
     lang = icon: color: {
       symbol = icon;
