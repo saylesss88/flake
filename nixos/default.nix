@@ -9,7 +9,7 @@
     ./nix.nix
     ./xdg.nix
     ./zram.nix
-    ./stylix.nix
+    # ./stylix.nix
     ./fonts.nix
     ./i18n.nix
     ./environmentVariables.nix
