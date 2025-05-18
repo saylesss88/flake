@@ -2,7 +2,7 @@
   description = "NixOS and Home-Manager configuration";
 
   inputs = {
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,7 +17,6 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    # nvf.url = "github:notashelf/nvf";
     nixvim.url = "github:nix-community/nixvim";
     helix.url = "github:helix-editor/helix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
