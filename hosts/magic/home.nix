@@ -10,11 +10,11 @@
     stateVersion = "25.05";
   };
   programs.home-manager.enable = true;
-  programs.nix-index-database.comma.enable = true;
-
   # Import Program Configurations
   imports = [
     inputs.dont-track-me.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
+    {programs.nix-index-database.comma.enable = true;}
   ];
 
   # Custom home-manager modules
