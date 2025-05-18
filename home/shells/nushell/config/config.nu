@@ -161,7 +161,7 @@ $env.config.keybindings ++= [
 
 # load scripts
 # use /home/jr/flake/home/shells/nushell/starship.nu
-use /home/jr/flake/home/shells/nushell/scripts/extractor.nu extract
+use /home/jr/flake/home/shells/nushell/config/scripts/extractor.nu extract
 use /home/jr/flake/home/shells/nushell/config/auto-pair.nu *
 set auto_pair_keybindings
 use /home/jr/flake/home/shells/nushell/config/matchit.nu *
