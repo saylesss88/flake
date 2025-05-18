@@ -16,13 +16,13 @@ $env.RUST_BACKTRACE = 1
 # $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 # $env.TOPIARY_LANGUAGE_DIR = (path join $env.XDG_CONFIG_HOME "topiary" "languages")
 
-use /home/jr/flake/home/shells/nushell/fzf.nu [
+use /home/jr/flake/home/shells/nushell/config/fzf.nu [
   carapace_by_fzf
   complete_line_by_fzf
   update_manpage_cache
   atuin_menus_func
 ]
-use /home/jr/flake/home/shells/nushell/sesh.nu sesh_connect
+use /home/jr/flake/home/shells/nushell/config/sesh.nu sesh_connect
 source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
@@ -162,14 +162,14 @@ $env.config.keybindings ++= [
 # load scripts
 # use /home/jr/flake/home/shells/nushell/starship.nu
 use /home/jr/flake/home/shells/nushell/scripts/extractor.nu extract
-use /home/jr/flake/home/shells/nushell/auto-pair.nu *
+use /home/jr/flake/home/shells/nushell/config/auto-pair.nu *
 set auto_pair_keybindings
-use /home/jr/flake/home/shells/nushell/matchit.nu *
+use /home/jr/flake/home/shells/nushell/config/matchit.nu *
 set matchit_keybinding
-source /home/jr/flake/home/shells/nushell/zoxide.nu
-source /home/jr/flake/home/shells/nushell/nix.nu
+source /home/jr/flake/home/shells/nushell/config/zoxide.nu
+source /home/jr/flake/home/shells/nushell/config/nix.nu
 # source auth/llm.nu
-source /home/jr/flake/home/shells/nushell/atuin.nu
+source /home/jr/flake/home/shells/nushell/config/atuin.nu
 
 # alias
 alias vim = nvim
