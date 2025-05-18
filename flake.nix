@@ -13,7 +13,6 @@
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
