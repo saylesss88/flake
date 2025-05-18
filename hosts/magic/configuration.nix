@@ -14,7 +14,7 @@
     inputs.lib.nixOsModules
     # inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.stylix.nixosModules.stylix
+    # inputs.stylix.nixosModules.stylix
     inputs.home-manager.nixosModules.home-manager
   ];
 
