@@ -10,6 +10,7 @@
     stateVersion = "25.05";
   };
   programs.home-manager.enable = true;
+  programs.nix-index-database.comma.enable = true;
 
   # Import Program Configurations
   imports = [

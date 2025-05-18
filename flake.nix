@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,9 +13,6 @@
     flake-schemas.url = "github:DeterminateSystems/flake-schemas";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
-    # stylix = {
-    #   url = "github:danth/stylix";
-    # };
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     nixvim.url = "github:nix-community/nixvim";
