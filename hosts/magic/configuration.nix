@@ -20,7 +20,7 @@
 
   # Home-Manager Configuration needs to be here for home.packages to be available in the Configuration Package and VM i.e. `nix build .#nixos`
   home-manager = {
-    # useGlobalPkgs = true;
+    useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {inherit pkgs inputs host system colorscheme userVars;};
     users.jr = {...}: {
