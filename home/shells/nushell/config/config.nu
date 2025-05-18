@@ -23,7 +23,8 @@ use /home/jr/flake/home/shells/nushell/config/fzf.nu [
   atuin_menus_func
 ]
 use /home/jr/flake/home/shells/nushell/config/sesh.nu sesh_connect
-source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
+# source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
+source /home/jr/flake/home/shells/nushell/nu_scripts/themes/nu-themes/dracula.nu
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
 $env.config.edit_mode = "vi"
