@@ -1,4 +1,4 @@
-{config, ...}: {
+_: {
   wayland.windowManager.hyprland = {
     settings = {
       input = {

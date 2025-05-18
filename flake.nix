@@ -80,12 +80,6 @@
 
     # Formatter configuration
     treefmtEval = treefmt-nix.lib.evalModule pkgs ./lib/treefmt.nix;
-
-    # REPL function for debugging
-    repl = import ./repl.nix {
-      inherit pkgs lib;
-      flake = self;
-    };
   in {
     inherit (inputs) lib;
 
@@ -165,6 +159,7 @@
       modules = [
         ./hosts/${host}/configuration.nix
         (_: {
+          # provides rev from `nixos-version --json`
           system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
         })
       ];
