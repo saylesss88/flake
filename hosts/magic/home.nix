@@ -10,6 +10,7 @@
     stateVersion = "25.05";
   };
   programs.home-manager.enable = true;
+  programs.nix-index.enable = true;
   # Import Program Configurations
   imports = [
     inputs.dont-track-me.homeManagerModules.default
