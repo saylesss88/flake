@@ -18,6 +18,13 @@
     {programs.nix-index-database.comma.enable = true;}
   ];
 
+  home.pointerCursor = {
+    enable = true;
+    package = inputs.rose-pine-hyprcursor.legacyPackages.${pkgs.system}.rose-pine-hyprcursor;
+    name = "BreezeX-RosePine-Linux"; # Or the specific name of the theme as packaged
+    size = 24; # Optional: Set the cursor size
+  };
+
   # Custom home-manager modules
   custom = {
     hyprland.enable = true;
