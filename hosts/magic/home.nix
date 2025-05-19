@@ -20,7 +20,7 @@
 
   home.pointerCursor = {
     enable = true;
-    package = inputs.rose-pine-hyprcursor.legacyPackages.${pkgs.system}.rose-pine-hyprcursor;
+    package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
     name = "BreezeX-RosePine-Linux"; # Or the specific name of the theme as packaged
     size = 24; # Optional: Set the cursor size
   };

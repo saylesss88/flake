@@ -6,8 +6,8 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      package = inputs.rose-pine-hyprcursor.legacyPackages.${pkgs.system}.rose-pine-hyprcursor;
-      name = "rose-pine"; # Adjust if the actual theme name is different
+      package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+      name = "BreezeX-RosePine-Linux"; # Adjust if the actual theme name is different
       size = 24; # Optional
     };
     iconTheme = {
