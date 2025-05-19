@@ -53,6 +53,9 @@
     meson
     ninja
     gcc
+    binutils
+    cargo
+    rustc
     libgcc
     gnumake
     cmake
