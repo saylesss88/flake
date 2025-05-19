@@ -3,7 +3,7 @@
     # inputs.nix-inspect.packages.${pkgs.system}.default # util for inspecting derivations
     # Rust
     vim
-    # rustup
+    rustup
     htop
     vivid
     wasistlos
