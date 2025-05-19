@@ -34,7 +34,10 @@
         consoleMode = lib.mkDefault "max";
       };
     };
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "spinner";
+    };
   };
   environment.systemPackages = with pkgs; [greetd.tuigreet];
 }
