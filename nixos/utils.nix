@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-# This is the function's argument set, not related to the list issue
-{
+}: {
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
