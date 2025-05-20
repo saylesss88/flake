@@ -23,7 +23,7 @@
       simple-completion-language-server
     ];
     settings = {
-      theme = "night_owl";
+      theme = "rose_pine";
 
       editor = {
         color-modes = true;
