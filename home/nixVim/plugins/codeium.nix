@@ -8,7 +8,7 @@
   programs.nixvim = {
     plugins = {
       windsurf-nvim = {
-        enable = false;
+        enable = true;
 
         settings = {
           enable_chat = true;
