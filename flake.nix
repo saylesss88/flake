@@ -12,6 +12,7 @@
     };
     flake-schemas.url = "github:DeterminateSystems/flake-schemas";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    codeium-flake.url = "path:./home/nixVim/codeiumFlake";
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
