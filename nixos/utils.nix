@@ -4,6 +4,7 @@
     # Rust
     vim
     rustup
+    brave
     htop
     vivid
     wasistlos
