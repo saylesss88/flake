@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   host,
   system,
@@ -31,6 +32,11 @@
   };
   ############################################################################
   nix.settings.experimental-features = ["pipe-operators" "flakes" "nix-command"];
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "codeium"
+    ];
 
   nixpkgs.overlays = [inputs.lib.overlays];
 
