@@ -23,7 +23,7 @@
       simple-completion-language-server
     ];
     settings = {
-      theme = "kanagawa";
+      theme = "night_owl";
 
       editor = {
         color-modes = true;
