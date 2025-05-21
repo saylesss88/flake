@@ -16,7 +16,8 @@
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     hyprland.url = "github:hyprwm/Hyprland";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    nixvim.url = "github:nix-community/nixvim";
+    nvf.url = "github:notashelf/nvf";
+    # nixvim.url = "github:nix-community/nixvim";
     helix.url = "github:helix-editor/helix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     yazi.url = "github:sxyazi/yazi";
