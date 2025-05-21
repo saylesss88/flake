@@ -63,6 +63,7 @@ in {
         textColor = "#ff0000";
         margin = "0,20,,20";
         backgroundColor = "#000000";
+        anchor = "top-right";
       };
     };
     # Place Files Inside Home Directory
