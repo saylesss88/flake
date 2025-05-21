@@ -43,6 +43,7 @@
       lshw # display detailed hardware info
       nix-prefetch-git
       nix-prefetch-github
+      nix-prefetch-url
       tree
       cachix
       dconf2nix # util to generate Nix code from dconf settings

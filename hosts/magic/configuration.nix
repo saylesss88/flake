@@ -38,7 +38,9 @@
       "codeium"
     ];
 
-  nixpkgs.overlays = [inputs.lib.overlays inputs.codeium-flake.overlays.default];
+  nixpkgs.overlays = [
+    inputs.lib.overlays
+  ];
 
   #  Enable/Disable Custom Modules
   custom = {

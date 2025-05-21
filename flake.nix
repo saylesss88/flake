@@ -10,7 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-schemas.url = "github:DeterminateSystems/flake-schemas";
+    # flake-schemas.url = "github:DeterminateSystems/flake-schemas";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     codeium-flake.url = "path:./home/nixVim/codeiumFlake";
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
@@ -84,9 +84,9 @@
     # Formatter configuration
     treefmtEval = treefmt-nix.lib.evalModule pkgs ./lib/treefmt.nix;
   in {
-    inherit (inputs) lib;
+    # inherit (inputs) lib;
 
-    inherit (inputs.flake-schemas) schemas;
+    # inherit (inputs.flake-schemas) schemas;
     # inherit (inputs) lib;
     # Formatter for nix fmt
     formatter.${system} = treefmtEval.config.build.wrapper;
