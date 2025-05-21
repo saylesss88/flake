@@ -9,6 +9,7 @@
   options.custom.nvfModule.enable = lib.mkEnableOption "Setup nvf";
   config = lib.mkIf config.custom.nvfModule.enable {
     programs.nvf = {
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       enable = true;
       settings = {
         vim = {
@@ -21,6 +22,7 @@
             clipboard = "unnamedplus";
             tabstop = 2;
             shiftwidth = 2;
+            wrap = false;
             expandtab = true;
             autoindent = true;
             mouse = "a";
@@ -51,6 +53,7 @@
             enable = true;
             formatOnSave = true;
             lspkind.enable = true;
+            trouble.enable = true;
             lspSignature.enable = true;
           };
 
@@ -79,6 +82,9 @@
           };
 
           languages = {
+            enableLSP = true;
+            enableFormat = true;
+            enableExtraDiagnostics = true;
             enableTreesitter = true;
 
             nix.enable = true;
@@ -89,7 +95,16 @@
             html.enable = true;
             lua.enable = true;
             python.enable = true;
-            rust.enable = true;
+            rust = {
+              enable = true;
+              lsp.enable = true;
+              dap.enable = true;
+              format.enable = true;
+              format.package = pkgs.rust-analyzer;
+              crates = {
+                enable = true;
+              };
+            };
             # fails on darwin
             #tailwind.enable = true;
           };
@@ -119,6 +134,9 @@
           ];
 
           statusline.lualine.enable = true;
+          tabline = {
+            nvimBufferline.enable = true;
+          };
         };
       };
     };
