@@ -9,10 +9,10 @@
   options.custom.nvfModule.enable = lib.mkEnableOption "Setup nvf";
   config = lib.mkIf config.custom.nvfModule.enable {
     programs.nvf = {
-      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       enable = true;
       settings = {
         vim = {
+          package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
           theme.enable = true;
           theme.name = "gruvbox";
           theme.transparent = true;
