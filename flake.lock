@@ -175,21 +175,6 @@
         "type": "github"
       }
     },
-    "flake-schemas": {
-      "locked": {
-        "lastModified": 1747430042,
-        "narHash": "sha256-FXBkQaQ2wptf06JpD9d8FsQcyj1wmSttq7eZIXxqiz4=",
-        "owner": "DeterminateSystems",
-        "repo": "flake-schemas",
-        "rev": "d0e74ee9a30eda4cc153b7f1e347043680834180",
-        "type": "github"
-      },
-      "original": {
-        "owner": "DeterminateSystems",
-        "repo": "flake-schemas",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -1041,7 +1026,6 @@
       "inputs": {
         "codeium-flake": "codeium-flake",
         "dont-track-me": "dont-track-me",
-        "flake-schemas": "flake-schemas",
         "helix": "helix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
