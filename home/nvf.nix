@@ -2,8 +2,10 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
+  imports = [inputs.nvf.homeManagerModules.default];
   options.custom.nvfModule.enable = lib.mkEnableOption "Setup nvf";
   config = lib.mkIf config.custom.nvfModule.enable {
     programs.nvf = {
