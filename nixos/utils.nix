@@ -18,6 +18,7 @@
       zola
       cheat # Display cheat sheets for commands
       yamllint
+      statix
       github-markdown-toc-go
       sqlite
       libreoffice
