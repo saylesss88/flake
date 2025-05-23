@@ -62,7 +62,7 @@ in {
         borderSize = "1";
         textColor = "#ff0000";
         margin = "0,20,,20";
-        backgroundColor = "#000000";
+        # backgroundColor = "#000000";
         anchor = "top-right";
       };
     };
