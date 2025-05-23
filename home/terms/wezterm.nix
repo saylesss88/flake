@@ -8,13 +8,12 @@ in {
       local wezterm = require 'wezterm'
       local act = wezterm.action
       local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-      local config = {}
 
-      config.color_scheme = "Tokyo Night"
 
       return {
         font = wezterm.font("JetBrains Mono"),
         font_size = 12.0,
+        color_scheme = "Tokyo Night",
         hide_tab_bar_if_only_one_tab = true,
         use_fancy_tab_bar = true,
         tab_bar_at_bottom = true,
