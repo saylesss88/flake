@@ -54,16 +54,20 @@ in {
     services.mako = {
       enable = true;
       settings = {
-        groupBy = "summary";
-        defaultTimeout = "10000";
-        icons = "true";
-        borderColor = "#ff0000";
-        borderRadius = "5";
-        borderSize = "1";
-        textColor = "#ff0000";
-        margin = "0,20,,20";
-        # backgroundColor = "#000000";
+        actions = true;
         anchor = "top-right";
+        background-color = "#000000";
+        border-color = "#FFFFFF";
+        border-radius = 0;
+        default-timeout = 0;
+        font = "monospace 10";
+        height = 100;
+        width = 300;
+        icons = true;
+        ignore-timeout = false;
+        layer = "top";
+        margin = 10;
+        markup = true;
       };
     };
     # Place Files Inside Home Directory
