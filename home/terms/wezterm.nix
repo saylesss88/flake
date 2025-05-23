@@ -10,7 +10,7 @@ in {
       local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
       local config = {}
 
-      config.color_scheme = "tokyonight"
+      config.color_scheme = "Tokyo Night"
 
       return {
         font = wezterm.font("JetBrains Mono"),
