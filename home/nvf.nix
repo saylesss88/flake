@@ -82,7 +82,6 @@
           };
 
           languages = {
-            enableLSP = true;
             enableFormat = true;
             enableExtraDiagnostics = true;
             enableTreesitter = true;

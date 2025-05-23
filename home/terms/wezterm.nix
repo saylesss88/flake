@@ -11,7 +11,6 @@ in {
       local config = {}
 
       config.color_scheme = "tokyonight"
-      return config
 
       return {
         font = wezterm.font("JetBrains Mono"),
