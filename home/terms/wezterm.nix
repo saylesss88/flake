@@ -8,6 +8,10 @@ in {
       local wezterm = require 'wezterm'
       local act = wezterm.action
       local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+      local config = {}
+
+      config.color_scheme = "tokyonight"
+      return config
 
       return {
         font = wezterm.font("JetBrains Mono"),
