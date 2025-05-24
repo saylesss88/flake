@@ -56,8 +56,10 @@ in {
       settings = {
         actions = true;
         anchor = "top-right";
-        background-color = "#000000";
-        border-color = "#FFFFFF";
+        background-color = "#1F1F28"; # Kanagawa Dragon: Sumi Ink 0
+        border-color = "#7E7C81"; # Kanagawa Dragon: Gray
+        # background-color = "#000000";
+        # border-color = "#FFFFFF";
         border-radius = 0;
         default-timeout = 0;
         font = "monospace 10";
