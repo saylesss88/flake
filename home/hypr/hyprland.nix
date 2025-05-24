@@ -61,7 +61,7 @@ in {
         # background-color = "#000000";
         # border-color = "#FFFFFF";
         border-radius = 10;
-        default-timeout = 0;
+        default-timeout = 10000;
         font = "monospace 10";
         height = 100;
         width = 300;
