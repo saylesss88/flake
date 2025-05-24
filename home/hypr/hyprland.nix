@@ -60,7 +60,7 @@ in {
         border-color = "#7E7C81"; # Kanagawa Dragon: Gray
         # background-color = "#000000";
         # border-color = "#FFFFFF";
-        border-radius = 0;
+        border-radius = 10;
         default-timeout = 0;
         font = "monospace 10";
         height = 100;
