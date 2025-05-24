@@ -112,6 +112,7 @@
 
           visuals = {
             nvim-web-devicons.enable = true;
+            indent-blankline.enable = true;
           };
 
           snippets.luasnip.enable = true;
