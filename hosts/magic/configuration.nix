@@ -53,6 +53,7 @@
     vm.guest-services.enable = true;
     utilsModule.enable = true;
     lspModule.enable = true;
+    nixModule.enable = true;
   };
 
   users = {
