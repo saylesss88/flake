@@ -4,13 +4,12 @@
   config,
   lib,
   ...
-}:
-with lib; {
+}: {
   options = {
     custom.stylixModule = {
-      enable = mkEnableOption "Enables Stylix module.";
-      base16Scheme = mkOption {
-        type = types.attrs;
+      enable = lib.mkEnableOption "Enables Stylix module.";
+      base16Scheme = lib.mkOption {
+        type = lib.types.attrs;
         default = {
           # Ayu Dark
           base00 = "0F1419";
@@ -35,7 +34,7 @@ with lib; {
     };
   };
 
-  config = mkIf config.custom.stylixModule.enable {
+  config = lib.mkIf config.custom.stylixModule.enable {
     stylix = {
       enable = true;
       image = "${inputs.wallpapers}/Lofi-Cafe1.png";

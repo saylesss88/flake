@@ -2,15 +2,14 @@
   config,
   lib,
   ...
-}:
-with lib; let
+}: let
   cfg = config.custom.cachixModule;
 in {
   options = {
-    custom.cachixModule.enable = mkEnableOption "Enable custom cachix configuration";
+    custom.cachixModule.enable = lib.mkEnableOption "Enable custom cachix configuration";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     #environment.systemPackages = with pkgs; [ cachix ];
 
     nix.extraOptions = "gc-keep-outputs = true";

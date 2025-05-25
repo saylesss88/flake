@@ -45,6 +45,7 @@
   #  Enable/Disable Custom Modules
   custom = {
     # stylixModule.enable = true;
+    bootModule.enable = true;
     cachixModule.enable = true;
     packagesModule.enable = true;
     users.enable = true;
