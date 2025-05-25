@@ -1,23 +1,23 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    marksman
-    markdown-oxide
-    markdownlint-cli
-    markdownlint-cli2
-    nodePackages.prettier
-    prettierd
-    shfmt
-    shellcheck
-    nixd
-    nodejs_22
-    nil
-    lua-language-server
-    bash-language-server
-    stylua
-    jq
-    taplo
-    deadnix
-    alejandra
-    nixfmt-rfc-style
+  environment.systemPackages = [
+    pkgs.marksman
+    pkgs.markdown-oxide
+    pkgs.markdownlint-cli
+    pkgs.markdownlint-cli2
+    pkgs.nodePackages.prettier
+    pkgs.prettierd
+    pkgs.shfmt
+    pkgs.shellcheck
+    pkgs.nixd
+    pkgs.nodejs_22
+    pkgs.nil
+    pkgs.lua-language-server
+    pkgs.bash-language-server
+    pkgs.stylua
+    pkgs.jq
+    pkgs.taplo
+    pkgs.deadnix
+    pkgs.alejandra
+    pkgs.nixfmt-rfc-style
   ];
 }
