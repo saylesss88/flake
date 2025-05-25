@@ -52,6 +52,7 @@
     drivers.amdgpu.enable = true;
     vm.guest-services.enable = true;
     utilsModule.enable = true;
+    lspModule.enable = true;
   };
 
   users = {
