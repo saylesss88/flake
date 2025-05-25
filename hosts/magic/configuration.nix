@@ -46,6 +46,7 @@
   custom = {
     # stylixModule.enable = true;
     cachixModule.enable = true;
+    packagesModule.enable = true;
     users.enable = true;
     drivers.amdgpu.enable = true;
     vm.guest-services.enable = true;
