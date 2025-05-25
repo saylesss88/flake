@@ -3,15 +3,14 @@
   lib,
   config,
   ...
-}:
-with lib; let
+}: let
   cfg = config.custom.utilsModule;
 in {
   options.custom.utilsModule = {
-    enable = mkEnableOption "Enable utils module";
+    enable = lib.mkEnableOption "Enable utils module";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = builtins.attrValues {
       inherit
         (pkgs)
