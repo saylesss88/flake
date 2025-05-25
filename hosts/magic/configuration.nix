@@ -54,6 +54,7 @@
     utilsModule.enable = true;
     lspModule.enable = true;
     nixModule.enable = true;
+    zram.enable = true;
   };
 
   users = {
