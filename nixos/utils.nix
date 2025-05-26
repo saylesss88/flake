@@ -16,7 +16,6 @@ in {
         (pkgs)
         vim
         rustup
-        man
         brave
         htop
         vivid
