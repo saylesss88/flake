@@ -19,6 +19,7 @@ in {
         brave
         htop
         vivid
+        nickel
         wasistlos
         obsidian
         nufmt
