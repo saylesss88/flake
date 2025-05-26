@@ -1,9 +1,5 @@
 # nixVim/plugins/codeium.nix (or wherever your main nixvim config module is)
-{
-  lib,
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 # Ensure 'pkgs' is available here
 {
   # Remove this line if you're setting allowUnfree = true at the flake level:

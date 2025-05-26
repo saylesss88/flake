@@ -37,7 +37,6 @@
 
   # see :help nixCats.flake.outputs
   outputs = {
-    self,
     nixpkgs,
     nixCats,
     ...
@@ -86,15 +85,7 @@
     # see :help nixCats.flake.outputs.categories
     # and
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
-    categoryDefinitions = {
-      pkgs,
-      settings,
-      categories,
-      extra,
-      name,
-      mkNvimPlugin,
-      ...
-    } @ packageDef: {
+    categoryDefinitions = {pkgs, ...}: {
       # to define and use a new category, simply add a new list to a set here,
       # and later, you will include categoryname = true; in the set you
       # provide when you build the package using this builder function.
@@ -216,7 +207,7 @@
     packageDefinitions = {
       # These are the names of your packages
       # you can include as many as you wish.
-      nvim = {pkgs, ...}: {
+      nvim = _: {
         # they contain a settings set defined above
         # see :help nixCats.flake.outputs.settings
         settings = {

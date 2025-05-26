@@ -80,11 +80,11 @@
           };
         };
 
-        overlays.default = self: super: {
+        overlays.default = _self: super: {
           vimPlugins =
             super.vimPlugins
             // {
-              codeium-nvim = packages.vimPlugins.codeium-nvim;
+              inherit (packages.vimPlugins) codeium-nvim;
             };
         };
 

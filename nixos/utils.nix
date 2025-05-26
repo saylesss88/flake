@@ -16,6 +16,7 @@ in {
         (pkgs)
         vim
         rustup
+        man
         brave
         htop
         vivid
@@ -77,7 +78,7 @@ in {
       # and then include them in the list.
       # Note: 'cpupower' is part of the kernel packages.
       # We reference it explicitly here.
-      cpupower = pkgs.linuxKernel.packages.linux_zen.cpupower;
+      inherit (pkgs.linuxKernel.packages.linux_zen) cpupower;
 
       # If 'nix-inspect' is from a different input, you'd add it like this:
       # nixInspect = inputs.nix-inspect.packages.${pkgs.system}.default;
