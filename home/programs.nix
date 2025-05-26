@@ -1,6 +1,7 @@
 _: {
   programs = {
     gh.enable = true;
+    man.enable = true;
     btop = {
       enable = true;
       settings = {

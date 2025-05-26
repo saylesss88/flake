@@ -23,7 +23,8 @@
       simple-completion-language-server
     ];
     settings = {
-      theme = "rose_pine";
+      # theme = "rose_pine";
+      theme = "gruvbox_dark_hard";
 
       editor = {
         color-modes = true;
