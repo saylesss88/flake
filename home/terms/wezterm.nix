@@ -61,6 +61,18 @@ in {
             { key = "Enter", action = "PopKeyTable" },
           },
         },
+         mouse_bindings = {
+          {
+            event = { Drag = { streak = 1, button = 'Right' } },
+            mods = 'NONE',
+            action = act.ExtendSelectionToMouseCursor("Cell"),
+          },
+          {
+            event = { Up = { streak = 1, button = 'Right' } },
+            mods = 'NONE',
+            action = act.CompleteSelection("ClipboardAndPrimarySelection"),
+          },
+        },
       }
     '';
   };
