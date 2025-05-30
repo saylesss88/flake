@@ -20,7 +20,7 @@ in {
       enable = true;
       shellWrapperName = "y";
       settings = {
-        manager = {
+        mgr = {
           show_hidden = false;
           sort_dir_first = true;
           sort_by = "mtime";
@@ -50,7 +50,7 @@ in {
         require("starship"):setup()
       '';
 
-      keymap.manager.prepend_keymap = [
+      keymap.mgr.prepend_keymap = [
         {
           on = "T";
           run = "plugin toggle-pane max-preview";
