@@ -313,6 +313,7 @@
             "marksman"
             "gpt"
             "llm"
+            "codeium"
           ];
           formatter = {
             command = "prettier";
@@ -331,6 +332,7 @@
             "typos"
             "nixd"
             "llm"
+            "codeium"
           ];
           formatter = {
             command = "${pkgs.alejandra}/bin/alejandra";
