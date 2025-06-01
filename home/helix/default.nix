@@ -13,9 +13,8 @@ in {
     description = "Enable Helix Module";
   };
 
-  import = [./languages.nix];
-
   config = lib.mkIf cfg.enable {
+    import = [./languages.nix];
     programs.helix = with pkgs; {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.helix;
