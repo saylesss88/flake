@@ -11,6 +11,7 @@
       biome
       clang-tools
       helix-gpt
+      codeium
       nixpkgs-fmt
       nodePackages.prettier
       taplo-lsp
@@ -24,7 +25,7 @@
     ];
     settings = {
       # theme = "rose_pine";
-      theme = "gruvbox_dark_hard";
+      theme = "nightfox";
 
       editor = {
         color-modes = true;
@@ -168,7 +169,15 @@
         command = "helix-gpt";
         args = [
           "--handler"
-          "copilot"
+          "codeium"
+        ];
+      };
+      language-server.codeium = {
+        # Your Codeium handler
+        command = "helix-gpt";
+        args = [
+          "--handler"
+          "codeium"
         ];
       };
 
@@ -303,6 +312,7 @@
           language-servers = [
             "marksman"
             "gpt"
+            "llm"
           ];
           formatter = {
             command = "prettier";
@@ -313,13 +323,6 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "nix";
-        #   formatter = {
-        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-        #   };
-        #   auto-format = true ;
-        # }
         {
           name = "nix";
           auto-format = true;
@@ -327,16 +330,12 @@
             "nil"
             "typos"
             "nixd"
+            "llm"
           ];
           formatter = {
             command = "${pkgs.alejandra}/bin/alejandra";
           };
         }
-        # {
-        #   name = "rust";
-        #   language-servers = [ "rust-analyzer" "gpt" ];
-        #   auto-format = true;
-        # }
         {
           name = "nu";
           auto-format = true;
