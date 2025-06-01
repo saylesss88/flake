@@ -36,7 +36,7 @@
         ];
         color-modes = true;
         cursorline = true;
-        bufferline = "multiple";
+        bufferline = "multiple"; # or "always"
         line-number = "relative";
         rulers = [
           80
@@ -85,18 +85,23 @@
         statusline = {
           left = [
             "mode"
-            "file-name"
-            "spinner"
-            "read-only-indicator"
-            "file-modification-indicator"
-          ];
-          right = [
+            "spacer"
             "diagnostics"
+            "spinner"
+            "file-name"
+          ];
+
+          right = [
+            "workspace-diagnostics"
+            "spacer"
+            "version-control"
+            "spacer"
+            "separator"
             "selections"
-            "register"
-            "file-type"
-            "file-line-ending"
+            "separator"
             "position"
+            "position-percentage"
+            "spacer"
           ];
           mode.normal = "";
           mode.insert = "I";
@@ -105,7 +110,7 @@
       };
       keys = {
         normal = {
-          H = ":buffer-previous";
+          H = ":buffer-previous"; # Shift+H & Shift+L to cycle buffers
           L = ":buffer-next";
           space = {
             "." = ":fmt";
