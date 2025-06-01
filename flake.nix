@@ -118,26 +118,26 @@
       };
     };
 
-    defaultPackage.x86_64-linux =
-      # Notice the reference to nixpkgs here.
-      with import nixpkgs {system = "x86_64-linux";};
-        stdenv.mkDerivation {
-          name = "hello";
-          src = self;
-          buildPhase = "gcc -o hello ./hello.c";
-          installPhase = "mkdir -p $out/bin; install -t $out/bin hello";
-        };
+    # defaultPackage.x86_64-linux =
+    #   # Notice the reference to nixpkgs here.
+    #   with import nixpkgs {system = "x86_64-linux";};
+    #     stdenv.mkDerivation {
+    #       name = "hello";
+    #       src = self;
+    #       buildPhase = "gcc -o hello ./hello.c";
+    #       installPhase = "mkdir -p $out/bin; install -t $out/bin hello";
+    #     };
     # # Default package for tools
-    # packages.${system} = {
-    #   default = pkgs.buildEnv {
-    #     name = "default-tools";
-    #     paths = with pkgs; [helix git ripgrep nh];
-    #   };
-    #   # build and deploy with `nix build .#nixos`
-    #   # nixos = defaultConfig.config.system.build.toplevel;
-    #   # Explicitly named Vm Configuration `nix build .#nixos-vm`
-    #   # nixos-vm = vmConfig.config.system.build.vm;
-    # };
+    packages.${system} = {
+      default = pkgs.buildEnv {
+        name = "default-tools";
+        paths = with pkgs; [helix git ripgrep nh];
+      };
+      # build and deploy with `nix build .#nixos`
+      # nixos = defaultConfig.config.system.build.toplevel;
+      # Explicitly named Vm Configuration `nix build .#nixos-vm`
+      # nixos-vm = vmConfig.config.system.build.vm;
+    };
 
     apps.${system}.deploy-nixos = {
       type = "app";
