@@ -178,3 +178,4 @@ alias boc = brew outdated --cask --greedy
 alias ll = ls -al
 alias c = zi
 alias less = less -R
+

@@ -22,12 +22,18 @@
       wl-clipboard-rs
       scooter
       simple-completion-language-server
+      topiary
     ];
     settings = {
       # theme = "rose_pine";
       theme = "nightfox";
 
       editor = {
+        shell = [
+          "nu"
+          "--stdin"
+          "-c"
+        ];
         color-modes = true;
         cursorline = true;
         bufferline = "multiple";
@@ -332,6 +338,7 @@
             "nixd"
             "codeium"
           ];
+          file-types = ["nix"];
           formatter = {
             command = "${pkgs.alejandra}/bin/alejandra";
           };
