@@ -13,6 +13,8 @@ in {
     description = "Enable Helix Module";
   };
 
+  import = [./languages.nix];
+
   config = lib.mkIf cfg.enable {
     programs.helix = with pkgs; {
       enable = true;
@@ -167,7 +169,6 @@ in {
         };
       };
 
-      import = [./languages.nix];
       # themes = {
       #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
       #   gruvbox_community = {
