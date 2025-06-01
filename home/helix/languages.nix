@@ -10,11 +10,7 @@
         command = "helix-gpt";
         args = [
           "--handler"
-╭───┬────────────╮
-│ 0 │ x1b[?1049h │
-│ 1 │ >          │
-│ 2 │ /dev/tty   │
-╰───┴────────────╯          "codeium"
+          "codeium"
         ];
       };
       language-server.codeium = {
