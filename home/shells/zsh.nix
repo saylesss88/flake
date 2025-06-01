@@ -45,6 +45,16 @@
              source <(jj util completion zsh)
              #pokemon-colorscripts -r
 
+             # Allow Ctrl-z to toggle between suspend and resume
+            function Resume {
+              fg
+              zle push-input
+              BUFFER=""
+              zle accept-line
+            }
+            zle -N Resume
+            bindkey "^Z" Resume
+
              nix-files() {
                nix-locate -w "$1" | fzf --preview="bat --color=always --style=numbers --line-range=:100 {1}"| awk '{print $1}'| xargz nvim
              }
