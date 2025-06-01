@@ -29,6 +29,7 @@
   custom = {
     hyprland.enable = true;
     wlogout.enable = true;
+    helixModule.enable = true;
     gitModule = {
       enable = true;
       # userName = "TSawyer87";
