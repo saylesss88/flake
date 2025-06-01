@@ -7,6 +7,7 @@
 }: let
   cfg = config.custom.helixModule;
 in {
+  imports = [./languages.nix];
   options.custom.helixModule.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -14,7 +15,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    import = [./languages.nix];
     programs.helix = with pkgs; {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.helix;
