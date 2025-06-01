@@ -312,7 +312,6 @@
           language-servers = [
             "marksman"
             "gpt"
-            "llm"
             "codeium"
           ];
           formatter = {
@@ -331,7 +330,6 @@
             "nil"
             "typos"
             "nixd"
-            "llm"
             "codeium"
           ];
           formatter = {
