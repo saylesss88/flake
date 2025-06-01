@@ -427,6 +427,15 @@
           auto-format = true;
         }
         {
+          name = "bash";
+          language-servers = [
+            "bash-language-server"
+            "gpt"
+            "codeium"
+          ];
+          file-types = ["sh"];
+        }
+        {
           name = "yaml";
           language-servers = ["yaml-language-server"];
           formatter = {
