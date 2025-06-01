@@ -158,6 +158,16 @@ $env.config.keybindings ++= [
       cmd: complete_line_by_fzf
     }
   }
+  {
+    name: "unfreeze",
+    modifier: control,
+    keycode: "char_z",
+    event: {
+      send: executehostcommand,
+      cmd: "job unfreeze"
+    },
+    mode: emacs
+  }
 ]
 
 # load scripts
