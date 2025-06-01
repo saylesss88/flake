@@ -10,7 +10,6 @@ _final: prev: let
     python-pyamdgpuinfo = callPackage ./pac_defs/python-pyamdgpuinfo.nix {};
     Tela-circle-dracula = callPackage ./pac_defs/Tela-circle-dracula.nix {};
     Bibata-Modern-Ice = callPackage ./pac_defs/Bibata-Modern-Ice.nix {};
-
   };
 in
   packages

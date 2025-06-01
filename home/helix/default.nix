@@ -38,7 +38,7 @@ in {
       ];
       settings = {
         # theme = "rose_pine";
-        theme = "nightfox";
+        theme = "tokyonight";
 
         editor = {
           shell = [
