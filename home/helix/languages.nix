@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.helix = {
     languages = {
       language-server.biome = {
