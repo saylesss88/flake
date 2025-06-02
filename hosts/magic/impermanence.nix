@@ -57,10 +57,6 @@
     files = [
       # Example: SSH host keys, if you want them to remain consistent
       # and not regenerated on every boot (though NixOS can manage these declaratively too)
-      /home/jr/.ssh/id_ed25519
-      /home/jr/.ssh/id_ed25519.pub
-      /home/jr/.ssh/id_rsa
-      /home/jr/.ssh/id_rsa.pub
       # "/etc/ssh/ssh_host_ed25519_key"
       # "/etc/ssh/ssh_host_ed25519_key.pub"
       # "/etc/ssh/ssh_host_rsa_key"

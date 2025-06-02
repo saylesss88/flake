@@ -10,10 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # disko.url = "github:nix-community/disko";
-    # disko.inputs.nixpkgs.follows = "nixpkgs"; # Ensure disko uses the same nixpkgs version
+     disko.url = "github:nix-community/disko";
+     disko.inputs.nixpkgs.follows = "nixpkgs"; # Ensure disko uses the same nixpkgs version
     # # Add impermanence flake input (optional, but good for managing state)
-    # impermanence.url = "github:nix-community/impermanence";
+     impermanence.url = "github:nix-community/impermanence";
     # flake-schemas.url = "github:DeterminateSystems/flake-schemas";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     # nixCats.url = "github:BirdeeHub/nixCats-nvim";

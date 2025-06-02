@@ -17,10 +17,10 @@
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     # inputs.stylix.nixosModules.stylix
     inputs.home-manager.nixosModules.home-manager
-    # inputs.disko.nixosModules.default
-    # inputs.impermanence.nixosModules.impermanence
-    # ./disko.nix
-    # ./impermanence.nix
+     inputs.disko.nixosModules.default
+     inputs.impermanence.nixosModules.impermanence
+     ./disk-config.nix
+     ./impermanence.nix
   ];
 
   # Home-Manager Configuration needs to be here for home.packages to be available in the Configuration Package and VM i.e. `nix build .#nixos`
