@@ -78,14 +78,6 @@
   # This section configures directories that should be *ephemeral* (cleared on reboot)
   # by mounting them as tmpfs (RAM filesystem) or ensuring they're cleaned.
   # Use this for truly temporary data that you *never* want to persist.
-  boot.initrd. ephemeralMounts = [
-    "/tmp" # Standard temporary directory.
-    "/var/tmp" # Another standard temporary directory.
-    "/var/cache" # Application caches that can be rebuilt.
-    # Note: If you included "/var/cache" in environment.persistence.directories
-    # above, that would take precedence and it would be persistent.
-    # Choose one or the other based on your preference for /var/cache.
-  ];
 
   # You can define swap devices here. If you want a swap *file* (common with Btrfs),
   # it needs to live on a persistent subvolume (like /nix/persist).
