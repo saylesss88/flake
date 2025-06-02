@@ -1,8 +1,4 @@
-╭───┬────────────╮
-│ 0 │ x1b[?1049h │
-│ 1 │ >          │
-│ 2 │ /dev/tty   │
-╰───┴────────────╯_: {
+_: {
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
