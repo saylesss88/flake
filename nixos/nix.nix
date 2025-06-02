@@ -18,6 +18,7 @@ in {
         experimental-features = [
           "nix-command"
           "flakes"
+          "pipe-operators"
         ];
         # Number of simultaneous derivation builds
         # "auto" = optimal #

@@ -31,7 +31,6 @@
     };
   };
   ############################################################################
-  nix.settings.experimental-features = ["pipe-operators" "flakes" "nix-command"];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
