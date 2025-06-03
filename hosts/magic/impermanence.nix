@@ -69,9 +69,7 @@
     # separate mount, and you typically won't need to list users here for typical
     # home directory contents. This is more for specific cases or if /home
     # wasn't a separate subvolume.
-    # users = [
-    #   "yourusername" # If you ever wanted to persist specific paths within your user's home
-    #                  # not managed by Home Manager and not on the /home subvolume.
+    # users.jr = [
     # ];
   };
 
