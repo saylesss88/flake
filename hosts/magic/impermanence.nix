@@ -11,6 +11,25 @@
   # It defines bind-mounts from a persistent location (like /nix/persist)
   # to locations on your root filesystem (/) that would otherwise be ephemeral.
   #
+
+  boot.initrd.postResumeCommands = lib.mkAfter ''
+    set -euo pipefail # Ensure failure handling
+
+    mkdir -p /btrfs_tmp
+    mount -o subvol=/ /dev/nvme0n1 /btrfs_tmp
+
+    # Clean existing rootfs subvolume if present
+    if [[ -e /btrfs_tmp/rootfs ]]; then
+      echo "Deleting existing rootfs..."
+      btrfs subvolume delete /btrfs_tmp/rootfs
+    fi
+
+    echo "Creating fresh /rootfs subvolume..."
+    btrfs subvolume create /btrfs_tmp/rootfs
+
+    echo "Unmounting temporary mount..."
+    umount /btrfs_tmp
+  '';
   # We use "/nix/persist" as the base for all persistent data, which is common
   # and ensures it lives on your persistent /nix subvolume.
   environment.persistence."/nix/persist" = {

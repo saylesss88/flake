@@ -34,55 +34,6 @@
     };
   };
   ############################################################################
-  # Corrected boot.initrd.postBootCommands script
-  boot.initrd.postBootCommands = lib.mkAfter ''
-    set -euo pipefail # Exit on error, unset variables, pipefail
-
-    mkdir -p /btrfs_tmp
-    mount -o subvol=/ /dev/nvme0n1 /btrfs_tmp # Mount the root of the Btrfs partition to operate on subvolumes
-
-    # If /rootfs subvolume exists, move it to old_roots with a timestamp
-    if [[ -e /btrfs_tmp/rootfs ]]; then
-      mkdir -p /btrfs_tmp/old_roots
-      timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/rootfs)" "+%Y-%m-%d_%H:%M:%S")
-      echo "Archiving old /rootfs to /btrfs_tmp/old_roots/$timestamp"
-      mv /btrfs_tmp/rootfs "/btrfs_tmp/old_roots/$timestamp"
-    fi
-
-    # Define recursive subvolume deletion function
-    delete_subvolume_recursively() {
-      local subvol_path="$1"
-      IFS=$'\n' # Set IFS to newline to handle spaces in subvolume names
-      for i in $(btrfs subvolume list -o "$subvol_path" | cut -f 9- -d ' '); do
-        delete_subvolume_recursively "/btrfs_tmp/$i"
-      done
-      echo "Deleting subvolume: $subvol_path"
-      btrfs subvolume delete "$subvol_path"
-    }
-
-    # Prune old root subvolumes older than 30 days
-    # Note: `find` outputs full paths, so using `/btrfs_tmp/$i` might be incorrect
-    # if `find` already gives the full path relative to the mount point.
-    # It's safer to provide the full path to `delete_subvolume_recursively`.
-    echo "Pruning old root subvolumes older than 30 days..."
-    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30 -type d -print); do
-      # $i will be something like /btrfs_tmp/old_roots/2024-05-30_HH:MM:SS
-      # We need to pass the *absolute path* of the subvolume on the mounted filesystem.
-      # Since we moved them to /btrfs_tmp/old_roots/, and /btrfs_tmp is the root of the btrfs fs,
-      # we can strip the /btrfs_tmp prefix to get the subvolume path relative to the root of the Btrfs partition.
-      # Or, even simpler, directly call it with the absolute path within the temporary mount.
-      delete_subvolume_recursively "$i"
-    done
-
-
-    # Create a new, fresh /rootfs subvolume
-    echo "Creating new /rootfs subvolume..."
-    btrfs subvolume create /btrfs_tmp/rootfs
-
-    # Unmount the temporary mount point
-    echo "Unmounting /btrfs_tmp..."
-    umount /btrfs_tmp
-  '';
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
