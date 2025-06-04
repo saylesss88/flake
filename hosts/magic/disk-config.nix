@@ -47,15 +47,18 @@
                     ];
                     mountpoint = "/nix";
                   };
+                  "/persist" = {
+                    mountpoint = "/persist";
+                    mountOptions = ["subvol=persist" "compress=zstd" "noatime"];
+                  };
+   
                   # This subvolume will be created but not mounted
                   "/test" = {};
                   # Subvolume for the swapfile
                   "/swap" = {
                     mountpoint = "/.swapvol";
                     swap = {
-                      swapfile.size = "20M";
-                      swapfile2.size = "20M";
-                      swapfile2.path = "rel-path";
+                      swapfile.size = "8G";
                     };
                   };
                 };
@@ -63,10 +66,7 @@
                 mountpoint = "/partition-root";
                 swap = {
                   swapfile = {
-                    size = "20M";
-                  };
-                  swapfile1 = {
-                    size = "20M";
+                    size = "8G";
                   };
                 };
               };
@@ -76,4 +76,5 @@
       };
     };
   };
+  fileSystems."/persist".neededForBoot = true;
 }
