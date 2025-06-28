@@ -24,15 +24,15 @@ _: {
     '';
     shellAliases = {
       sv = "sudo nvim";
-      fr = "nh os switch --hostname magic /home/jr/flaked";
-      fu = "nh os switch --hostname magic --update /home/jr/flaked";
+      fr = "nh os switch --hostname magic /home/jr/flake";
+      fu = "nh os switch --hostname magic --update /home/jr/flake";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v = "nvim";
       # cat = "bat";
       # ls = "eza --icons";
       # ll = "eza -lh --icons --grid --group-directories-first";
       # la = "eza -lah --icons --grid --group-directories-first";
-      yz = "yazi";
+      y = "yazi";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../../";

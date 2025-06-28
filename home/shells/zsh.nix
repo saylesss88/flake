@@ -128,14 +128,14 @@
              # export NIX_PATH="$NIX_PATH:my-flake=flake:/home/jr/flake"
              # Makes your flake accessible and importable within Nix expressions
              # using the alias `flaked`
-             export NIX_PATH="$NIX_PATH:flaked=flake:/home/jr/flaked"
+             export NIX_PATH="$NIX_PATH:flake=flake:/home/jr/flake"
     '';
     shellAliases = {
       sv = "sudo nvim";
-      fr = "nh os switch --hostname magic /home/jr/flaked";
-      ft = "nh os test --hostname magic /home/jr/flaked"; # dont save generation to boot menu
-      fu = "nh os switch --hostname magic --update /home/jr/flaked";
-      upd = "sudo nixos-rebuild switch --upgrade --flake /home/jr/flaked";
+      fr = "nh os switch --hostname magic /home/jr/flake";
+      ft = "nh os test --hostname magic /home/jr/flake"; # dont save generation to boot menu
+      fu = "nh os switch --hostname magic --update /home/jr/flake";
+      upd = "sudo nixos-rebuild switch --upgrade --flake /home/jr/flake";
       rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
@@ -154,7 +154,7 @@
       v = "nvim";
       vz = "NVIM_APPNAME='lazy' nvim";
       vk = "NVIM_APPNAME='kick' nvim";
-      vc = "nix run /home/jr/flakes/modules/nixCats";
+      vc = "nix run /home/jr/flake/modules/nixCats";
       cat = "bat --style snip --style changes --style header";
       l = "eza -lh --icons=auto"; # long list
       # ls = "eza --icons=auto --group-directories-first --icons"; # short list

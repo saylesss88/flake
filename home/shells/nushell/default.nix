@@ -104,9 +104,9 @@
           keys = "ghostty +list-keybinds";
 
           # Nix
-          fr = "nh os switch /home/jr/flaked";
-          ft = "nh os test /home/jr/flaked";
-          fu = "nh os switch --update /home/jr/flaked";
+          fr = "nh os switch /home/jr/flake";
+          ft = "nh os test /home/jr/flake";
+          fu = "nh os switch --update /home/jr/flake";
           upd = "nix-upgrade";
           cleanup = "nh clean all";
           opts = "man home-configuration.nix";
