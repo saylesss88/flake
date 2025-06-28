@@ -15,7 +15,7 @@ in {
     flake = lib.mkOption {
       # Suggestion: Define flake as an option
       type = lib.types.str;
-      default = userVars.flake;
+      default = "/home/jr/flake";
       description = "Path to the flake.nix file.";
     };
   };

@@ -1,14 +1,5 @@
 # nixVim/plugins/codeium.nix (or wherever your main nixvim config module is)
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: {
-  # Remove this line if you're setting allowUnfree = true at the flake level:
-  # nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["codeium"];
+{pkgs, ...}: {
   programs.nixvim = {
     # Enable and configure necessary base plugins for LSP/completion
     plugins = {
@@ -19,7 +10,7 @@
       # Codeium depends on plenary.nvim for some utilities
       # plenary.enable = true;
       # If you use nvim-cmp for completion, enable it here
-      # cmp.enable = true;
+      cmp.enable = true;
       # You might also need lspkind, luasnip, etc., depending on your full setup
     };
 

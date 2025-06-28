@@ -52,7 +52,9 @@
       system:
         import nixpkgs {
           inherit system;
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+          };
         }
     );
     myLib = import ./lib/default.nix {inherit (nixpkgs) lib;};
@@ -64,6 +66,8 @@
     overlays = import ./lib/overlay.nix;
   in {
     inherit lib;
+
+    formatter = forEachSystem (pkgs: pkgs.alejandra);
     # Development shell
     devShells.${system}.default = import ./lib/dev-shell.nix {
       inherit inputs;
@@ -71,14 +75,14 @@
 
     nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = pkgsFor."x86_64-linux";
+      pkgs = pkgsFor.${system};
       specialArgs = {
         inherit inputs host myLib overlays;
       };
       modules = [
         ./hosts/${host}/configuration.nix
         home-manager.nixosModules.home-manager
-        nixosModules
+        nixosModules # add all modules from ./nixos
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
