@@ -138,6 +138,7 @@
       upd = "sudo nixos-rebuild switch --upgrade --flake /home/jr/flake";
       rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      nfg = "nix flake check";
       opts = "man home-configuration.nix";
       zd = "zeditor";
       lg = "lazygit";
