@@ -187,6 +187,7 @@
       repl = "evcxr";
       fz = "fzf --bind 'enter:become(hx {}'";
       hz = "hx $(fzf)";
+      c = "__zoxide_zi";
     };
   };
 }

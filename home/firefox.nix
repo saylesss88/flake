@@ -11,7 +11,7 @@
     };
     policies = {
       ExtensionSettings = {
-        "*".installation_mode = "blocked"; # Block all except allowed
+        # "*".installation_mode = "blocked"; # Block all except allowed
         # Vimium-FF extension:
         "vimiumff@vimium.github.com" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
