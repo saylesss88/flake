@@ -28,6 +28,8 @@ in {
 
   nixpkgs.overlays = [overlays];
 
+  boot.binfmt.emulatedSystems = ["x86_64-windows" "aarch64-linux"];
+
   # boot.initrd.luks.devices = {
   #   cryptroot = {
   #     device = "/dev/disk/by-partlabel/luks";
