@@ -49,13 +49,14 @@
     self,
     nixpkgs,
     home-manager,
-    # treefmt-nix,
+    treefmt-nix,
     systems,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     host = "magic";
-    lib = nixpkgs.lib // home-manager.lib;
+    # lib = nixpkgs.lib // home-manager.lib;
+    lib = nixpkgs.lib;
     forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs (import systems) (
       system:
@@ -66,6 +67,8 @@
           };
         }
     );
+    getTreefmtEval = system: treefmt-nix.lib.evalModule pkgsFor.${system} ./lib/treefmt.nix;
+
     myLib = import ./lib/default.nix {inherit (nixpkgs) lib;};
 
     nixosModules = import ./nixos;
@@ -76,7 +79,17 @@
   in {
     inherit lib;
 
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
+    # Formatter for nix fmt
+    formatter = forEachSystem (pkgs: (getTreefmtEval pkgs.system).config.build.wrapper);
+
+    # Style check for CI
+    # This creates checks.x86_64-linux.style etc.
+    checks = forEachSystem (pkgs: {
+      style = (getTreefmtEval pkgs.system).config.build.check self;
+      # You can also expose specific custom checks like this:
+      # no-todos = (getTreefmtEval pkgs.system).config.checks.no-todos.check self;
+    });
+    # formatter = forEachSystem (pkgs: pkgs.alejandra);
     # Development shell
     devShells.${system}.default = import ./lib/dev-shell.nix {
       inherit inputs;
