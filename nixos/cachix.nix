@@ -24,7 +24,7 @@ in {
         "https://helix.cachix.org"
         "https://nushell-nightly.cachix.org"
         "https://wezterm.cachix.org"
-        "https://flaked.cachix.org"
+        "https://saylesss88.cachix.org"
         # "https://nixpkgs-wayland.cachix.org"
       ];
       trusted-public-keys = [
@@ -36,7 +36,7 @@ in {
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         "nushell-nightly.cachix.org-1:nLwXJzwwVmQ+fLKD6aH6rWDoTC73ry1ahMX9lU87nrc="
         "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
-        "flaked.cachix.org-1:lMYjfahFfdpqDTdMlj/Rq/R8aduwXSqO6WxIGB+Wn18="
+        "saylesss88.cachix.org-1:LT8JnboX8mKhabC3Mj/ONHb5tyrjlnsdauQkD8Lu0us="
         # "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       ];
     };
