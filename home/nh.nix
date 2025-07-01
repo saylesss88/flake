@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   userVars,
   ...
 }: let
@@ -27,5 +28,9 @@ in {
       clean.extraArgs = "--keep-since 4d --keep 5";
       inherit (cfg) flake; # Use the option here
     };
+    environment.systemPackages = with pkgs; [
+      nix-output-monitor
+      nvd
+    ];
   };
 }
