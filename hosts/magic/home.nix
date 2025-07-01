@@ -14,6 +14,7 @@
   programs.nix-index.enable = true;
   # Import Program Configurations
   imports = [
+
     inputs.dont-track-me.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
     {programs.nix-index-database.comma.enable = true;}

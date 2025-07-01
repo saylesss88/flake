@@ -2,6 +2,7 @@
   pkgs,
   host,
   userVars,
+  inputs,
   ...
 }: {
   home.packages = [
@@ -22,6 +23,8 @@
     pkgs.psmisc
     pkgs.topiary
     pkgs.hugo
+    inputs.claude-desktop.packages.x86_64-linux.claude-desktop
+
     # pkgs.nix-fast-build
     (import ../scripts/emopicker9000.nix {inherit pkgs;})
     (import ../scripts/task-waybar.nix {inherit pkgs;})
