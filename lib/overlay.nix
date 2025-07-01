@@ -1,4 +1,4 @@
-_final: prev: let
+{devour-flake}: _final: prev: let
   # Helper function to import a package
   callPackage = prev.lib.callPackageWith (prev // packages);
 
@@ -10,7 +10,7 @@ _final: prev: let
     python-pyamdgpuinfo = callPackage ./pac_defs/python-pyamdgpuinfo.nix {};
     Tela-circle-dracula = callPackage ./pac_defs/Tela-circle-dracula.nix {};
     Bibata-Modern-Ice = callPackage ./pac_defs/Bibata-Modern-Ice.nix {};
-    devour-flake = prev.callPackage prev.inputs.devour-flake {};
+    devour-flake = prev.callPackage devour-flake {};
   };
 in
   packages

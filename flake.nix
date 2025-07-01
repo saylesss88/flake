@@ -10,6 +10,8 @@
     disko.url = "github:nix-community/disko";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    devour-flake.url = "github:srid/devour-flake";
+    devour-flake.flake = false;
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
@@ -70,7 +72,7 @@
 
     homeManagerModules = import ./home;
 
-    overlays = import ./lib/overlay.nix;
+    overlays = import ./lib/overlay.nix {devour-flake = inputs.devour-flake;};
   in {
     inherit lib;
 
