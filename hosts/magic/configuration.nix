@@ -1,8 +1,7 @@
 {
   lib,
   pkgs,
-  inputs,
-  config, # Add config to the arguments for accessing config.networking.hostName etc.
+  inputs, # Add config to the arguments for accessing config.networking.hostName etc.
   overlays,
   ...
 }: let

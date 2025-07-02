@@ -21,7 +21,7 @@ in {
       pkgs.shfmt
       pkgs.shellcheck
       pkgs.nixd
-      pkgs.nodejs_22
+      pkgs.nodejs_24
       pkgs.nil
       pkgs.lua-language-server
       pkgs.bash-language-server

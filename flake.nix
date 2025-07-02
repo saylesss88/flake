@@ -18,12 +18,10 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     flake-utils.url = "github:numtide/flake-utils";
-    # 2. Override the flake-utils default to your version
     flake-utils.inputs.systems.follows = "systems";
     claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
-    claude-desktop.inputs.flake-utils.follows = "flake-utils"; # Corrected: should follow 'flake-utils'
-
+    claude-desktop.inputs.flake-utils.follows = "flake-utils";
     nvf.url = "github:notashelf/nvf";
     yazi.url = "github:sxyazi/yazi";
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -56,7 +54,7 @@
     system = "x86_64-linux";
     host = "magic";
     # lib = nixpkgs.lib // home-manager.lib;
-    lib = nixpkgs.lib;
+    inherit (nixpkgs) lib;
     forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs (import systems) (
       system:
@@ -75,7 +73,7 @@
 
     homeManagerModules = import ./home;
 
-    overlays = import ./lib/overlay.nix {devour-flake = inputs.devour-flake;};
+    overlays = import ./lib/overlay.nix {inherit (inputs) devour-flake;};
   in {
     inherit lib;
 

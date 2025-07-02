@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     echo "Rollback running" > /mnt/rollback.log
      mkdir -p /mnt
