@@ -57,7 +57,16 @@ in {
         mako
       ];
 
-      sound.enable = true;
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+        # Optionally:
+        jack.enable = true;
+      };
+
+      hardware.alsa.enablePersistence = true;
+
       networking.networkmanager.enable = true;
     };
   };
