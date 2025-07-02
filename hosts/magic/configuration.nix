@@ -45,7 +45,7 @@ in {
       services.greetd = {
         enable = true;
         settings.default_session = {
-          command = "niri-session";
+          command = lib.mkForce "niri-session";
           user = "niri";
         };
       };
