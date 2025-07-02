@@ -26,25 +26,22 @@ in {
     niri-test.configuration = {
       system.nixos.tags = ["niri"];
 
-      # Add the Niri overlay if needed
+      # Add the Niri overlay for this specialisation
       nixpkgs.overlays = [inputs.niri.overlays.niri];
 
       # Enable Niri session
       programs.niri.enable = true;
+
+      # Use the overlaid pkgs for niri-unstable
       programs.niri.package = pkgs.niri-unstable;
 
-      # Optionally, set Niri settings (see niri-flake docs for more options)
-      # programs.niri.settings = { ... };
-
-      # Set up a test user
+      # Optionally, add a test user and greetd for login
       users.users.niri = {
         isNormalUser = true;
-        uid = 1100;
         extraGroups = ["networkmanager" "video" "wheel"];
-        initialPassword = "test"; # change as appropriate
+        initialPassword = "test"; # for testing only!
       };
 
-      # Use Greetd as a display manager for Wayland sessions
       services.greetd = {
         enable = true;
         settings.default_session = {
@@ -53,16 +50,13 @@ in {
         };
       };
 
-      # Optionally, add some useful packages for a minimal desktop
       environment.systemPackages = with pkgs; [
-        ghostty
+        alacritty
         waybar
         fuzzel
         mako
-        # ...any other tools you want
       ];
 
-      # Enable sound, networking, etc. as needed
       sound.enable = true;
       networking.networkmanager.enable = true;
     };
