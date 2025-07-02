@@ -33,10 +33,10 @@
       nixpkgs.overlays = [inputs.niri.overlays.niri];
 
       # Enable Niri session
-      programs.niri.enable = true;
-
-      # Use the overlaid pkgs for niri-unstable
-      programs.niri.package = pkgs.niri-unstable;
+      programs.niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+      };
 
       # Optionally, add a test user and greetd for login
       users.users.niri = {
@@ -56,6 +56,14 @@
         };
       };
 
+      environment.etc."niri/config.kdl".text = ''
+        binds {
+          Mod+T { spawn "alacritty"; }
+          Mod+D { spawn "fuzzel"; }
+          Mod+Q { close-window; }
+          Mod+Shift+Q { exit; }
+        }
+      '';
       environment.systemPackages = with pkgs; [
         alacritty
         waybar
