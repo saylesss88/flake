@@ -49,6 +49,7 @@ in {
       plymouth = {
         enable = true;
         theme = "rings";
+        font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
         themePackages = with pkgs; [
           (adi1090x-plymouth-themes.override {
             selected_themes = ["rings"];

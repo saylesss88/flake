@@ -1,12 +1,14 @@
 {pkgs, ...}: {
   services.greetd = {
     enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "jr";
+    vt = 2; # or your preferred VT
+    settings = {
+      default_session = {
+        user = "greeter"; # recommended, see below
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
       };
-      default_session = initial_session;
     };
+    # This is the key line:
+    stopPlymouth = true;
   };
 }
