@@ -65,7 +65,7 @@ in {
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
 
-  nixpkgs.overlays = [overlays];
+  nixpkgs.overlays = [overlays inputs.niri.overlays.niri];
 
   boot.binfmt.emulatedSystems = ["x86_64-windows" "aarch64-linux"];
 
