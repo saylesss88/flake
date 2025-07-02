@@ -4,12 +4,10 @@
   inputs, # Add config to the arguments for accessing config.networking.hostName etc.
   overlays,
   ...
-}:
-# let
-# PRIMARYUSBID = "B7B4-863B"; # From `blkid /dev/sda1`
-# BACKUPUSBID = "Ventoy"; # Optional secondary USB
-# in
-{
+}: let
+  PRIMARYUSBID = "B7B4-863B"; # From `blkid /dev/sda1`
+  BACKUPUSBID = "Ventoy"; # Optional secondary USB
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -81,36 +79,37 @@
 
   boot.binfmt.emulatedSystems = ["x86_64-windows" "aarch64-linux"];
 
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/disk/by-partlabel/luks";
-      allowDiscards = true;
-      # fallbackToPassword = true;
-    };
-  };
-  # boot.initrd.kernelModules = [
-  #   "uas"
-  #   "usbcore"
-  #   "usb_storage"
-  #   "vfat"
-  #   "nls_cp437"
-  #   "nls_iso8859_1"
-  # ];
-
-  # boot.initrd.postDeviceCommands = lib.mkBefore ''
-  #   mkdir -p /key
-  #   sleep 2
-  #   mount -n -t vfat -o ro $(findfs UUID=${PRIMARYUSBID}) /key || \
-  #   mount -n -t vfat -o ro $(findfs UUID=${BACKUPUSBID}) /key || echo "No USB key found"
-  # '';
-
-  # boot.initrd.luks.devices.cryptroot = {
-  #   device = "/dev/disk/by-partlabel/luks";
-  #   keyFile = "/key/usb-luks.key";
-  #   fallbackToPassword = true;
-  #   allowDiscards = true;
-  #   preLVM = false; # Crucial!
+  # boot.initrd.luks.devices = {
+  #   cryptroot = {
+  #     device = "/dev/disk/by-partlabel/luks";
+  #     allowDiscards = true;
+  #     # fallbackToPassword = true;
+  #   };
   # };
+
+  boot.initrd.kernelModules = [
+    "uas"
+    "usbcore"
+    "usb_storage"
+    "vfat"
+    "nls_cp437"
+    "nls_iso8859_1"
+  ];
+
+  boot.initrd.postDeviceCommands = lib.mkBefore ''
+    mkdir -p /key
+    sleep 2
+    mount -n -t vfat -o ro $(findfs UUID=${PRIMARYUSBID}) /key || \
+    mount -n -t vfat -o ro $(findfs UUID=${BACKUPUSBID}) /key || echo "No USB key found"
+  '';
+
+  boot.initrd.luks.devices.cryptroot = {
+    device = "/dev/disk/by-partlabel/luks";
+    keyFile = "/key/usb-luks.key";
+    fallbackToPassword = true;
+    allowDiscards = true;
+    preLVM = false; # Crucial!
+  };
 
   services.btrfs.autoScrub = {
     enable = true;
