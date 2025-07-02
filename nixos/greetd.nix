@@ -8,7 +8,5 @@
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
       };
     };
-    # This is the key line:
-    stopPlymouth = true;
   };
 }
