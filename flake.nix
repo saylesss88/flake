@@ -13,7 +13,7 @@
     devour-flake.url = "github:srid/devour-flake";
     devour-flake.flake = false;
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
-    niri.url = "github:sodiboo/niri-flake";
+    # niri.url = "github:sodiboo/niri-flake";
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
@@ -103,7 +103,7 @@
       modules = [
         ./hosts/${host}/configuration.nix
         home-manager.nixosModules.home-manager
-        inputs.niri.nixosModules.niri
+        # inputs.niri.nixosModules.niri
         nixosModules # add all modules from ./nixos
         {
           home-manager.useGlobalPkgs = true;
