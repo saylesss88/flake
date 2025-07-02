@@ -46,7 +46,7 @@ in {
         enable = true;
         settings.default_session = {
           command = lib.mkForce "niri-session";
-          user = "niri";
+          user = lib.mkForce "niri";
         };
       };
 
