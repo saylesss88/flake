@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   services.greetd = {
     enable = true;
-    vt = 2; # or your preferred VT
+    vt = 3; # or your preferred VT
     settings = {
       default_session = {
         user = "greeter"; # recommended, see below
