@@ -19,7 +19,7 @@
         # description = "gitUsername";
         # Change me! generate with `mkpasswd -m SHA-512 -s`
         # initialHashedPassword = "$6$knlskdQSQp4le3uiy..3$gAUAugTxAeHUpWKf6iwlkasdjf'lkajWNZRTtjbJ4X0PIjkIQOCcLcimOJe4Y0";
-        initialHashedPassword = "$6$K3ToXMHGlDFwnlSD$ntaHwZ50o0pICGSK5PQhGLvIuUfDf6afhVZf0Mpymv16813pdHJSX.9zIhIeCCQ25B6FrY.NA4RX/NzqmULDu.";
+        hashedPasswordFile = config.sops.secrets.password_hash.path;
 
         extraGroups = [
           "networkmanager"
