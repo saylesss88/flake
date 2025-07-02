@@ -4,14 +4,17 @@
   inputs, # Add config to the arguments for accessing config.networking.hostName etc.
   overlays,
   ...
-}: let
-  PRIMARYUSBID = "B7B4-863B"; # From `blkid /dev/sda1`
-  BACKUPUSBID = "Ventoy"; # Optional secondary USB
-in {
+}:
+#    let
+#   PRIMARYUSBID = "B7B4-863B"; # From `blkid /dev/sda1`
+#   BACKUPUSBID = "Ventoy"; # Optional secondary USB
+# in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./disk-config2.nix
+    # ./luks_key.nix
     ./users.nix
     ./security.nix
     inputs.sops-nix.nixosModules.sops
@@ -22,54 +25,57 @@ in {
     ./sops.nix
   ];
 
-  # specialisation = {
-  #   niri-test.configuration = {
-  #     system.nixos.tags = ["niri"];
+  specialisation = {
+    niri-test.configuration = {
+      system.nixos.tags = ["niri"];
 
-  #     # Add the Niri overlay for this specialisation
-  #     nixpkgs.overlays = [inputs.niri.overlays.niri];
+      # Add the Niri overlay for this specialisation
+      nixpkgs.overlays = [inputs.niri.overlays.niri];
 
-  #     # Enable Niri session
-  #     programs.niri.enable = true;
+      # Enable Niri session
+      programs.niri.enable = true;
 
-  #     # Use the overlaid pkgs for niri-unstable
-  #     programs.niri.package = pkgs.niri-unstable;
+      # Use the overlaid pkgs for niri-unstable
+      programs.niri.package = pkgs.niri-unstable;
 
-  #     # Optionally, add a test user and greetd for login
-  #     users.users.niri = {
-  #       isNormalUser = true;
-  #       extraGroups = ["networkmanager" "video" "wheel"];
-  #       initialPassword = "test"; # for testing only!
-  #     };
+      # Optionally, add a test user and greetd for login
+      users.users.niri = {
+        isNormalUser = true;
+        extraGroups = ["networkmanager" "video" "wheel"];
+        initialPassword = "test"; # for testing only!
+      };
 
-  #     services.greetd = {
-  #       enable = true;
-  #       settings.default_session = {
-  #         command = lib.mkForce "niri-session";
-  #         user = lib.mkForce "niri";
-  #       };
-  #     };
+      services.greetd = {
+        enable = true;
+        settings = rec {
+          initial_session = {
+            command = lib.mkForce "${pkgs.niri}/bin/niri";
+            user = lib.mkForce "niri";
+          };
+          default_session = initial_session;
+        };
+      };
 
-  #     environment.systemPackages = with pkgs; [
-  #       alacritty
-  #       waybar
-  #       fuzzel
-  #       mako
-  #     ];
+      environment.systemPackages = with pkgs; [
+        alacritty
+        waybar
+        fuzzel
+        mako
+      ];
 
-  #     services.pipewire = {
-  #       enable = true;
-  #       alsa.enable = true;
-  #       pulse.enable = true;
-  #       # Optionally:
-  #       jack.enable = true;
-  #     };
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+        # Optionally:
+        jack.enable = true;
+      };
 
-  #     hardware.alsa.enablePersistence = true;
+      hardware.alsa.enablePersistence = true;
 
-  #     networking.networkmanager.enable = true;
-  #   };
-  # };
+      networking.networkmanager.enable = true;
+    };
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
@@ -79,36 +85,12 @@ in {
 
   boot.binfmt.emulatedSystems = ["x86_64-windows" "aarch64-linux"];
 
-  # boot.initrd.luks.devices = {
-  #   cryptroot = {
-  #     device = "/dev/disk/by-partlabel/luks";
-  #     allowDiscards = true;
-  #     # fallbackToPassword = true;
-  #   };
-  # };
-
-  boot.initrd.kernelModules = [
-    "uas"
-    "usbcore"
-    "usb_storage"
-    "vfat"
-    "nls_cp437"
-    "nls_iso8859_1"
-  ];
-
-  boot.initrd.postDeviceCommands = lib.mkBefore ''
-    mkdir -p /key
-    sleep 2
-    mount -n -t vfat -o ro $(findfs UUID=${PRIMARYUSBID}) /key || \
-    mount -n -t vfat -o ro $(findfs UUID=${BACKUPUSBID}) /key || echo "No USB key found"
-  '';
-
-  boot.initrd.luks.devices.cryptroot = {
-    device = "/dev/disk/by-partlabel/luks";
-    keyFile = "/key/usb-luks.key";
-    fallbackToPassword = true;
-    allowDiscards = true;
-    preLVM = false; # Crucial!
+  boot.initrd.luks.devices = {
+    cryptroot = {
+      device = "/dev/disk/by-partlabel/luks";
+      allowDiscards = true;
+      # fallbackToPassword = true;
+    };
   };
 
   services.btrfs.autoScrub = {
