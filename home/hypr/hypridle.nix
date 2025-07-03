@@ -14,9 +14,8 @@ _: {
             on-timeout = "hyprlock";
           }
           {
-            timeout = 900;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
+            timeout = 900; # 15 min (adjust as desired)
+            on-timeout = "systemctl hibernate";
           }
         ];
       };
