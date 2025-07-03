@@ -93,6 +93,8 @@
 
   nixpkgs.overlays = [overlays inputs.niri.overlays.niri];
 
+  powerManagement.enable = true;
+
   boot = {
     initrd.luks.devices = {
       cryptroot = {
