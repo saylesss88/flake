@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
@@ -104,6 +108,7 @@
         ./hosts/${host}/configuration.nix
         home-manager.nixosModules.home-manager
         inputs.niri.nixosModules.niri
+        inputs.lix-module.nixosModules.default
         nixosModules # add all modules from ./nixos
         {
           home-manager.useGlobalPkgs = true;
