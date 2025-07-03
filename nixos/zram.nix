@@ -11,7 +11,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     zramSwap = {
-      enable = true;
+      enable = false;
       # one of "lzo", "lz4", "zstd"
       algorithm = "zstd";
 
