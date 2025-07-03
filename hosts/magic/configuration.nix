@@ -16,6 +16,7 @@
     ./disk-config2.nix
     # ./luks_key.nix
     ./users.nix
+    ./suspend_hibernate.nix
     ./security.nix
     inputs.sops-nix.nixosModules.sops
     inputs.lanzaboote.nixosModules.lanzaboote
