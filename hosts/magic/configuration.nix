@@ -86,19 +86,23 @@
     };
   };
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld = {
+    enable = true;
+    libraries = [];
+  };
 
   nixpkgs.overlays = [overlays inputs.niri.overlays.niri];
 
-  boot.binfmt.emulatedSystems = ["x86_64-windows" "aarch64-linux"];
-
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/disk/by-partlabel/luks";
-      allowDiscards = true;
-      # fallbackToPassword = true;
+  boot = {
+    initrd.luks.devices = {
+      cryptroot = {
+        device = "/dev/disk/by-partlabel/luks";
+        allowDiscards = true;
+        # fallbackToPassword = true;
+      };
     };
+    resumeDevice = "/dev/mapper/cryptroot";
+    binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
   services.btrfs.autoScrub = {
