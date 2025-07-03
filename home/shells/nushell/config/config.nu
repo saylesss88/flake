@@ -18,18 +18,18 @@ $env.RUST_BACKTRACE = 1
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 # Add your flake_path to NIX_PATH
-let flake_path = ($env.HOME | path join "flaked")
+let flake_path = ($env.HOME | path join "flake")
 # $env.NIX_PATH = ($env.NIX_PATH | append ":flaked=flake:" | append $flake_path)
 # $env.TOPIARY_LANGUAGE_DIR = (path join $env.XDG_CONFIG_HOME "topiary" "languages")
 
-use /home/jr/flaked/home/shells/nushell/config/fzf.nu [
+use /home/jr/flake/home/shells/nushell/config/fzf.nu [
   carapace_by_fzf
   complete_line_by_fzf
   update_manpage_cache
   atuin_menus_func
 ]
-use /home/jr/flaked/home/shells/nushell/config/sesh.nu sesh_connect
-source /home/jr/flaked/home/shells/nushell/themes/tokyonight_night.nu
+use /home/jr/flake/home/shells/nushell/config/sesh.nu sesh_connect
+source /home/jr/flake/home/shells/nushell/themes/tokyonight_night.nu
 # source /home/jr/flake/home/shells/nushell/nu_scripts/themes/nu-themes/dracula.nu
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
@@ -178,15 +178,15 @@ $env.config.keybindings ++= [
 
 # load scripts
 # use /home/jr/flake/home/shells/nushell/starship.nu
-use /home/jr/flaked/home/shells/nushell/config/scripts/extractor.nu extract
-use /home/jr/flaked/home/shells/nushell/config/auto-pair.nu *
+use /home/jr/flake/home/shells/nushell/config/scripts/extractor.nu extract
+use /home/jr/flake/home/shells/nushell/config/auto-pair.nu *
 set auto_pair_keybindings
-use /home/jr/flaked/home/shells/nushell/config/matchit.nu *
+use /home/jr/flake/home/shells/nushell/config/matchit.nu *
 set matchit_keybinding
-source /home/jr/flaked/home/shells/nushell/config/zoxide.nu
-source /home/jr/flaked/home/shells/nushell/config/nix.nu
+source /home/jr/flake/home/shells/nushell/config/zoxide.nu
+source /home/jr/flake/home/shells/nushell/config/nix.nu
 # source auth/llm.nu
-source /home/jr/flaked/home/shells/nushell/config/atuin.nu
+source /home/jr/flake/home/shells/nushell/config/atuin.nu
 
 # alias
 # alias vim = nvim
