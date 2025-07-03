@@ -103,7 +103,7 @@
         # fallbackToPassword = true;
       };
     };
-    resumeDevice = "/dev/disk/by-partlabel/luks";
+    # resumeDevice = "/dev/disk/by-partlabel/luks";
     binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
