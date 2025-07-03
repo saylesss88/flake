@@ -34,7 +34,6 @@ in {
         "systemd.show_status=auto"
         "rd.udev.log_level=3"
         "plymouth.use-simpledrm"
-        "resume=UUID=a8a2540a-60c9-4fee-b4ff-7740d27822cc"
         "resume_offset=269568"
       ];
       kernel.sysctl = {

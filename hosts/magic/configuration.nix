@@ -103,7 +103,7 @@
         # fallbackToPassword = true;
       };
     };
-    resumeDevice = "/persist/swap/swapfile";
+    resumeDevice = "/dev/disk/by-uuid/a8a2540a-60c9-4fee-b4ff-7740d27822cc";
     binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
