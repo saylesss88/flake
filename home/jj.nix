@@ -28,14 +28,14 @@ in {
       description = "Jujutsu user email";
     };
 
-    configFile = lib.mkOption {
-      type = lib.types.lines;
-      default = ''
-        [ui]
-        diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
-      '';
-      description = "Content of the Jujutsu config.toml file";
-    };
+    # configFile = lib.mkOption {
+    #   type = lib.types.lines;
+    #   default = ''
+    #     [ui]
+    #     diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+    #   '';
+    #   description = "Content of the Jujutsu config.toml file";
+    # };
 
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -48,7 +48,7 @@ in {
       default = {
         ui = {
           default-command = ["status"];
-          # diff-editor = ["nvim" "-c" "DiffEditor" "$left" "$right" "$output"];
+          diff-editor = ["nvim" "-c" "DiffEditor" "$left" "$right" "$output"];
           merge-editor = ":builtin";
         };
         git = {
@@ -62,7 +62,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = cfg.packages;
 
-    home.file.".jj/config.toml".text = cfg.configFile;
+    # home.file.".jj/config.toml".text = cfg.configFile;
 
     programs.jujutsu = {
       enable = true;
