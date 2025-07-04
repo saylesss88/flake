@@ -37,7 +37,9 @@ in {
         br = "branch ";
         df = "diff ";
         dc = "diff - -cached ";
-        lg = "log - p ";
+        lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all";
+        compare-branches = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative";
+        # lg = "log - p ";
         pr = "pull - -rebase ";
         p = "push ";
         ppr = "push - -set-upstream origin ";
@@ -136,6 +138,7 @@ in {
 
     programs.git = {
       enable = true;
+      lfs.enable = true;
       inherit (cfg) userName;
       inherit (cfg) userEmail;
       inherit (cfg) aliases;

@@ -31,8 +31,8 @@
           "jr"
           "sudo"
         ];
-        shell = pkgs.nushell;
-        # shell = pkgs.zsh;
+        # shell = pkgs.nushell;
+        shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
         packages = [
           pkgs.tealdeer
