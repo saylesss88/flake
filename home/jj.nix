@@ -30,10 +30,10 @@ in {
 
     configFile = lib.mkOption {
       type = lib.types.lines;
-      # default = ''
-      #   [ui]
-      #   diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
-      # '';
+      default = ''
+        [ui]
+        diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+      '';
       description = "Content of the Jujutsu config.toml file";
     };
 
@@ -47,8 +47,8 @@ in {
       type = lib.types.attrs;
       default = {
         ui = {
-          default-command = ["status" "--no-pager"];
-          diff-editor = ["nvim" "-c" "DiffEditor" "$left" "$right" "$output"];
+          default-command = ["status"];
+          # diff-editor = ["nvim" "-c" "DiffEditor" "$left" "$right" "$output"];
           merge-editor = ":builtin";
         };
         git = {
