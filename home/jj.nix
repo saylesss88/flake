@@ -33,6 +33,7 @@ in {
       default = ''
         [ui]
         diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+        git.auto-local-bookmark = true
       '';
       description = "Content of the Jujutsu config.toml file";
     };
