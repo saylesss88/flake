@@ -41,7 +41,7 @@ in {
         pr = "pull - -rebase ";
         p = "push ";
         ppr = "push - -set-upstream origin ";
-        lol = "log - -graph - -decorate - -pretty=oneline --abbrev-commit";
+        lol = "log - -graph - --decorate - -pretty=oneline --abbrev-commit";
         lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
         latest = "for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1";
         undo = "git reset --soft HEAD^";
