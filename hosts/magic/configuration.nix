@@ -56,9 +56,6 @@
 
   networking.hostName = "magic"; # Define your hostname.
 
-  # It seems like 'custom' might be a custom module that bundles other modules.
-  # If so, ensure inputs.lib.nixOsModules correctly points to its definition.
-  # Otherwise, these would be top-level options.
   custom = {
     magic.enable = true; # bundle of nixos modules
     magic.timezone = "America/New_York";
@@ -74,7 +71,6 @@
     utils.enable = true;
   };
 
-  # During system activation, compare the closure size difference between the current and new system and display a formatted table if significant changes are detected.
   system.activationScripts.diff = ''
     if [[ -e /run/current-system ]]; then
       ${pkgs.nushell}/bin/nu -c "let diff_closure = (${pkgs.nix}/bin/nix store diff-closures /run/current-system '$systemConfig'); let table = (\$diff_closure | lines | where \$it =~ KiB | where \$it =~ → | parse -r '^(?<Package>\S+): (?<Old>[^,]+)(?:.*) → (?<New>[^,]+)(?:.*), (?<DiffBin>.*)$' | insert Diff { get DiffBin | ansi strip | into filesize } | sort-by -r Diff | reject DiffBin); if (\$table | get Diff | is-not-empty) { print \"\"; \$table | append [[Package Old New Diff]; [\"\" \"\" \"\" \"\"]] | append [[Package Old New Diff]; [\"\" \"\" \"Total:\" (\$table | get Diff | math sum) ]] | print; print \"\" }"
@@ -92,7 +88,7 @@
 
   console.keyMap = "us";
 
-  # nixpkgs.config.allowUnfree = true; # This is global, duplicates the predicate slightly.
+  # nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05";
 }
