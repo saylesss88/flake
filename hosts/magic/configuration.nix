@@ -19,6 +19,7 @@
     ./suspend_hibernate.nix
     ./security.nix
     ./specialisation.nix
+    ./container.nix
     inputs.sops-nix.nixosModules.sops
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.disko.nixosModules.disko
