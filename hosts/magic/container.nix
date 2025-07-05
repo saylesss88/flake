@@ -15,7 +15,7 @@
       ...
     }: {
       # networking.enableDNS = true;
-      networking.useDHCP = true;
+      networking.useDHCP = lib.mkDefault true;
 
       services.httpd = {
         enable = true;
