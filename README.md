@@ -47,8 +47,8 @@ Working copy  (@) now at: yqysvxou 2904938d (empty) (no description set)
 Parent commit (@-)      : nsrpsrvs 7cf06554 adding jj completions to zsh and a workflow README
 ```
 
-The working copy is now at: yqy an empty commit, with no description, and the parent is
-no longer empty
+The working copy is now at: yqy an empty commit, with no description, and the
+parent is no longer empty
 
 What we did is similar to `git commit -a --amend`. To pass individual files:
 
@@ -60,7 +60,8 @@ We can also get something similar to `git add -p && git commit --amend`:
 
 ```bash
 jj squash -i
+jj abandon
 ```
 
 Hit space to select, `f` for folding, `c` to confirm changes, and abandon all
-changes with `jj abandon`
+changes with `jj abandon`.
