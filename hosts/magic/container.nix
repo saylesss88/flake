@@ -39,6 +39,7 @@
       };
 
       users.users.root.initialHashedPassword = "$6$Ezuf26fZZ6d5eGR.$v7D.3xzY1r1q778ciEZV4bWed0Nw57OiSrgYxNAUVE12VTID1Xu7tsjQuKIWJb6WCp.RdAaUbgTP86qJnD2yR.";
+      system.stateVersion = "25.05";
     };
   };
 }
