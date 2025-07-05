@@ -51,7 +51,7 @@ in {
           amend = ["describe" "-m"];
           pushall = ["git" "push" "--all"];
           dmain = ["diff" "-r" "main"];
-          l = ["log" "-T" "--color-words"];
+          l = ["log" "-T" "builtin_log_compact"];
         };
       };
       description = "Jujutsu configuration settings";
