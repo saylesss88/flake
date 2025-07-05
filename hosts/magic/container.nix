@@ -14,7 +14,7 @@
       containerPkgs,
       ...
     }: {
-      networking.enableDNS = true;
+      # networking.enableDNS = true;
       networking.useDHCP = true;
 
       services.httpd = {
