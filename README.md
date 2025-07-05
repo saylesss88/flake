@@ -40,3 +40,27 @@ Parent commit (@-): nsrpsrvs 88d5cbb0 adding jj completions to zsh and a workflo
 
 Our Working copy shows changes `M README.md` and our Working copy (@): nnk 0b9
 Parent commit (@-): nsr 88d
+
+```bash
+jj squash
+Working copy  (@) now at: yqysvxou 2904938d (empty) (no description set)
+Parent commit (@-)      : nsrpsrvs 7cf06554 adding jj completions to zsh and a workflow README
+```
+
+The working copy is now at: yqy an empty commit, with no description, and the parent is
+no longer empty
+
+What we did is similar to `git commit -a --amend`. To pass individual files:
+
+```bash
+jj squash README.md
+```
+
+We can also get something similar to `git add -p && git commit --amend`:
+
+```bash
+jj squash -i
+```
+
+Hit space to select, `f` for folding, `c` to confirm changes, and abandon all
+changes with `jj abandon`
