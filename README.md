@@ -64,6 +64,11 @@ jj abandon
 ```
 
 Hit space to select, `f` for folding, `c` to confirm changes, and abandon all
-changes with `jj abandon`.
+changes with `jj abandon`. changes with `jj abandon`. We can also get something
+similar to `git add -p && git commit --amend`: Hit space to select, `f` for
+folding, `c` to confirm changes, and abandon all changes with `jj abandon`.
 changes with `jj abandon`. We can also get something similar to
+`git add -p && git commit --amend`: Hit space to select, `f` for folding, `c` to
+confirm changes, and abandon all changes with `jj abandon`. changes with
+`jj abandon`. We can also get something similar to
 `git add -p && git commit --amend`:
