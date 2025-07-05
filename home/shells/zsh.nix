@@ -136,7 +136,7 @@
       ft = "nh os test --hostname magic /home/jr/flake"; # dont save generation to boot menu
       fu = "nh os switch --hostname magic --update /home/jr/flake";
       rebuild = "/home/jr/scripts/performance_hook.sh";
-      ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      ncg = "nix-collect-garbage --delete-older-than 3d && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       nc = "nix flake check";
       nt = "nix flake test";
       opts = "man home-configuration.nix";

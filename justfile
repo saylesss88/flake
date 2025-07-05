@@ -76,6 +76,13 @@ repair-store *paths:
 vm:
     sudo nixos-rebuild build-vm
 
+[group('nix')]
+listgen:
+    sudo nix-env --profile /nix/var/nix/profiles/system --list-generations
+
+[group('nix')]
+delgen:
+    sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10
 
 system-info:
      "This is an {{arch()}} machine"

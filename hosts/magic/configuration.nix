@@ -17,7 +17,7 @@
     # ./luks_key.nix
     ./users.nix
     ./suspend_hibernate.nix
-    ./security.nix
+    # ./security.nix
     ./specialisation.nix
     ./container.nix
     inputs.sops-nix.nixosModules.sops
@@ -77,6 +77,12 @@
       ${pkgs.nushell}/bin/nu -c "let diff_closure = (${pkgs.nix}/bin/nix store diff-closures /run/current-system '$systemConfig'); let table = (\$diff_closure | lines | where \$it =~ KiB | where \$it =~ → | parse -r '^(?<Package>\S+): (?<Old>[^,]+)(?:.*) → (?<New>[^,]+)(?:.*), (?<DiffBin>.*)$' | insert Diff { get DiffBin | ansi strip | into filesize } | sort-by -r Diff | reject DiffBin); if (\$table | get Diff | is-not-empty) { print \"\"; \$table | append [[Package Old New Diff]; [\"\" \"\" \"\" \"\"]] | append [[Package Old New Diff]; [\"\" \"\" \"Total:\" (\$table | get Diff | math sum) ]] | print; print \"\" }"
     fi
   '';
+
+  systemd.tmpfiles.rules = [
+    "d /var/www 0755 root root - -"
+    "d /var/www/mdbook 0755 root root - -"
+    "d /home/jr/nix-book/book 0755 jr users - -"
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
