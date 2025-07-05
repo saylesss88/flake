@@ -16,26 +16,15 @@ in {
 
     userName = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
-      # default = userVars.gitUsername; # or "TSawyer87"; # Fallback to "TSawyer87" if userVars.gitUsername is undefined
       default = "saylesss88";
       description = "Jujutsu user name";
     };
 
     userEmail = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
-      # default = userVars.gitEmail; # or "sawyerjr.25@gmail.com"; # Fallback to email if userVars.gitEmail is undefined
       default = "saylesss87@proton.me";
       description = "Jujutsu user email";
     };
-
-    # configFile = lib.mkOption {
-    #   type = lib.types.lines;
-    #   default = ''
-    #     [ui]
-    #     diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
-    #   '';
-    #   description = "Content of the Jujutsu config.toml file";
-    # };
 
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -54,6 +43,16 @@ in {
         git = {
           auto-local-bookmark = true;
         };
+        aliases = {
+          tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+          upmain = ["bookmark" "set" "main"];
+          squash-desc = ["squash" "::@" "-d" "@"];
+          rebase-main = ["rebase" "-d" "main"];
+          amend = ["describe" "-m"];
+          pushall = ["git" "push" "--all"];
+          dmain = ["diff" "-r" "main"];
+          l = ["log" "-T" "short"];
+        };
       };
       description = "Jujutsu configuration settings";
     };
@@ -61,8 +60,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = cfg.packages;
-
-    # home.file.".jj/config.toml".text = cfg.configFile;
 
     programs.jujutsu = {
       enable = true;
