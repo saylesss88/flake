@@ -85,6 +85,8 @@
     git
   ];
 
+  networking.firewall.allowedTCPPorts = [80];
+
   time.timeZone = "America/New_York";
 
   console.keyMap = "us";
