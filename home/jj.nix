@@ -36,7 +36,7 @@ in {
       type = lib.types.attrs;
       default = {
         ui = {
-          default-command = ["status"];
+          default-command = ["status" "--no-pager"];
           diff-editor = ["nvim" "-c" "DiffEditor" "$left" "$right" "$output"];
           merge-editor = ":builtin";
         };
