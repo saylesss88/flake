@@ -40,9 +40,9 @@ use $FZF_PATH [
 use $SESH_PATH sesh_connect
 source $THEME_PATH
 # source /home/jr/flake/home/shells/nushell/nu_scripts/themes/nu-themes/dracula.nu
-# $env.GPG_TTY = (tty)
-# $env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket | str trim)
-# gpg-connect-agent updatestartuptty /bye
+$env.GPG_TTY = (tty)
+$env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket | str trim)
+gpgconf --launch gpg-agent
 
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
 $env.config.edit_mode = "vi"
