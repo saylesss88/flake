@@ -1,0 +1,30 @@
+{pkgs, ...}: let
+  cleanupScript = pkgs.writeShellScriptBin "clean" ''
+       #!/bin/sh -e
+    USER="jr"
+    HOME_DIR="/home/$USER"
+    # clear user cache
+    rm -fr "$HOME_DIR/.cache"
+    # generate a new machine-id
+    rm -f /var/lib/machine-id
+    dbus-uuidgen > /var/lib/machine-id
+    cp /var/lib/machine-id /etc/machine-id
+    chmod 444 /etc/machine-id
+    exit 0
+  '';
+in {
+  systemd.services.cleanup = {
+    description = "Custom shutdown system cleanup";
+    wantedBy = ["shutdown.target" "reboot.target" "halt.target"];
+    before = ["shutdown.target" "reboot.target" "halt.target"];
+    unitConfig = {
+      DefaultDependencies = false;
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${cleanupScript}";
+      RemainAfterExit = false;
+      TimeoutStartSec = 0;
+    };
+  };
+}

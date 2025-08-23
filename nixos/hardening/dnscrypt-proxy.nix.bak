@@ -1,0 +1,113 @@
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
+  blocklist_base = builtins.readFile inputs.oisd;
+  extraBlocklist = '''';
+  blocklist_txt = pkgs.writeText "blocklist.txt" ''
+    ${extraBlocklist}
+    ${blocklist_base}
+  '';
+  hasIPv6Internet = true;
+  StateDirectory = "dnscrypt-proxy";
+in {
+  # Without systemd-resolved
+  networking = {
+    # Set DNS nameservers to the local host addresses for iPv4 (`127.0.0.1`) & iPv6 (::1)
+    nameservers = ["127.0.0.1" "::1"];
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    networkmanager.dns = "none";
+    # networkmanager.dns = lib.mkIf config.networking.networkmanager.enable "none";
+    # dhcpcd.extraConfig = lib.mkIf config.networking.dhcpcd.enable "nohook resolv.conf";
+  };
+  services.resolved.enable = lib.mkForce false;
+
+  # services.tor = {
+  #   enable = true;
+  #   client.enable = true;
+  #   torsocks = {
+  #     enable = true;
+  #     allowInbound = false;
+  #   };
+  #   settings.SafeSocks = true;
+  #   settings.TestSocks = true;
+  # };
+
+  programs.firefox.policies.Preferences = {
+    # "network.proxy.socks" = builtins.head (builtins.split ":" config.services.tor.torsocks.server);
+    # "network.proxy.socks_port" = lib.last (builtins.split ":" config.services.tor.torsocks.server);
+    # "network.proxy.type" = 1; # Manual proxy configuration
+    # "network.proxy.socks" = "127.0.0.1";
+    # "network.proxy.socks_port" = 9050;
+    # "network.proxy.socks_remote_dns" = true;
+    # "network.proxy.socks_version" = 5;
+    "network.connectivity-service.DNSv4.domain" = "127.0.0.1";
+    "network.connectivity-service.DNSv6.domain" = "::1";
+    "network.dns.forceResolve" = true;
+    "network.dns.localDomains" = "::1";
+    "network.dns.preferIPv6" = true;
+    "media.peerconnection.enabled" = false;
+  };
+
+  # systemd.services.dnscrypt-proxy2.serviceConfig = {
+  #   after = [
+  #     "network-online.target"
+  #     "tor.service"
+  #   ];
+  #   wants = [
+  #     "network-online.target"
+  #     "tor.service"
+  #   ];
+  # };
+
+  # Static UID/GID (non-dynamic) best for production
+  # systemd.services.dnscrypt-proxy2.serviceConfig = {
+  #   User = "dnscrypt-proxy";
+  #   Group = "dnscrypt-proxy";
+  #   DynamicUser = lib.mkForce false;
+  # };
+
+  # users.users.dnscrypt-proxy = {
+  #   isSystemUser = true;
+  #   group = "dnscrypt-proxy";
+  #   uid = 199;
+  # };
+
+  # users.groups.dnscrypt-proxy = {
+  #   gid = 199;
+  # };
+
+  services.dnscrypt-proxy2 = {
+    enable = true;
+    settings = {
+      ipv6_servers = hasIPv6Internet;
+      block_ipv6 = ! hasIPv6Internet;
+      blocked_names.blocked_names_file = blocklist_txt;
+      require_dnssec = true;
+      dnscrypt_servers = true;
+      doh_servers = true;
+      odoh_servers = false;
+      require_nolog = true;
+      require_nofilter = true;
+      force_tcp = true;
+
+      sources.public-resolvers = {
+        urls = [
+          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+        ];
+        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"; # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+        cache_file = "/var/lib/${StateDirectory}/public-resolvers.md";
+      };
+
+      # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+      #server_names = [ ... ];
+    };
+  };
+  systemd.services.dnscrypt-proxy2.serviceConfig = {
+    StateDirectory = StateDirectory;
+  };
+}

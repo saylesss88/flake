@@ -1,0 +1,16 @@
+#!/bin/sh -e
+# to be stored in /etc/cleanup.sh
+USER="jr"
+HOME_DIR="/home/$USER"
+
+# clear user cache
+sudo -u "$USER" rm -fr "$HOME_DIR/.cache"
+
+# generate a new machine-id
+# this is running as root, be careful!
+rm -f /var/lib/machine-id
+dbus-uuidgen > /var/lib/machine-id
+cp /var/lib/machine-id /etc/machine-id
+chmod 444 /etc/machine-id
+
+exit 0

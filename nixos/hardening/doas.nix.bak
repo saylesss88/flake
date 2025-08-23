@@ -1,0 +1,35 @@
+{
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.custom.security.doas;
+  uN = "jr";
+in {
+  options.custom.security.doas = {
+    enable = lib.mkEnableOption "doas";
+  };
+
+  config = lib.mkIf cfg.enable {
+    # Disable sudo
+    security.sudo.enable = false;
+
+    # Enable and configure `doas`.
+    security.doas = {
+      enable = true;
+      extraRules = [
+        {
+          groups = ["wheel"];
+          persist = true;
+          noPass = true;
+          keepEnv = true;
+        }
+      ];
+    };
+
+    # Add an alias to the shell for backward-compat and convenience.
+    environment.shellAliases = {
+      sudo = "doas";
+    };
+  };
+}

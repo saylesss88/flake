@@ -1,0 +1,55 @@
+_: {
+  networking.nftables = {
+    enable = true;
+
+    ruleset = ''
+      table inet filter {
+        chain output {
+          type filter hook output priority 0; policy accept;
+          # Attach this chain to the OUTPUT hook!
+
+          # Allow localhost DNS for dnscrypt-proxy2
+          ip daddr 127.0.0.1 udp dport 53 accept
+          ip6 daddr ::1 udp dport 53 accept
+          ip daddr 127.0.0.1 tcp dport 53 accept
+          ip6 daddr ::1 tcp dport 53 accept
+
+          # Allow dnscrypt-proxy2 to talk to upstream (set correct UID!)
+          # ps -o uid,user,pid,cmd -C dnscrypt-proxy
+          meta skuid 62396 udp dport { 443, 853 } accept
+          meta skuid 62396 tcp dport { 443, 853 } accept
+
+          # Block all other outbound DNS
+          udp dport { 53, 853 } drop
+          tcp dport { 53, 853 } drop
+
+          # (all other outbound traffic: policy ACCEPT unless further rules)
+        }
+      }
+    '';
+  };
+
+  networking.firewall = {
+    enable = true;
+
+    allowedTCPPorts = [
+      # TCP ports to allow *inbound* connections from the internet.
+      # Keep this list as small as possible to reduce attack surface.
+
+      2222 # SSH – Only keep open if you need to connect to this machine remotely.
+      # If not used, comment it out or remove it entirely.
+      3310 # Default clamd TCP port
+
+      # 53  # DNS – Not needed unless running a public DNS server.
+      # 80  # HTTP – Only for hosting a public website.
+      # 443 # HTTPS – Only for hosting a public HTTPS service.
+    ];
+
+    allowedUDPPorts = [
+      # UDP ports to allow *inbound* connections.
+      # Most desktop systems don’t need any open here unless hosting a service.
+
+      # 53  # DNS – Not needed unless running a public DNS server.
+    ];
+  };
+}
