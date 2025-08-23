@@ -58,12 +58,12 @@
   custom = {
     magic.enable = true; # bundle of nixos modules
     magic.timezone = "America/New_York";
-    sddm.enable = true;
+    sddm.enable = false;
     magic.hostname = "magic";
     magic.locale = "en_US.UTF-8";
     boot.enable = true;
     networking.enable = true;
-    greetd.enable = false;
+    greetd.enable = true;
     users.enable = true;
     nix.enable = true;
     drivers.amdgpu.enable = true;

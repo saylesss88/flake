@@ -18,7 +18,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     services.greetd = {
-      enable = false;
+      enable = true;
       settings = rec {
         initial_session = {
           command = "${fallbackSession}/bin/fallback-session";

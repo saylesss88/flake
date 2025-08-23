@@ -15,7 +15,7 @@ in {
   config = mkIf cfg.enable {
     services.displayManager.sddm = {
       package = lib.mkForce pkgs.kdePackages.sddm;
-      enable = true;
+      enable = false;
       wayland.enable = true;
       theme = "catppuccin-sddm-corners";
       settings = {
@@ -45,7 +45,7 @@ in {
       })
     ];
 
-    security.pam.services.sddm.enableGnomeKeyring = true;
-    security.pam.services.sddm-greeter.enableGnomeKeyring = true;
+    # security.pam.services.sddm.enableGnomeKeyring = true;
+    # security.pam.services.sddm-greeter.enableGnomeKeyring = true;
   };
 }
