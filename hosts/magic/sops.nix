@@ -3,7 +3,7 @@ _: {
     defaultSopsFile = ../../.sops.yaml; # Or the correct path to your .sops.yaml
     age.sshKeyPaths = [];
     # gnupg.home = "/home/jr/.gnupg";
-    age.keyFile = "/home/jr/.config/sops/age/keys.txt";
+    age.keyFile = "/persist/sops/age/keys.txt";
 
     secrets = {
       "password_hash" = {
