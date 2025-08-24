@@ -88,7 +88,7 @@ in {
       default = {
         commit.gpgsign = true;
         # gpg.format = "ssh";
-        user.signingkey = "0x095882C1A124CF15";
+        user.signingkey = "F1916348EEF32C21";
         extraConfig = {
           pull = {
             rebase = true;
