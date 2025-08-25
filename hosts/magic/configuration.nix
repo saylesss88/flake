@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   # overlays,
-  lib,
   ...
 }: {
   imports = [
@@ -22,10 +21,9 @@
   ];
   # gaming.enable = false;
   # docker-compose.enable = false;
-  specialisation.no-sops.configuration = {
-    users.users.jr.initialHashedPassword = lib.mkForce "$y$j9T$XGZRNSIruxsAiF1KyaTAS/$6aICu4LJp0Fi./Qccdyf6giEPIJt0TIMCg/8Amh1Pr4";
-    # security.apparmor.enable = lib.mkForce false;
-  };
+  # specialisation.no-sops.configuration = {
+  #   # security.apparmor.enable = lib.mkForce false;
+  # };
 
   # All users must be declared
   users.mutableUsers = false;
