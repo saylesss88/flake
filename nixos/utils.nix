@@ -74,6 +74,7 @@ in {
       pkgs.lshw # display detailed hardware info
       pkgs.nix-prefetch-git
       pkgs.nix-prefetch-github
+      pkgs.github-markdown-toc-go
       pkgs.tree
       pkgs.cachix
       pkgs.dconf2nix # util to generate Nix code from dconf settings
