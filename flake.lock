@@ -858,6 +858,42 @@
         "type": "github"
       }
     },
+    "nixlib": {
+      "locked": {
+        "lastModified": 1736643958,
+        "narHash": "sha256-tmpqTSWVRJVhpvfSN9KXBvKEXplrwKnSZNAoNPf/S/s=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "1418bc28a52126761c02dd3d89b2d8ca0f521181",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixos-generators": {
+      "inputs": {
+        "nixlib": "nixlib",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751903740,
+        "narHash": "sha256-PeSkNMvkpEvts+9DjFiop1iT2JuBpyknmBUs0Un0a4I=",
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "rev": "032decf9db65efed428afd2fa39d80f7089085eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1755330281,
@@ -1044,11 +1080,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1756078164,
-        "narHash": "sha256-juX4p56mWrcq8UVfppUC7hl1nsc5JW8GeurkW+bDpX8=",
+        "lastModified": 1756123127,
+        "narHash": "sha256-Xe3Xt76SL5cnMFIKrZcbo4ysh+bm76WFagsDYKK7P7s=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "dae0629af952d108cda37e8f9140f572d63f5e5b",
+        "rev": "9f036a41d3cd2be5ebc5cd24786299ee974f66e2",
         "type": "github"
       },
       "original": {
@@ -1105,7 +1141,7 @@
     "oisd": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-U+9w3VHp9Fhgmpfz9Slc36yj2goRqP8evFVRei+jaCQ=",
+        "narHash": "sha256-5LVWw3+edcw1KjEk6YcSUXO6K3rC6VDw/OiJCN7/hbY=",
         "type": "file",
         "url": "https://big.oisd.nl/domainswild"
       },
@@ -1175,6 +1211,7 @@
         "lanzaboote": "lanzaboote",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-index-database": "nix-index-database",
+        "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",

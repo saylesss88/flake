@@ -20,22 +20,16 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     sddm-catppuccin.url = "github:khaneliman/catppuccin-sddm-corners";
     sddm-catppuccin.inputs.nixpkgs.follows = "nixpkgs";
-    # ghostty = {
-    #   url = "github:ghostty-org/ghostty";
-    # };
-    # firefox-addons = {
-    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    # devour-flake.url = "github:srid/devour-flake";
-    # devour-flake.flake = false;
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nvf.url = "github:notashelf/nvf";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # yazi.url = "github:sxyazi/yazi";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     lanzaboote = {
@@ -62,6 +56,7 @@
     home-manager,
     treefmt-nix,
     systems,
+    nixos-generators,
     ...
   } @ inputs: let
     system = "x86_64-linux";
