@@ -67,7 +67,7 @@ in {
       kernelModules = [
         "kvm-amd"
         "amdgpu"
-        "v4l2loopback"
+        # "v4l2loopback"
       ];
       kernelParams = [
         "amd_pstate=active"

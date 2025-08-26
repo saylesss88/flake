@@ -90,22 +90,26 @@ in {
           consoleMode = lib.mkDefault "max";
         };
       };
-      # plymouth = {
-      #   enable = true;
-      #   theme = "rings";
-      #   font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
-      #   themePackages = with pkgs; [
-      #     (adi1090x-plymouth-themes.override {
-      #       selected_themes = ["rings"];
-      #     })
-      #   ];
-      # };
+      plymouth = {
+        enable = true;
+        theme = "rings";
+        font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
+        themePackages = with pkgs; [
+          (adi1090x-plymouth-themes.override {
+            selected_themes = ["rings"];
+          })
+        ];
+      };
       # Enable "Silent Boot"
       consoleLogLevel = 0;
       initrd.verbose = false;
       kernelParams = [
         "quiet"
         "splash"
+        "systemd.show_status=auto"
+        "rd.udev.log_level=3"
+        "plymouth.use-simpledrm"
+        "resume_offset=269568"
         "boot.shell_on_fail"
         "rd.systemd.show_status=false"
         # make it harder to influence slab cache layout

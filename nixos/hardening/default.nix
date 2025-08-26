@@ -10,6 +10,7 @@
     ./doas.nix
     ./security.nix
     ./firewall.nix
+    ./firejail.nix
     ./tailscale.nix
   ];
   # fileSystems."/".options = ["noexec"];
@@ -18,13 +19,14 @@
   # fileSystems."/var/log".options = ["noexec"];
   users.groups.netdev = {};
   services = {
-    clamav = {
-      daemon.enable = true;
-      scanner.enable = true;
-      updater.enable = true;
-      updater.interval = "hourly";
-      scanner.interval = "*-*-* 04:00:00";
-    };
+    gnome.gnome-keyring.enable = true;
+    # clamav = {
+    #   daemon.enable = true;
+    #   scanner.enable = true;
+    #   updater.enable = true;
+    #   updater.interval = "hourly";
+    #   scanner.interval = "*-*-* 04:00:00";
+    # };
     userborn.enable = false;
     # usbguard.enable = false;
     dbus.implementation = "broker";

@@ -56,7 +56,7 @@
     nvf.enable = true;
     bat.enable = true;
     yazi.enable = true;
-    discord.enable = true;
+    discord.enable = false;
   };
 
   dont-track-me = {

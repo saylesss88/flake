@@ -30,6 +30,10 @@
         executable = "${lib.getBin pkgs.tor}/bin/tor";
         profile = "${pkgs.firejail}/etc/firejail/tor.profile";
       };
+      tor-browser = {
+        executable = "${lib.getBin pkgs.tor-browser}/bin/tor-browser";
+        profile = "${pkgs.firejail}/etc/firejail/tor-browser.profile";
+      };
     };
   };
 }

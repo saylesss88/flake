@@ -11,7 +11,6 @@ _: {
     fstrim.enable = true;
     gvfs.enable = true;
     flatpak.enable = false;
-    gnome.gnome-keyring.enable = true;
     ipp-usb.enable = true;
     # syncthing = {
     #   enable = false;
