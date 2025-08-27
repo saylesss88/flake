@@ -22,7 +22,7 @@ in {
       pkgs.bitwarden-cli
       pkgs.keepassxc
       pkgs.kpcli # KeePass CLI
-      pkgs.metadata-cleaner
+      # pkgs.metadata-cleaner
       # pkgs.mat2
       pkgs.chkrootkit
       pkgs.clamav

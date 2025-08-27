@@ -17,7 +17,8 @@ in {
       #    pkiBundle = "/var/lib/sbctl";
       #  };
       # LinuxZen Kernel
-      kernelPackages = pkgs.linuxPackages_zen;
+      # kernelPackages = pkgs.linuxPackages_zen;
+      kernelPackages = pkgs.linuxPackages_xanmod_latest;
       # consoleLogLevel = 3;
       tmp = {
         useTmpfs = true;

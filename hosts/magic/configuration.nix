@@ -41,6 +41,17 @@
     libraries = [];
   };
 
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     v4l2loopback = super.v4l2loopback.overrideAttrs (old: {
+  #       doCheck = false;
+  #       installPhase = ''
+  #         mkdir -p $out/lib/modules
+  #         cp *.ko $out/lib/modules/
+  #       '';
+  #     });
+  #   })
+  # ];
   # nixpkgs.overlays = [overlays];
 
   powerManagement.enable = true;

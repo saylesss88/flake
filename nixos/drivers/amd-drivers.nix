@@ -77,7 +77,7 @@ in {
         "amdgpu.si_support=1"
         "amdgpu.cik_support=1"
       ];
-      extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+      # extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
       blacklistedKernelModules = ["radeon"];
     };
   };
