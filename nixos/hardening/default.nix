@@ -12,6 +12,7 @@
     ./firewall.nix
     ./firejail.nix
     ./tailscale.nix
+    ./clamav.nix
   ];
   # fileSystems."/".options = ["noexec"];
   # fileSystems."/etc/nixos".options = ["noexec"];

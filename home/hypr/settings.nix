@@ -167,7 +167,6 @@ _: {
         "opacity 0.95 0.75, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
         "keepaspectratio, title:^(Picture-in-Picture)$"
-        "noblur, tag:games*"
         "fullscreen, tag:games*"
       ];
 

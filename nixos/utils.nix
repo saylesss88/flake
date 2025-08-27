@@ -17,6 +17,7 @@ in {
       pkgs.nmap
       pkgs.element-desktop
       # Security/Hardening
+      pkgs.kdePackages.kleopatra
       pkgs.kernel-hardening-checker
       pkgs.bitwarden-desktop
       pkgs.bitwarden-cli
