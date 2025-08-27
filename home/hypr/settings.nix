@@ -55,16 +55,23 @@ _: {
 
       decoration = {
         rounding = 20;
+        # blur = {
+        #   enabled = true;
+        #   size = 14;
+        #   passes = 4;
+        #   brightness = 1;
+        #   contrast = 1;
+        #   # popups = true;
+        #   # popups_ignorealpha = 0.6;
+        #   ignore_opacity = false;
+        #   new_optimizations = true;
+        # };
         blur = {
           enabled = true;
-          size = 14;
-          passes = 4;
-          brightness = 1;
-          contrast = 1;
-          # popups = true;
-          # popups_ignorealpha = 0.6;
-          ignore_opacity = false;
+          size = 8;
           new_optimizations = true;
+          passes = 3;
+          ignore_opacity = true;
         };
         shadow = {
           enabled = true;
