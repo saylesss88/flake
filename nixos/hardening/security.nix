@@ -99,12 +99,20 @@ _: {
     "net.core.default_qdisc" = "cake";
   };
   programs = {
+    # My traceroute network diagnostics
     mtr.enable = true;
+    # Gui App for Gnome keyring
+    seahorse.enable = true;
+  };
+  services = {
+    gnome.gnome-keyring.enable = true;
+    gnome.gcr-ssh-agent.enable = false;
   };
   # services.usbguard.enable = true;
   security = {
     pam.services.hyprlock.text = "auth include login";
     pam.services.swaylock.text = "auth include login";
+    pam.services.greetd.enableGnomeKeyring = true;
 
     # userland niceness
     rtkit.enable = true;
