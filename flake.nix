@@ -129,7 +129,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
+          home-manager.backupFileExtension = "bak";
           home-manager.users.jr = ./hosts/${host}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit inputs host username myLib homeManagerModules;

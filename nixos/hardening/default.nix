@@ -21,15 +21,7 @@
   users.groups.netdev = {};
   services = {
     gnome.gnome-keyring.enable = true;
-    # clamav = {
-    #   daemon.enable = true;
-    #   scanner.enable = true;
-    #   updater.enable = true;
-    #   updater.interval = "hourly";
-    #   scanner.interval = "*-*-* 04:00:00";
-    # };
     userborn.enable = false;
-    # usbguard.enable = false;
     dbus.implementation = "broker";
     logrotate.enable = false;
     journald = {
