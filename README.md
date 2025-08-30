@@ -13,5 +13,9 @@ cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 2 | tail -n 1
 ## Home-Manager
 
 ```bash
+journalctl -b
+```
+
+```bash
 systemctl --user status home-manager-$USER.service
 ```
