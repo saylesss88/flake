@@ -29,6 +29,7 @@
     wlogout.enable = true;
     helix.enable = true;
     ghostty.enable = true;
+    brave.enable = true;
     # firefox.enable = true;
     librewolf.enable = true;
     # mullvad-browser.enable = true;
