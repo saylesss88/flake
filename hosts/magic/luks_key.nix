@@ -1,4 +1,4 @@
-{lib, ...}:
+_:
 # let
 #   PRIMARYUSBID = "MYUSB"; # From `blkid /dev/sda1`
 #   BACKUPUSBID = "Ventoy"; # Optional secondary USB `blkid /dev/sdc1`

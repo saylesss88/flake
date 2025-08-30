@@ -36,8 +36,6 @@
         settings = {
           # Default/trusted key ID (helpful with throw-keyids)
           # Example, you will put your own keyid here
-          # default-key = "0x095882C1A124CF15";
-          # trusted-key = "0x095882C1A124CF15";
           default-key = "0xF1916348EEF32C21";
           trusted-key = "0xF1916348EEF32C21";
           # https://github.com/drduh/config/blob/master/gpg.conf

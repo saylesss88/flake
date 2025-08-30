@@ -19,3 +19,12 @@ journalctl -b
 ```bash
 systemctl --user status home-manager-$USER.service
 ```
+
+## Common Issues
+
+The `oisd` blocklist isn't a flake and is updated often causing rebuilds to
+fail. When this happens, running `nix flake update` syncs the NarHash and fixes
+it.
+
+I'm working on an issue where rebuilds succeed but `home-manager` fails on
+rebuild. Adding a systemd wait was working but stopped.

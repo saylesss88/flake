@@ -56,7 +56,6 @@
     home-manager,
     treefmt-nix,
     systems,
-    nixos-generators,
     ...
   } @ inputs: let
     system = "x86_64-linux";
