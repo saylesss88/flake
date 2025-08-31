@@ -30,6 +30,7 @@
           "jr"
           "sudo"
           "tss"
+          "vboxusers"
         ];
         shell = pkgs.nushell;
         # shell = pkgs.zsh;

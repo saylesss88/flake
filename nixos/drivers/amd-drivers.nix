@@ -65,7 +65,7 @@ in {
     # Boot configuration for AMD GPU and CPU support
     boot = {
       kernelModules = [
-        "kvm-amd"
+        # "kvm-amd"
         "amdgpu"
         # "v4l2loopback"
       ];
