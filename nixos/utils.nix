@@ -17,6 +17,10 @@ in {
       pkgs.nmap
       pkgs.element-desktop
       # Security/Hardening
+      pkgs.onionshare
+      pkgs.onionshare-gui
+      pkgs.sequoia-sq
+      pkgs.b2sum
       pkgs.kdePackages.kleopatra
       pkgs.kernel-hardening-checker
       pkgs.bitwarden-desktop
