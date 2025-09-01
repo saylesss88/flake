@@ -17,6 +17,9 @@ in {
       pkgs.nmap
       pkgs.element-desktop
       # Security/Hardening
+      pkgs.safe-rm
+      pkgs.file
+      pkgs.xz
       pkgs.onionshare
       pkgs.onionshare-gui
       pkgs.sequoia-sq

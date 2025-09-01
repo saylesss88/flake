@@ -24,6 +24,7 @@
           "networkmanager"
           "wheel"
           "libvirtd"
+          "kvm"
           "scanner"
           "lp"
           "root"
