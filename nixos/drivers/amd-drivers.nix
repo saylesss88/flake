@@ -35,25 +35,6 @@ in {
           gpu-viewer
         ];
         extraPackages32 = with pkgs; [
-          # For AMDVLK, the 32-bit version is typically provided by `amdvlk` itself
-          # when enable32Bit is true. However, if it's explicitly needed here,
-          # it's often accessed via a specific derivation or package within pkgs.
-          # A common way to ensure it's present is to add it to extraPackages32,
-          # but `amdvlk.drivers32bit` isn't it.
-          #
-          # If you need specific 32-bit AMDVLK components beyond what enable32Bit provides,
-          # you might need to look for `pkgs.amdvlk.override` or a specific `pkgs.lib32.amdvlk`.
-          # However, for most use cases, just enabling 32-bit and including `amdvlk`
-          # in `extraPackages` is sufficient.
-          #
-          # Let's try without explicitly adding amdvlk here, relying on enable32Bit.
-          # If a specific 32-bit AMDVLK component is *still* missing after this,
-          # we would need to find the exact 32-bit package for it.
-          #
-          # To ensure 32-bit AMDVLK support, it's usually sufficient to have
-          # `amdvlk` in `extraPackages` and `enable32Bit = true`.
-          # If not, it would be `pkgs.amdvlk_32bit` or similar, but often it's
-          # included automatically.
         ];
       };
 
@@ -65,9 +46,9 @@ in {
     # Boot configuration for AMD GPU and CPU support
     boot = {
       kernelModules = [
-        # "kvm-amd"
+        "kvm-amd"
         "amdgpu"
-        # "v4l2loopback"
+        "v4l2loopback"
       ];
       kernelParams = [
         "amd_pstate=active"
@@ -77,7 +58,7 @@ in {
         "amdgpu.si_support=1"
         "amdgpu.cik_support=1"
       ];
-      # extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+      extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
       blacklistedKernelModules = ["radeon"];
     };
   };

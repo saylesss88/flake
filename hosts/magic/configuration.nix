@@ -69,7 +69,7 @@
     zram.enable = true;
     lsp.enable = true;
     utils.enable = true;
-    virtualbox.enable = true;
+    virtualbox.enable = false;
     # security = {
     # usbguard.enable = true;
     # auditd.enable = true;

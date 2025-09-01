@@ -11,7 +11,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     virtualisation.virtualbox.host = {
-      enable = true;
+      enable = false;
       # enableExtensionPack = true;
     };
 
