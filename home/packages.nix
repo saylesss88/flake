@@ -6,7 +6,7 @@
 }: {
   home.packages = [
     # inputs.zen-browser.packages."${pkgs.system}".default
-    # pkgs.python3
+    pkgs.python3
     # (pkgs.python3.withPackages (p: [p.pynvim]))
     # pkgs.pokego
     # pkgs.Tela-circle-dracula

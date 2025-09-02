@@ -31,7 +31,7 @@ in {
       pkgs.keepassxc
       pkgs.kpcli # KeePass CLI
       # pkgs.metadata-cleaner
-      # pkgs.mat2
+      pkgs.mat2
       pkgs.chkrootkit
       pkgs.clamav
       pkgs.aide
