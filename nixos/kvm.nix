@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   ## for QEMU-KVM ##
   ### remember to add user into group libvirtd
   environment.systemPackages = with pkgs; [
