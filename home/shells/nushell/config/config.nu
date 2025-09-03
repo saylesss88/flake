@@ -44,6 +44,10 @@ $env.GPG_TTY = (tty)
 $env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket | str trim)
 gpgconf --launch gpg-agent
 
+# Guix
+$env.GUIX_PROFILE = ($env.XDG_CONFIG_HOME | path join guix current)
+. "$GUIX_PROFILE/etc/profile"
+
 $env.config.completions.external.completer = {|span| carapace_by_fzf $span }
 $env.config.edit_mode = "vi"
 $env.config.highlight_resolved_externals = true
