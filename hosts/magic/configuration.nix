@@ -70,11 +70,11 @@
     lsp.enable = true;
     utils.enable = true;
     virtualbox.enable = false;
-    # security = {
-    # usbguard.enable = true;
-    # auditd.enable = true;
-    # clamav.enable = true;
-    # };
+    security = {
+      usbguard.enable = true;
+      auditd.enable = true;
+      # clamav.enable = true;
+    };
   };
 
   # List packages installed in system profile.

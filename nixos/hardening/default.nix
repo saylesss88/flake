@@ -7,11 +7,11 @@
     ./smartd.nix
     ./usbguard.nix
     ./auditd.nix
-    ./doas.nix
+    # ./doas.nix
     ./security.nix
     ./firewall.nix
     ./firejail.nix
-    ./tailscale.nix
+    # ./tailscale.nix
     ./clamav.nix
   ];
   # fileSystems."/".options = ["noexec"];
