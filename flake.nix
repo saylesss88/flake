@@ -59,7 +59,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "magic";
+    host = "ace";
     username = "jr";
     # lib = nixpkgs.lib // home-manager.lib;
     inherit (nixpkgs) lib;

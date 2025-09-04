@@ -6,13 +6,13 @@
 }: {
   imports = myLib.scanPaths ./.;
 
-  options.custom.magic = {
+  options.custom.ace = {
     enable = lib.mkEnableOption "Enable magic modules globally";
 
     hostname = lib.mkOption {
       type = lib.types.str;
       description = "Hostname";
-      example = "magic";
+      example = "ace";
     };
 
     timezone = lib.mkOption {
@@ -29,28 +29,28 @@
   };
 
   config = {
-    custom.magic.enable = lib.mkDefault false;
+    custom.ace.enable = lib.mkDefault false;
 
     # Assertions to check if required variables are set when magic is enabled
-    assertions = lib.mkIf config.custom.magic.enable [
+    assertions = lib.mkIf config.custom.ace.enable [
       {
-        assertion = config.custom.magic.hostname != "";
-        message = "magic.hostname must be set";
+        assertion = config.custom.ace.hostname != "";
+        message = "ace.hostname must be set";
       }
       {
-        assertion = config.custom.magic.timezone != "";
-        message = "magic.timezone must be set";
+        assertion = config.custom.ace.timezone != "";
+        message = "ace.timezone must be set";
       }
       {
-        assertion = config.custom.magic.locale != "";
-        message = "magic.locale must be set";
+        assertion = config.custom.ace.locale != "";
+        message = "ace.locale must be set";
       }
     ];
 
     # Configuration for variables (only applied when magic is enabled)
-    time.timeZone = lib.mkIf config.custom.magic.enable config.custom.magic.timezone;
-    i18n.defaultLocale = lib.mkIf config.custom.magic.enable config.custom.magic.locale;
-    networking.hostName = lib.mkIf config.custom.magic.enable config.custom.magic.hostname;
+    time.timeZone = lib.mkIf config.custom.ace.enable config.custom.ace.timezone;
+    i18n.defaultLocale = lib.mkIf config.custom.ace.enable config.custom.ace.locale;
+    networking.hostName = lib.mkIf config.custom.ace.enable config.custom.ace.hostname;
 
     system.stateVersion = "25.05";
   };
