@@ -15,7 +15,7 @@
         homeMode = "755";
         isNormalUser = true;
         openssh.authorizedKeys.keys = [
-          # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgNbyUMtnxTRySg8WsVIQyZ5dUJA8143fASDwumy5ZP (none)"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHStGGg2AcxcDDfc2pkiBVQpRKfyew3v7x4/ZxCdDQ1 (none)"
         ];
         # Change me!
         description = "saylesss88";
