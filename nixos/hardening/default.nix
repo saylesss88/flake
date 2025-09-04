@@ -9,7 +9,7 @@
     ./auditd.nix
     # ./doas.nix
     ./security.nix
-    # ./firewall.nix
+    ./firewall.nix
     ./firejail.nix
     # ./tailscale.nix
     ./clamav.nix
