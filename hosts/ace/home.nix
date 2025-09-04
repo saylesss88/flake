@@ -32,7 +32,7 @@
     brave.enable = true;
     # firefox.enable = true;
     librewolf.enable = true;
-    # mullvad-browser.enable = true;
+    mullvad-browser.enable = true;
     qutebrowser.enable = true;
     kitty.enable = true;
     git = {
