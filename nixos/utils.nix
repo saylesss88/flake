@@ -16,6 +16,7 @@ in {
       # pkgs.commitizen
       pkgs.nmap
       pkgs.element-desktop
+      pkgs.pinentry-gnome3
       # Security/Hardening
       pkgs.safe-rm
       pkgs.file

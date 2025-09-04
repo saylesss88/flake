@@ -380,11 +380,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1756912627,
-        "narHash": "sha256-xNo581dQXdYZIGFfof0X/VriFR6d52R4vv+apvOTd0o=",
+        "lastModified": 1756994900,
+        "narHash": "sha256-a4tw3IzSNbpI6k5nAkowMiiUiyRu2c4PqWBHzLTfb9E=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "d1750a750286fed54ef53b5df29eb35c5ff603d9",
+        "rev": "f59dc9e48f3b372f5577b6846a73edd94a602493",
         "type": "github"
       },
       "original": {
@@ -422,11 +422,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756954499,
-        "narHash": "sha256-Pg4xBHzvzNY8l9x/rLWoJMnIR8ebG+xeU+IyqThIkqU=",
+        "lastModified": 1756991914,
+        "narHash": "sha256-4ve/3ah5H/SpL2m3qmZ9GU+VinQYp2MN1G7GamimTds=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ed1a98c375450dfccf427adacd2bfd1a7b22eb25",
+        "rev": "b08f8737776f10920c330657bee8b95834b7a70f",
         "type": "github"
       },
       "original": {
@@ -1141,7 +1141,7 @@
     "oisd": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-zg3inoH0YCU2kYk9wJUUSVLRLdWd+nhYhOqopN+3tQU=",
+        "narHash": "sha256-nvlyTGWtOd/a/69oqeYjidRK/fDQEPxy925IX58Yh10=",
         "type": "file",
         "url": "https://big.oisd.nl/domainswild"
       },

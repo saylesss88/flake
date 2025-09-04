@@ -24,7 +24,7 @@
       };
 
       ## We will put our keygrip here
-      gpg-agent.sshKeys = ["AEA81BA3AE4F6FD64EA6AC77B6A9446EE2B906D1"];
+      gpg-agent.sshKeys = ["944E3A06414A8D440577719B802F9145BC75B3A8"];
     };
     home.packages = [pkgs.gnupg];
     programs = {
@@ -35,8 +35,8 @@
         settings = {
           # Default/trusted key ID (helpful with throw-keyids)
           # Example, you will put your own keyid here
-          default-key = "D4928D2CEC9FF774";
-          trusted-key = "D4928D2CEC9FF774";
+          default-key = "9675DDB42EBD7F02";
+          trusted-key = "9675DDB42EBD7F02";
           # https://github.com/drduh/config/blob/master/gpg.conf
           # https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html
           # https://www.gnupg.org/documentation/manuals/gnupg/GPG-Esoteric-Options.html

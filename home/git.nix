@@ -86,9 +86,9 @@ in {
     extraConfig = lib.mkOption {
       type = lib.types.attrs;
       default = {
-        commit.gpgsign = true;
+        # commit.gpgsign = true;
         # gpg.format = "ssh";
-        user.signingkey = "D4928D2CEC9FF774";
+        # user.signingkey = "D4928D2CEC9FF774";
         extraConfig = {
           pull = {
             rebase = true;
