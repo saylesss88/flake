@@ -19,8 +19,8 @@
         ];
         # Change me!
         description = "saylesss88";
-        # hashedPasswordFile = config.sops.secrets.password_hash.path;
-        initialHashedPassword = "$y$j9T$RJf6/tYdvf4UdlrcXCjD10$6bMC6Tc0j7dnUQRPYyT1cFeABYM.Fj1vpGac35ZLvwC";
+        hashedPasswordFile = config.sops.secrets.password_hash.path;
+        # initialHashedPassword = "$y$j9T$RJf6/tYdvf4UdlrcXCjD10$6bMC6Tc0j7dnUQRPYyT1cFeABYM.Fj1vpGac35ZLvwC";
         extraGroups = [
           "networkmanager"
           "wheel"

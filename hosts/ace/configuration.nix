@@ -17,7 +17,7 @@
     inputs.disko.nixosModules.disko
     inputs.impermanence.nixosModules.default
     ./impermanence.nix
-    # ./sops.nix
+    ./sops.nix
   ];
   # gaming.enable = false;
   # docker-compose.enable = false;

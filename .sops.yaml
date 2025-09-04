@@ -1,6 +1,6 @@
 keys:
   # Your personal age public key (from age-keygen -y ~/.config/sops/age/keys.txt)
-  - &personal_age_key age1qfkvtl6y6wq4ws530zef4ztm76fmf6m53tnl3cll5yvsz5pmp36q38qfr6
+  - &personal_age_key age1uxatvuevcxk9fylz5pelv8er46d8g9ma7zmjepyrrjr44dtz94gqv8da5j
 
   # You can also use PGP keys if you prefer, but age is often simpler
   # - &personal_pgp_key 0xDEADBEEFCAFE0123
