@@ -1,8 +1,8 @@
 # nix shell nixpkgs#just nixpkgs#nushell
 set shell := ["nu", "-c"]
 flake_path := "/home/jr/flakes"
-hostname := "magic"
-home_manager_output := "jr@magic"
+hostname := "ace"
+home_manager_output := "jr@ace"
 
 utils_nu := absolute_path("utils.nu")
 

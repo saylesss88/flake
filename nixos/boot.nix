@@ -12,10 +12,10 @@ in {
 
   config = lib.mkIf cfg.enable {
     boot = {
-      # lanzaboote = {
-      # enable = true;
-      # pkiBundle = "/var/lib/sbctl";
-      # };
+      lanzaboote = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
+      };
       # LinuxZen Kernel
       # kernelPackages = pkgs.linuxPackages_zen;
       kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -85,10 +85,10 @@ in {
       loader = {
         efi.canTouchEfiVariables = true;
         systemd-boot = {
-          # enable = lib.mkForce false;
-          enable = true;
-          configurationLimit = 15;
-          consoleMode = lib.mkDefault "max";
+          enable = lib.mkForce false;
+          # enable = true;
+          # configurationLimit = 15;
+          # consoleMode = lib.mkDefault "max";
         };
       };
       plymouth = {
