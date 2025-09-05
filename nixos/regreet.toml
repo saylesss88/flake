@@ -1,0 +1,20 @@
+[background]
+path = "/home/jr/Pictures/Wallpapers/cloudy-quasar.png"
+# Available values: "Fill", "Contain", "Cover", "ScaleDown"
+# Refer to: https://docs.gtk.org/gtk4/enum.ContentFit.html
+# NOTE: This is ignored if ReGreet isn't compiled with GTK v4.8 support.
+fit = "Cover"
+
+[GTK]
+application_prefer_dark_theme = true
+# cursor_theme_name = "breeze"
+# icon_theme_name = "breeze"
+# theme_name = "Adwaita"
+# font_name = "Cantarell 16"
+
+# [env]
+# ENV_VARIABLE = "value"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]

@@ -4,12 +4,6 @@
   lib,
   ...
 }: let
-  fallbackSession = pkgs.writeShellScriptBin "fallback-session" ''
-    #!/bin/sh
-    export XDG_RUNTIME_DIR=/run/user/$(id -u)
-    export XDG_SESSION_TYPE=wayland
-    exec ${pkgs.hyprland}/bin/Hyprland || exec ${pkgs.ghostty}/bin/ghostty
-  '';
   cfg = config.custom.greetd;
 in {
   options.custom.greetd = {
@@ -17,14 +11,40 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    systemd.services.greetd.serviceConfig = {
+      Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal";
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYVTDisallocate = true;
+    };
+    programs.regreet = {
+      enable = false;
+      settings =
+        (lib.importTOML ./regreet.toml)
+        // {
+          background = {
+            path = ../imgs/cloudy-quasar.png;
+          };
+        };
+    };
     services.greetd = {
       enable = true;
       settings = rec {
-        initial_session = {
-          command = "${fallbackSession}/bin/fallback-session";
-          user = "jr";
+        regreet_session = {
+          command = "${pkgs.cage}/bin/cage -s -- ${pkgs.regreet}/bin/regreet";
+          user = "greeter";
         };
-        default_session = initial_session;
+        tuigreet_session = let
+          session = "${pkgs.hyprland}/bin/Hyprland";
+          tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
+        in {
+          command = "${tuigreet} --time --remember --cmd ${session}";
+          user = "greeter";
+        };
+        default_session = tuigreet_session;
       };
     };
   };
