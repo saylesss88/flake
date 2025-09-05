@@ -92,7 +92,7 @@ in {
         };
       };
       plymouth = {
-        enable = true;
+        enable = false;
         theme = "rings";
         font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
         themePackages = with pkgs; [
@@ -105,11 +105,8 @@ in {
       consoleLogLevel = 0;
       initrd.verbose = false;
       kernelParams = [
-        "quiet"
-        "splash"
         "systemd.show_status=auto"
         "rd.udev.log_level=3"
-        "plymouth.use-simpledrm"
         "resume_offset=269568"
         "boot.shell_on_fail"
         "rd.systemd.show_status=false"

@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  username,
   ...
 }: let
   cfg = config.custom.greetd;
@@ -11,6 +12,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    systemd.network.wait-online.enable = false;
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
       StandardInput = "tty";
@@ -20,31 +22,13 @@ in {
       TTYVHangup = true;
       TTYVTDisallocate = true;
     };
-    programs.regreet = {
-      enable = false;
-      settings =
-        (lib.importTOML ./regreet.toml)
-        // {
-          background = {
-            path = ../imgs/cloudy-quasar.png;
-          };
-        };
-    };
     services.greetd = {
       enable = true;
-      settings = rec {
-        regreet_session = {
-          command = "${pkgs.cage}/bin/cage -s -- ${pkgs.regreet}/bin/regreet";
-          user = "greeter";
+      settings = {
+        default_session = {
+          user = username;
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         };
-        tuigreet_session = let
-          session = "${pkgs.hyprland}/bin/Hyprland";
-          tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-        in {
-          command = "${tuigreet} --time --remember --cmd ${session}";
-          user = "greeter";
-        };
-        default_session = tuigreet_session;
       };
     };
   };

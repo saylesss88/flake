@@ -1,7 +1,7 @@
 {lib, ...}: {
   systemd.services = {
-    "home-manager-jr".after = ["network-online.target"];
-    "home-manager-jr".wantedBy = ["multi-user.target"];
+    # "home-manager-jr".after = ["network-online.target"];
+    # "home-manager-jr".wantedBy = ["multi-user.target"];
     "user@".serviceConfig = {
       ProtectSystem = "strict";
       ProtectClock = true;

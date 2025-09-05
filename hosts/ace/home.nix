@@ -33,7 +33,7 @@
     # firefox.enable = true;
     librewolf.enable = true;
     mullvad-browser.enable = true;
-    qutebrowser.enable = true;
+    qutebrowser.enable = false;
     kitty.enable = true;
     git = {
       enable = true;

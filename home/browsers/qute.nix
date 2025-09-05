@@ -23,7 +23,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = [pkgs.python3Packages.adblock];
     programs.qutebrowser = {
-      enable = true;
+      enable = false;
 
       extraConfig = ''
         config.set('colors.webpage.darkmode.enabled', False, 'file://*')

@@ -1,5 +1,17 @@
 ## Debugging Hyprland and Home-Manager
 
+Add the following to enable hyprland logs:
+
+```nix
+    wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {
+        debug = {
+          disable_logs = false;
+        };
+      };
+```
+
 ```bash
 cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log
 ```
@@ -17,7 +29,7 @@ journalctl -b
 ```
 
 ```bash
-systemctl --user status home-manager-$USER.service
+journalctl -b -u home-manager-jr
 ```
 
 ## Common Issues
