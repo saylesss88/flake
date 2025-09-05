@@ -36,7 +36,7 @@
 
   security.sudo.extraConfig = ''
     # Defaults lecture=always
-    # Defaults lecture_file=/home/jr/flake/lib/groot.txt
-    Defaults lecture=never
+    Defaults lecture_file=/home/jr/flake/lib/groot.txt
+    # Defaults lecture=never
   '';
 }

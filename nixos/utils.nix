@@ -18,6 +18,8 @@ in {
       pkgs.element-desktop
       pkgs.pinentry-gnome3
       # Security/Hardening
+      # pkgs.burpsuite
+      pkgs.metasploit
       pkgs.safe-rm
       pkgs.file
       pkgs.xz
