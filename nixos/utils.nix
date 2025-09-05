@@ -37,6 +37,7 @@ in {
       pkgs.mat2
       pkgs.chkrootkit
       pkgs.clamav
+      pkgs.lynis
       pkgs.aide
       pkgs.age
       pkgs.sops
@@ -47,7 +48,6 @@ in {
       pkgs.shh
       pkgs.rustup
       pkgs.htop
-      pkgs.lynis
       pkgs.vivid
       pkgs.parted
       # pkgs.nickel
@@ -94,7 +94,7 @@ in {
       pkgs.p7zip
       pkgs.alsa-utils # util for ALSA sound
       pkgs.nix-diff # tool to compare derivations
-      pkgs.just # Moved inside inherit block
+      pkgs.just
       pkgs.unzip
       pkgs.meson
       pkgs.ninja
@@ -106,7 +106,6 @@ in {
       pkgs.openssl # toolkit for TLS/SSL
       pkgs.pkg-config
       pkgs.rssguard
-      pkgs.russ
       # pkgs.linuxKernel.packages.linux_zen
     ];
   };
