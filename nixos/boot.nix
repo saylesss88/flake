@@ -92,7 +92,7 @@ in {
         };
       };
       plymouth = {
-        enable = false;
+        enable = true;
         theme = "rings";
         font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
         themePackages = with pkgs; [
@@ -109,6 +109,9 @@ in {
         "rd.udev.log_level=3"
         "resume_offset=269568"
         "boot.shell_on_fail"
+        "quiet"
+        "splash"
+        "plymouth.use-simpledrm"
         "rd.systemd.show_status=false"
         # make it harder to influence slab cache layout
         "slab_nomerge"
