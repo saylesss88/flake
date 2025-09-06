@@ -31,7 +31,7 @@ in {
 
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = with pkgs; [lazyjj meld];
+      default = with pkgs; [meld]; # lazyjj
       description = "Additional Jujutsu-related packages to install";
     };
 

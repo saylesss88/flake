@@ -21,7 +21,7 @@
         };
       };
       openssh = {
-        enable = true;
+        enable = false;
         ports = [2222];
         settings = {
           PasswordAuthentication = false;
