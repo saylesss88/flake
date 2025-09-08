@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     # ./apparmor
     ./openSSH.nix
@@ -18,6 +18,18 @@
   # fileSystems."/etc/nixos".options = ["noexec"];
   # fileSystems."/srv".options = ["noexec"];
   # fileSystems."/var/log".options = ["noexec"];
+  #
+  environment.etc."issue".text = ''
+    Access prohibited, this system is audited and actively monitored no privacy should be expected
+  '';
+
+  # Require long passwords
+  environment.etc."login.defs".text = lib.mkForce ''
+    PASS_MIN_LEN 12
+    PASS_MAX_DAYS 90
+    PASS_MIN_DAYS 7
+    PASS_WARN_AGE 14
+  '';
   users.groups.netdev = {};
   services = {
     gnome.gnome-keyring.enable = true;
