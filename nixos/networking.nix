@@ -16,6 +16,8 @@ in {
     networking = {
       networkmanager = {
         enable = true;
+        wifi.scanRandMacAddress = true;
+        wifi.macAddress = "random";
         plugins = [];
       };
       hostName = "${host}";
