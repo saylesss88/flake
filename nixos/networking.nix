@@ -23,6 +23,8 @@ in {
       hostName = "${host}";
       enableIPv6 = true;
       timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+      # allow system to resolve the hostname aottr.local directly to 192.168.1.8
+      # without needing to query a DNS server
       hosts = {
         "192.168.1.8" = ["aottr.local"];
       };
