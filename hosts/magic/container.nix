@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   containers.mdbook-host = {
     autoStart = true;
     ephemeral = true;

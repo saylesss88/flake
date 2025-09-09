@@ -14,6 +14,7 @@
     libvirtd = {
       enable = true;
       qemu = {
+        package = pkgs.qemu_kvm;
         # enables a TPM emulator
         swtpm.enable = true;
         ovmf.packages = [pkgs.OVMFFull.fd];
@@ -25,5 +26,5 @@
   # Spice protocol improves VM display and input responsiveness
   services.spice-vdagentd.enable = true;
   # Enable nested virtualization
-  boot.extraModprobeConfig = "options kvm_amd nested=1";
+  # boot.extraModprobeConfig = "options kvm_amd nested=1";
 }
