@@ -40,3 +40,20 @@ it.
 
 I'm working on an issue where rebuilds succeed but `home-manager` fails on
 rebuild. Adding a systemd wait was working but stopped.
+
+### Scan for Infected Files
+
+```bash
+sudo clamscan -r .
+```
+
+**Intrusion Detection**:
+
+```bash
+sudo aide --update --config /var/lib/aide/aide.conf
+sudo mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
+```
+
+```bash
+sudo aide --check --config /var/lib/aide/aide.conf
+```
