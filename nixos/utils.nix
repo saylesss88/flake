@@ -19,6 +19,7 @@ in {
       pkgs.pinentry-gnome3
       # Security/Hardening
       # pkgs.burpsuite
+      pkgs.whois
       pkgs.metasploit
       pkgs.safe-rm
       pkgs.file
@@ -35,7 +36,6 @@ in {
       pkgs.kpcli # KeePass CLI
       # pkgs.metadata-cleaner
       pkgs.mat2
-      pkgs.chkrootkit
       pkgs.clamav
       pkgs.lynis
       pkgs.aide

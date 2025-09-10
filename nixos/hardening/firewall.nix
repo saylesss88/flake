@@ -36,9 +36,9 @@ _: {
       # TCP ports to allow *inbound* connections from the internet.
       # Keep this list as small as possible to reduce attack surface.
 
-      2222 # SSH – Only keep open if you need to connect to this machine remotely.
+      # 2222 # SSH – Only keep open if you need to connect to this machine remotely.
       # If not used, comment it out or remove it entirely.
-      3310 # Default clamd TCP port
+      # 3310 # Default clamd TCP port
 
       # 53  # DNS – Not needed unless running a public DNS server.
       # 80  # HTTP – Only for hosting a public website.
