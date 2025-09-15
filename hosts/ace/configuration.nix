@@ -43,16 +43,16 @@
   };
 
   # Diff report
-  # system.activationScripts.diff = ''
-  #   BLUE=$(${pkgs.ncurses}/bin/tput setaf 4)
-  #   CLEAR=$(${pkgs.ncurses}/bin/tput sgr0)
+  system.activationScripts.diff = ''
+    BLUE=$(${pkgs.ncurses}/bin/tput setaf 4)
+    CLEAR=$(${pkgs.ncurses}/bin/tput sgr0)
 
-  #   if [[ -e /run/current-system ]]; then
-  #     echo "$BLUE   $CLEAR System Diff Report $BLUE   $CLEAR"
-  #     ${pkgs.nvd}/bin/nvd --nix-bin-dir=${config.nix.package}/bin diff /run/current-system "$systemConfig"
-  #     echo "$BLUE                $CLEAR"
-  #   fi
-  # '';
+    if [[ -e /run/current-system ]]; then
+      echo "$BLUE   $CLEAR System Diff Report $BLUE   $CLEAR"
+      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${config.nix.package}/bin diff /run/current-system "$systemConfig"
+      echo "$BLUE                $CLEAR"
+    fi
+  '';
 
   # nixpkgs.overlays = [overlays];
 

@@ -22,8 +22,10 @@ in {
         DisablePocket = true;
         DisableAppUpdate = true;
       };
-      # Enable WebGL, cookies and history
       settings = {
+        # Use dnscrypt
+        "network.trr.mode" = 5;
+
         "general.autoScroll" = true;
         "sidebar.verticalTabs" = true;
         # Allow svgs to take on theme colors
