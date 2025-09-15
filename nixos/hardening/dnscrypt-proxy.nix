@@ -25,7 +25,14 @@ in {
     enable = true;
     # See https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
     settings = {
-      listen_addresses = ["127.0.0.1:53" "127.0.0.1:3000"];
+      # listen_addresses = ["127.0.0.1:53" "127.0.0.1:3000"];
+      # # Local DoH settings
+      # local_doh = {
+      #   listen_addresses = ["127.0.0.1:3000"];
+      #   path = "/dns-query";
+      #   cert_file = "/etc/dnscrypt-proxy2/localhost.pem";
+      #   cert_key_file = "/etc/dnscrypt-proxy2/localhost.pem";
+      # };
       sources.public-resolvers = {
         urls = [
           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
@@ -43,7 +50,7 @@ in {
       require_nolog = true;
       require_nofilter = true;
       # doh_servers = true;
-      # odoh_servers = false;
+      odoh_servers = true;
       # force_tcp = true;
 
       # If you want, choose a specific set of servers that come from your sources.

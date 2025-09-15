@@ -24,7 +24,8 @@ in {
       };
       settings = {
         # Use dnscrypt
-        "network.trr.mode" = 5;
+        "network.trr.mode" = 2;
+        "network.trr.uri" = "https://127.0.0.1:3000/dns-query";
 
         "general.autoScroll" = true;
         "sidebar.verticalTabs" = true;
