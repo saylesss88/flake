@@ -108,6 +108,7 @@
           fr = "nh os switch /home/jr/flake";
           ft = "nh os test /home/jr/flake";
           fu = "nh os switch --update /home/jr/flake";
+          nu = "nix flake update";
           upd = "nix-upgrade";
           cleanup = "nh clean all";
           opts = "man home-configuration.nix";

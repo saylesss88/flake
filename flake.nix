@@ -14,6 +14,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
+    arkenfox = {
+      # url = "github:dwarfmaster/arkenfox-nixos/57eefe49b80ea5e02f42199db531292de34a4350";
+      url = "github:dwarfmaster/arkenfox-nixos/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     systems.url = "github:nix-systems/default-linux";
     disko.url = "github:nix-community/disko";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -24,6 +29,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
     helix.url = "github:helix-editor/helix";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nvf.url = "github:notashelf/nvf";
     nixos-generators = {
