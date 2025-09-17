@@ -18,12 +18,15 @@ _: {
           # ps -o uid,user,pid,cmd -C dnscrypt-proxy
           meta skuid 62396 udp dport { 443, 853 } accept
           meta skuid 62396 tcp dport { 443, 853 } accept
-          # Allow outbound SSH traffic on port 22
-          tcp dport 22 accept
 
           # Block all other outbound DNS
           udp dport { 53, 853 } drop
           tcp dport { 53, 853 } drop
+
+         # Allow DHCP server and client traffic on relevant interfaces
+         udp dport { 67, 68 } accept
+
+
 
           # (all other outbound traffic: policy ACCEPT unless further rules)
         }

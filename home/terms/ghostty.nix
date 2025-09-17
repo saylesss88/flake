@@ -22,8 +22,8 @@ in {
       enableZshIntegration = true;
       installVimSyntax = true;
       settings = {
-        # theme = "tokyonight";
-        theme = "catppuccin-mocha";
+        theme = "tokyonight";
+        # theme = "catppuccin-mocha";
         keybind = [
           # "alt+n=new_window"
           # "alt+t=new_tab"

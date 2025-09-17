@@ -14,11 +14,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
-    arkenfox = {
-      # url = "github:dwarfmaster/arkenfox-nixos/57eefe49b80ea5e02f42199db531292de34a4350";
-      url = "github:dwarfmaster/arkenfox-nixos/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    ghostty.url = "github:ghostty-org/ghostty";
+    # arkenfox = {
+    #   # url = "github:dwarfmaster/arkenfox-nixos/57eefe49b80ea5e02f42199db531292de34a4350";
+    #   url = "github:dwarfmaster/arkenfox-nixos/main";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     systems.url = "github:nix-systems/default-linux";
     disko.url = "github:nix-community/disko";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

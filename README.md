@@ -56,3 +56,7 @@ sudo mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 ```bash
 sudo aide --check --config /var/lib/aide/aide.conf
 ```
+
+### Need to Switch to an old generation?
+
+Tap space as the machine reboots.

@@ -22,7 +22,7 @@ in {
           # Grant doas access specifically to your user
           users = [username]; # <--- Use 'users' instead of 'groups'
           # groups = ["wheel"];
-          persist = true; # Convenient but less secure
+          # persist = true; # Convenient but less secure
           noPass = true; # Convenient but even less secure
           keepEnv = true; # Often necessary
           # Optional: You can also specify which commands they can run, e.g.:

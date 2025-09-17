@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   config,
+  lib,
   # overlays,
   ...
 }: {
@@ -22,7 +23,9 @@
   ];
   # gaming.enable = false;
   # docker-compose.enable = false;
-  specialisation.no-sops.configuration = {
+  specialisation.no-doas.configuration = {
+    security.doas.enable = lib.mkForce false;
+    custom.security.doas.enable = lib.mkForce false;
     # security.apparmor.enable = lib.mkForce false;
   };
 
@@ -87,6 +90,7 @@
     security = {
       usbguard.enable = true;
       auditd.enable = true;
+      doas.enable = true;
       # clamav.enable = true;
     };
   };
