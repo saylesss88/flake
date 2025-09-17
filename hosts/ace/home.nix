@@ -35,6 +35,7 @@
     mullvad-browser.enable = true;
     qutebrowser.enable = false;
     kitty.enable = true;
+    obs-studio.enable = true;
     git = {
       enable = true;
       userName = "saylesss88";
