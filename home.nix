@@ -4,14 +4,20 @@
 }:
 {
   # Change your-user
-  home.username = "your-user";
+  home.username = "jr";
   # Change your-user
-  home.homeDirectory = lib.mkDefault "/home/your-user";
+  home.homeDirectory = lib.mkDefault "/home/jr";
   home.stateVersion = "25.05";
 
   imports = [
+    ./home/hypr
   ];
   programs.home-manager.enable = true;
+
+  custom = {
+    hyprland.enable = true;
+    wlogout.enable = true;
+  };
 
   # xdg.portal = {
   #   enable = true;
