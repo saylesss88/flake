@@ -25,7 +25,7 @@ in {
     userEmail = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       # default = userVars.gitEmail; # or "sawyerjr.25@gmail.com"; # Fallback to email if userVars.gitEmail is undefined
-      default = "saylesss87@proton.me"
+      default = "saylesss87@proton.me";
       description = "Git user email";
     };
 
