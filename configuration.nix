@@ -1,23 +1,30 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./users.nix
-      ./nixos/greetd.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./users.nix
+    ./nixos/greetd.nix
+  ];
 
-    custom = {
-      greetd.enable = true;
-    };
+  custom = {
+    greetd.enable = true;
+  };
+
+  environment.systemPackages = [
+    pkgs.zoxide
+    pkgs.mcfly
+  ];
 
   # Use the systemd-boot EFI boot loader.
-   boot.loader = {
+  boot.loader = {
     systemd-boot = {
       enable = true;
       consoleMode = "max";
@@ -42,11 +49,11 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-    # ------------------------------------------------------------------
+  # ------------------------------------------------------------------
   # 2. ZFS support see: https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html
   # ------------------------------------------------------------------
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.devNodes = "/dev/";       # Critical for VMs
+  boot.supportedFilesystems = ["zfs"];
+  boot.zfs.devNodes = "/dev/"; # Critical for VMs
   # Not needed with LUKS
   boot.zfs.requestEncryptionCredentials = false;
   # systemd handles mounting
@@ -62,22 +69,22 @@
   # ------------------------------------------------------------------
   # 3. LUKS
   # ------------------------------------------------------------------
-   boot.initrd.luks.devices = {
-     cryptroot = {
-    # replace uuid# with output of UUID # from `sudo blkid /dev/vda2`
-       device = "/dev/disk/by-uuid/c1f3e910-b5c7-4de8-865c-312c6a36afdf";
-       allowDiscards = true;
-       preLVM = true;
-     };
-   };
+  boot.initrd.luks.devices = {
+    cryptroot = {
+      # replace uuid# with output of UUID # from `sudo blkid /dev/vda2`
+      device = "/dev/disk/by-uuid/c1f3e910-b5c7-4de8-865c-312c6a36afdf";
+      allowDiscards = true;
+      preLVM = true;
+    };
+  };
 
   # ------------------------------------------------------------------
   # 4. Roll-back root to blank snapshot on **every** boot
   # ------------------------------------------------------------------
- # Uncomment after first reboot
- # boot.initrd.postMountCommands = lib.mkAfter ''
- #   zfs rollback -r rpool/local/root@blank
- # '';
+  # Uncomment after first reboot
+  # boot.initrd.postMountCommands = lib.mkAfter ''
+  #   zfs rollback -r rpool/local/root@blank
+  # '';
 
   # ------------------------------------------------------------------
   # 5. Basic system (root password, serial console for VM)
@@ -85,10 +92,9 @@
   # Unique 8-hex hostId (run once in live ISO: head -c4 /dev/urandom | xxd -p)
   networking.hostId = "7967fe7d";
 
-  users.users.root.initialPassword = "changeme";   # change after first login
+  users.users.root.initialPassword = "changeme"; # change after first login
 
-  boot.kernelParams = [ "console=tty1" ];
-
+  boot.kernelParams = ["console=tty1"];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -113,6 +119,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
-
