@@ -16,7 +16,7 @@
 
   custom = {
     hyprland.enable = true;
-    wlogout.enable = true;
+    # wlogout.enable = true;
   };
 
   # xdg.portal = {
