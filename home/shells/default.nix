@@ -1,3 +1,8 @@
-{myLib, ...}: {
-  imports = myLib.scanPaths ./.;
+{...}: {
+  imports = [
+    ./zsh.nix
+    ./starship.nix
+    ./nushell
+    ./bash.nix
+  ];
 }
