@@ -22,18 +22,18 @@ in {
       wl-clipboard-rs
       cliphist
       swappy
-      ydotool
-      wpaperd
-      wofi
-      hyprpicker
+      # ydotool
+      # wpaperd
+      # wofi
+      # hyprpicker
       pavucontrol
-      blueman
+      # blueman
       lxqt.lxqt-policykit
-      brightnessctl
+      # brightnessctl
       # polkit_gnome
       wlr-randr
       wtype
-      rose-pine-cursor
+      # rose-pine-cursor
       # nwg-look
       yad
       # gtk-engine-murrine
@@ -63,7 +63,7 @@ in {
     };
 
     services.mako = {
-      enable = true;
+      enable = false;
       settings = {
         actions = true;
         anchor = "top-right";
@@ -103,12 +103,12 @@ in {
         early_exit=true
         fill_shape=false
       '';
-      ".config/wpaperd/config.toml".text = ''
-        [default]
-         path = "/home/jr/Pictures/Wallpapers/"
-         duration = "30m"
-         transition-time = 600
-      '';
+    # ".config/wpaperd/config.toml".text = ''
+    #   [default]
+    #    path = "/home/jr/Pictures/Wallpapers/"
+    #    duration = "30m"
+    #    transition-time = 600
+    # '';
     };
   };
 }

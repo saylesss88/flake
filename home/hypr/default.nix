@@ -7,10 +7,10 @@
     ./hypridle.nix
     ./hyprlock.nix
     # ./pyprland.nix
-    # ./waybar.nix
-    # ./wlogout.nix
+    ./waybar.nix
+    ./wlogout.nix
     ./keybinds.nix
-    # ./wofi.nix
+    ./wofi.nix
     # ./swaync.nix
   ];
 }

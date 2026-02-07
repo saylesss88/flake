@@ -106,15 +106,15 @@ _: {
         ];
       };
       windowrule = [
-        "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
-        "tag +terminal, class:^(Alacritty|kitty|kitty-dropterm|ghostty)$"
+        # "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
+        # "tag +terminal, class:^(Alacritty|kitty|kitty-dropterm|ghostty)$"
         # "tag +browser, class:^(Brave-browser(-beta|-dev|-unstable)?)$"
-        "tag +browser, class:^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
+        # "tag +browser, class:^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
         # "tag +browser, class:^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$"
         # "tag +browser, class:^([Tt]horium-browser|[Cc]achy-browser)$"
         # "tag +projects, class:^(codium|codium-url-handler|VSCodium)$"
         # "tag +projects, class:^(VSCode|code-url-handler)$"
-        "tag +im, class:^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
+        # "tag +im, class:^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
         # "tag +im, class:^([Ff]erdium)$"
         # "tag +im, class:^([Ww]hatsapp-for-linux)$"
         # "tag +im, class:^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$"
@@ -124,7 +124,7 @@ _: {
         # "tag +gamestore, class:^([Ss]team)$"
         # "tag +gamestore, title:^([Ll]utris)$"
         # "tag +settings, class:^(gnome-disks|wihotspot(-gui)?)$"
-        "tag +settings, class:^([Rr]ofi)$"
+        # "tag +settings, class:^([Rr]ofi)$"
         # "tag +settings, class:^(file-roller|org.gnome.FileRoller)$"
         "tag +settings, class:^(nm-applet|nm-connection-editor|blueman-manager)$"
         "tag +settings, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"

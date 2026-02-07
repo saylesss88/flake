@@ -1,8 +1,4 @@
-{
-  lib,
-  ...
-}:
-{
+{lib, ...}: {
   # Change your-user
   home.username = "jr";
   # Change your-user
@@ -10,13 +6,19 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./home/hypr
+    ./home
   ];
   programs.home-manager.enable = true;
 
   custom = {
     hyprland.enable = true;
-    # wlogout.enable = true;
+    ghostty.enable = true;
+    helix.enable = true;
+    kitty.enable = true;
+    wlogout.enable = true;
+    git.enable = true;
+    yazi.enable = true;
+    fd.enable = true;
   };
 
   # xdg.portal = {

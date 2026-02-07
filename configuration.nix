@@ -53,9 +53,9 @@
   systemd.services.zfs-mount.enable = false;
 
   services.zfs = {
-    autoScrub.enable = true;
+    # autoScrub.enable = true;
     # periodically runs `zpool trim`
-    trim.enable = true;
+    # trim.enable = true;
     # autoSnapshot = true;
   };
 
