@@ -8,5 +8,6 @@
     ./shells
     ./hypr
     ./editors
+    ./gnupg-agent.nix
   ];
 }

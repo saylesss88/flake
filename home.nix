@@ -18,6 +18,7 @@
     wlogout.enable = true;
     git.enable = true;
     yazi.enable = true;
+    pgp.enable = true;
     # fd.enable = true;
   };
 
