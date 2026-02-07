@@ -18,7 +18,7 @@
     wlogout.enable = true;
     git.enable = true;
     yazi.enable = true;
-    fd.enable = true;
+    # fd.enable = true;
   };
 
   # xdg.portal = {
