@@ -18,6 +18,7 @@
 
   custom = {
     greetd.enable = true;
+    nix.enable = true;
   };
 
   environment.sessionVariables = {
