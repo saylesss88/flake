@@ -30,7 +30,8 @@ in {
         default_session = {
           user = username;
           # command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --time --cmd --theme \"container=black;input=lightBlue;prompt=green;greet=magenta;border=blue\" Hyprland";
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --time --theme 'container=black;input=lightBlue;prompt=green;greet=magenta;border=blue' --cmd Hyprland";
+          # command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --time --theme 'container=black;input=lightBlue;prompt=green;greet=magenta;border=blue' --cmd Hyprland";
+          command = "${lib.getExe config.programs.uwsm.package} start -e -D Hyprland hyprland-uwsm.desktop";
         };
       };
     };
