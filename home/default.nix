@@ -7,6 +7,7 @@
     ./nh.nix
     ./yazi.nix
     ./qt.nix
+    ./fzf.nix
     ./gtk.nix
     ./shells
     ./hypr

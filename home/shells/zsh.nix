@@ -36,7 +36,8 @@
       setopt pushdminus
     '';
     initContent = ''
-               fastfetch
+               # fastfetch
+               slasher-horrorscripts
                if [ -f $HOME/.zshrc-personal ]; then
                  source $HOME/.zshrc-personal
                fi
