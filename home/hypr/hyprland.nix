@@ -17,7 +17,7 @@ in {
   config = lib.mkIf cfg.enable {
     # services.hyprpaper.enable = true;
     home.packages = with pkgs; [
-      # swww
+      swww
       grim
       slurp
       wl-clipboard-rs

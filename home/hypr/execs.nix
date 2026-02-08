@@ -14,6 +14,7 @@ _: {
         # "killall -q mako;sleep .5 && mako"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
         # "killall -q swww;sleep .5 && swww init"
+        "uswm app -- swww-daemon"
         "uwsm app -- udiskie -2"
         "uwsm app -- ydotoold"
         "uwsm app -- hypridle"
