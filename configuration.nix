@@ -5,13 +5,14 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./users.nix
-    ./nixos/greetd.nix
+    ./nixos
   ];
 
   custom = {
@@ -21,6 +22,8 @@
   environment.systemPackages = [
     pkgs.zoxide
     pkgs.mcfly
+    pkgs.hyprpaper
+    inputs.randpaper.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Use the systemd-boot EFI boot loader.

@@ -15,6 +15,7 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
+    services.hyprpaper.enable = true;
     home.packages = with pkgs; [
       # swww
       grim
@@ -103,12 +104,12 @@ in {
         early_exit=true
         fill_shape=false
       '';
-    # ".config/wpaperd/config.toml".text = ''
-    #   [default]
-    #    path = "/home/jr/Pictures/Wallpapers/"
-    #    duration = "30m"
-    #    transition-time = 600
-    # '';
+      # ".config/wpaperd/config.toml".text = ''
+      #   [default]
+      #    path = "/home/jr/Pictures/Wallpapers/"
+      #    duration = "30m"
+      #    transition-time = 600
+      # '';
     };
   };
 }

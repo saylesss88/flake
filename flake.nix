@@ -12,35 +12,40 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     # impermanence.url = "github:nix-community/impermanence";
+    randpaper.url = "github:saylesss88/randpaper";
     wallpapers = {
       url = "github:saylesss88/wallpapers2";
       flake = false;
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }@inputs:
-    {
-      nixosConfigurations = {
-        magic = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            # inputs.lanzaboote.nixosModules.lanzaboote
-
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              # Change `your-user`
-              home-manager.users.jr = ./home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-              };
-
-            }
-          ];
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      magic = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
         };
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          # inputs.lanzaboote.nixosModules.lanzaboote
+
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            # Change `your-user`
+            home-manager.users.jr = ./home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+          }
+        ];
       };
     };
+  };
 }

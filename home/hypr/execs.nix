@@ -17,9 +17,11 @@ _: {
         # "polkit_gnome"
         "pypr &"
         "blueman-applet"
-        "wpaperd"
+        # "wpaperd"
         "wl-paste --type text --watch cliphist store" # Stores only text data
         "wl-paste --type image --watch cliphist store" # Stores only image data
+        "randpaper /home/jr/Pictures/Wallpapers/"
+        "hyprpaper"
       ];
     };
   };

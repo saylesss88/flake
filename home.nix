@@ -19,6 +19,8 @@
     git.enable = true;
     yazi.enable = true;
     pgp.enable = true;
+    nh.enable = true;
+    brave.enable = true;
     # fd.enable = true;
   };
 

@@ -13,7 +13,7 @@ _: {
           "$mod SHIFT,N,exec,swaync-client -rs"
           "$mod,W,exec,wezterm"
           "$mod,F,exec,librewolf"
-          "$mod,B,exec,bitwarden"
+          "$mod,B,exec,brave"
           # "$mod,O,exec,qutebrowser"
           "$mod,V,exec,cliphist list | wofi --dmenu | cliphist decode | wl-copy"
           "$mod SHIFT,E,exec,emopicker9000"

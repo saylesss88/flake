@@ -22,7 +22,7 @@ in {
       enableZshIntegration = true;
       installVimSyntax = true;
       settings = {
-        theme = "tokyonight";
+        # theme = "tokyonight";
         # theme = "catppuccin-mocha";
         keybind = [
           # "alt+n=new_window"
