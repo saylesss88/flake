@@ -22,6 +22,10 @@
   environment.systemPackages = [
     pkgs.zoxide
     pkgs.mcfly
+    pkgs.rustup
+    pkgs.gcc
+    pkgs.rustc
+    pkgs.ripgrep
     pkgs.hyprpaper
     inputs.randpaper.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
@@ -40,8 +44,9 @@
   };
   programs.hyprland = {
     enable = true;
-    # package = null;
-    # portalPackage = null;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   networking.hostName = "magic"; # Define your hostname.

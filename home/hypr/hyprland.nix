@@ -42,11 +42,11 @@ in {
     # systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
     wayland.windowManager.hyprland = {
       enable = true;
-      # package = null;
-      # portalPackage = null;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      package = null;
+      portalPackage = null;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage =
+      #   inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       settings = {
         debug = {
           disable_logs = false;
