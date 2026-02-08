@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  environment.sessionVariables = {
+    PATH = [
+      "$HOME/.cargo/bin"
+    ];
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
