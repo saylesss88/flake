@@ -1,8 +1,6 @@
 {pkgs, ...}: {
-  environment.sessionVariables = {
-    PATH = [
-      "$HOME/.cargo/bin"
-    ];
+  home.sessionVariables = {
+    PATH = "$HOME/.cargo/bin:$PATH";
   };
   programs.zsh = {
     enable = true;
@@ -42,7 +40,7 @@
     '';
     initContent = ''
                # fastfetch
-               slasher-horrorscripts
+               # slasher-horrorscripts
                if [ -f $HOME/.zshrc-personal ]; then
                  source $HOME/.zshrc-personal
                fi
@@ -67,7 +65,7 @@
         # Usage: rbs <hostname> <username>
                eval "$(zoxide init zsh)"
                eval "$(mcfly init zsh)"
-               eval "$(direnv hook zsh)"
+               # eval "$(direnv hook zsh)"
 
       # if [ -n "$TTY" ]; then
       #   export GPG_TTY=$(tty)

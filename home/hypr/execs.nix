@@ -2,9 +2,9 @@ _: {
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
-        "uwsm app -- hyprpaper"
+        # "uwsm app -- hyprpaper"
         # "killall -q randpaper; randpaper /home/jr/Pictures/Wallpapers/"
-        "uwsm app -- randpaper /home/jr/Pictures/Wallpapers/"
+        "sleep 1 && uwsm app -- randpaper /home/jr/Pictures/Wallpapers/"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         # "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "uwsm app -- waybar"
@@ -14,7 +14,7 @@ _: {
         # "killall -q mako;sleep .5 && mako"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
         # "killall -q swww;sleep .5 && swww init"
-        "uswm app -- swww-daemon"
+        "uswm app -- swww-daemon 2>/dev/null"
         "uwsm app -- udiskie -2"
         "uwsm app -- ydotoold"
         "uwsm app -- hypridle"

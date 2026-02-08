@@ -20,6 +20,11 @@
     greetd.enable = true;
   };
 
+  environment.sessionVariables = {
+    PATH = [
+      "$HOME/.cargo/bin"
+    ];
+  };
   environment.systemPackages = [
     pkgs.zoxide
     pkgs.mcfly
