@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   # Change your-user
   home.username = "jr";
   # Change your-user
@@ -9,6 +13,14 @@
     ./home
   ];
   programs.home-manager.enable = true;
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = ["${inputs.wallpapers}"];
+      wallpaper = [", ${inputs.wallpapers}"];
+    };
+  };
 
   custom = {
     hyprland.enable = true;

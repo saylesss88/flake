@@ -6,6 +6,8 @@
     ./fd.nix
     ./nh.nix
     ./yazi.nix
+    ./qt.nix
+    ./gtk.nix
     ./shells
     ./hypr
     ./editors

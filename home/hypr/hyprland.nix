@@ -15,7 +15,7 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
-    services.hyprpaper.enable = true;
+    # services.hyprpaper.enable = true;
     home.packages = with pkgs; [
       # swww
       grim

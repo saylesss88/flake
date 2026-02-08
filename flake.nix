@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v1.0.0";
     #   inputs.nixpkgs.follows = "nixpkgs";

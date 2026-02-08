@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./users.nix
     ./nixos
+    ./nixos/hyprland.nix
   ];
 
   custom = {
@@ -42,12 +43,13 @@
       efiSysMountPoint = "/boot";
     };
   };
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
+
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   portalPackage =
+  #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # };
 
   networking.hostName = "magic"; # Define your hostname.
 
