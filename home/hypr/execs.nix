@@ -1,9 +1,12 @@
-_: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
-        "uwsm app -- swww-daemon"
-        "sleep 2 && uwsm app -- randpaper /home/jr/Pictures/Wallpapers/"
+        "uwsm app -- swaybg"
+        # "uwsm app -- swww-daemon"
+        # "uwsm app -- hyprpaper"
+        "uwsm app -- randpaper --time=15m /home/jr/Pictures/wallpapers2 --backend hyprland"
+        # "/home/jr/projects/randpaper /home/jr/Pictures/Wallpapers --backend hyprland"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         # "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "uwsm app -- waybar"

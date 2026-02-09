@@ -21,11 +21,13 @@
     nix.enable = true;
   };
 
-  environment.sessionVariables = {
-    PATH = [
-      "$HOME/.cargo/bin"
-    ];
-  };
+  security.pam.services.hyprlock.text = "auth include login";
+
+  # environment.sessionVariables = {
+  #   PATH = [
+  #     "$HOME/.cargo/bin"
+  #   ];
+  # };
   environment.systemPackages = [
     pkgs.zoxide
     pkgs.mcfly
@@ -49,13 +51,6 @@
       efiSysMountPoint = "/boot";
     };
   };
-
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage =
-  #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  # };
 
   networking.hostName = "magic"; # Define your hostname.
 
