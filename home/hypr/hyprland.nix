@@ -18,7 +18,7 @@ in {
     # services.hyprpaper.enable = true;
     home.packages = with pkgs; [
       swaybg
-      # swww
+      swww
       grim
       slurp
       wl-clipboard-rs
@@ -62,6 +62,10 @@ in {
         variables = ["--all"];
         enableXdgAutostart = true;
       };
+      # extraConfig = ''
+      #   exec-once = uwsm app -- swww-daemon
+      #   exec-once = uwsm app -- "randpaper --time 15m ~/Pictures/wallpapers2 --transition-type wipe --transition-step 90 --transition-fps 60 --backend hyprland --renderer swww"
+      # '';
     };
 
     services.mako = {

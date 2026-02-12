@@ -12,8 +12,9 @@ with lib; {
       {
         layer = "top";
         position = "top";
-        height = 36;
-        # height = 46;
+        reload_on_style_change = true;
+        # height = 36;
+        height = 46;
         margin = "5, 5, 0, 5";
         modules-center = [
           "hyprland/workspaces"
@@ -194,6 +195,7 @@ with lib; {
     ];
     style = concatStrings [
       ''
+        @import "/home/jr/.config/randpaper/themes/waybar.css";
                 * {
             border: none;
             font-family: "JetBrainsMono";
@@ -202,7 +204,7 @@ with lib; {
 
         window#waybar {
             background-color: rgba(16, 18, 36, 0.8); /* Dark background (Kanagawa base) */
-            color: #e1e1e1; /* Light gray text */
+            color: @rp_fg; /* Light gray text */
             transition-property: background-color;
             transition-duration: .5s;
             border-radius: 10px;
@@ -232,12 +234,12 @@ with lib; {
         }
 
         #workspaces button.focused {
-            background-color: #928374; /* Tan/brown focus */
+            background-color: @rp_bg; /* Tan/brown focus */
             color: #161824; /* Dark text */
         }
 
         #workspaces button.urgent {
-            color: #e82424; /* Red urgent */
+            color: @rp_warn; /* Red urgent */
         }
 
         #clock,
@@ -279,17 +281,17 @@ with lib; {
         }
 
         #clock {
-            color: #ff9e64; /* Orange clock */
+            color: @rp_accent; /* Orange clock */
         }
 
         #battery {
-            color: #e82424; /* Red battery */
+            color: @rp_fg; /* Red battery */
         }
 
         @keyframes blink {
             to {
-                background-color: #e1e1e1; /* Light gray blink */
-                color: #161824; /* Dark text blink */
+                background-color: @rp_bg; /* Light gray blink */
+                color: @rp_fg; /* Dark text blink */
             }
         }
 

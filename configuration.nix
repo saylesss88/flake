@@ -33,8 +33,8 @@
     pkgs.mcfly
     pkgs.rustup
     pkgs.gcc
-    pkgs.rustc
     pkgs.ripgrep
+    pkgs.bat
     pkgs.hyprpaper
     inputs.randpaper.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
@@ -44,6 +44,7 @@
     systemd-boot = {
       enable = true;
       consoleMode = "max";
+      configurationLimit = 10;
       editor = false;
     };
     efi = {

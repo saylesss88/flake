@@ -22,7 +22,8 @@ in {
       enableZshIntegration = true;
       installVimSyntax = true;
       settings = {
-        # theme = "tokyonight";
+        # "config-file" = "/home/jr/.config/randpaper/themes/ghostty.config";
+        # theme = "/home/jr/.config/randpaper/themes/ghostty.config";
         # theme = "catppuccin-mocha";
         keybind = [
           # "alt+n=new_window"
