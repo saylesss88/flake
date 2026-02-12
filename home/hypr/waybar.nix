@@ -296,8 +296,8 @@ with lib; {
         }
 
         #battery.critical:not(.charging) {
-            background-color: #e82424; /* Red critical battery */
-            color: #161824;
+            background-color: @rp_bg; /* Red critical battery */
+            color: @rp_warn;
         }
 
         label:focus {
@@ -306,23 +306,23 @@ with lib; {
 
         #cpu {
             /* color: #2e3257;  Blue cpu */
-            color: #007291;
+            color: @rp_fg;
         }
 
         #memory {
-            color: #9ece6a; /* Green memory */
+            color: @rp_accent; /* Green memory */
         }
 
         #backlight {
-            color: #7aa2f7; /* Light blue backlight */
+            color: @rp_ok; /* Light blue backlight */
         }
 
         #network {
-            color: #627d9a; /* Light Blue network */
+            color: @rp_fg; /* Light Blue network */
         }
 
         #network.disconnected {
-            color: #e82424; /* Red disconnected network */
+            color: @rp_warn; /* Red disconnected network */
         }
 
         #pulseaudio {
@@ -334,16 +334,16 @@ with lib; {
         }
 
         #custom-power {
-            color: #7aa2f7; /* Light blue power */
+            color: @rp_fg; /* Light blue power */
         }
 
         #custom-updates {
-            color: #9ece6a; /* Green updates */
+            color: @rp_accent; /* Green updates */
         }
 
         #custom-media {
-            background-color: #9ece6a; /* Green media */
-            color: #161824; /* Dark text media */
+            background-color: @rp_bg; /* Green media */
+            color: @rp_fg; /* Dark text media */
             min-width: 100px;
         }
 
@@ -356,7 +356,7 @@ with lib; {
         }
 
         #temperature {
-            color: #7aa2f7; /* Light blue temperature */
+            color: @rp_warn; /* Light blue temperature */
         }
 
         #temperature.critical {
@@ -364,12 +364,12 @@ with lib; {
         }
 
         #tray {
-            border: solid 1px #89b4fa; /* Light blue tray border */
+            border: solid 1px @rp_border; /* Light blue tray border */
             border-radius: 30px;
         }
 
         #idle_inhibitor {
-            background-color: #303446; /* Darker idle inhibitor */
+            background-color: @rp_bg; /* Darker idle inhibitor */
             border-radius: 15px;
         }
 
@@ -384,7 +384,7 @@ with lib; {
         }
 
         #custom-network_traffic {
-            color: #ff9e64; /* Orange network traffic */
+            color: @rp_fg; /* Orange network traffic */
         }
       ''
     ];
