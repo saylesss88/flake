@@ -5,7 +5,7 @@
 }: {
   imports = [
     inputs.mango.hmModules.mango
-    ./keybinds.nix
+    # ./keybinds.nix
   ];
   home.packages = [
     pkgs.nixfmt
@@ -25,8 +25,9 @@
       #=========================================================#
       # Monitor Layout DP-1 left, HDMI-A-1 right
       #=========================================================#
-      # monitorrule=DP-1,0.55,1,tile,0,1,0,0,3840,2160,60
-      # monitorrule=HDMI-A-1,0.55,1,tile,0,1,1920,0,1920,1080,60
+      # Logical layout: 4K (Scale 2) starts at 0,0. 1080p starts at 1920,0.
+      monitorrule=name:DP-1,res:3840x2160,pos:0,0,scale:2,enabled:1
+      monitorrule=name:HDMI-A-1,res:1920x1080,pos:1920,0,scale:1,enabled:1
       #=========================================================#
       # Animations
       #=========================================================#
@@ -227,6 +228,7 @@
       cursor_theme=Adwaita
       env=GTK_THEME,Adwaita:dark
       env=XCURSOR_SIZE,48
+      env=GDK_SCALE,2
 
     '';
   };
