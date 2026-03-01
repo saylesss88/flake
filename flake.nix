@@ -17,6 +17,7 @@
     randpaper.url = "github:saylesss88/randpaper";
     helix.url = "github:helix-editor/helix";
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v1.0.0";
     #   inputs.nixpkgs.follows = "nixpkgs";

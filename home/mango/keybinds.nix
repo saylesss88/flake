@@ -56,6 +56,12 @@
       bind=SUPER+SHIFT,equal,setmfact,+0.05
 
       #==================================================#
+      # Mouse Binds
+      #==================================================#
+      mousebind=SUPER,btn_left,moveresize,curmove
+      mousebind=SUPER,btn_right,moveresize,curresize
+      mousebind=NONE,btn_left,toggleoverview,-1
+      #==================================================#
       # Grid
       #==================================================#
       keymode=grid
