@@ -216,6 +216,13 @@
       tagrule=id:7,layout_name:tile
       tagrule=id:8,layout_name:tile
       tagrule=id:9,layout_name:tile
+      #=========================================================#
+      # Cursor Size & Theme
+      #=========================================================#
+      cursor_size=24
+      cursor_theme=Adwaita
+      env=GTK_THEME,Adwaita:dark
+      env=XCURSOR_SIZE,24
 
     '';
   };
