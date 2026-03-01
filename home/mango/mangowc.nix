@@ -228,7 +228,7 @@
       wl-paste --type text --watch cliphist store &
       wl-paste --type image --watch cliphist store &
       # xwayland-satellite &
-      awww-daemon &
+      # awww-daemon &
       # battery-monitor &
       # darkman run &
       # swaync &
@@ -240,9 +240,12 @@
       # swayosd-server &
       # sunsetr &
     '';
+    "Pictures/Wallpapers" = {
+      source = inputs.wallpapers;
+    };
     ".config/wpaperd/config.toml".text = ''
       [default]
-       path = "/home/jr/Pictures/Wallpapers/"
+       path = "/home/jr/Pictures/wallpapers/"
        duration = "30m"
        transition-time = 600
     '';
