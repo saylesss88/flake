@@ -4,9 +4,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,7 +15,7 @@
   #============================#
   #      Lanzaboote
   # ===========================#
-  environment.systemPackages = [  ];
+  environment.systemPackages = [];
 
   custom = {
     nix.enable = true;
@@ -47,7 +45,7 @@
     };
   };
 
-  boot.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems = ["zfs"];
   boot.zfs.devNodes = "/dev/"; # Critical for VMs
   # Not needed with LUKS
   boot.zfs.requestEncryptionCredentials = false;
@@ -85,10 +83,11 @@
   # Unique 8-hex hostId (run once in live ISO: head -c4 /dev/urandom | xxd -p)
   networking.hostId = "11fdb844";
   networking.networkmanager.enable = true;
+  networking.hostName = "magic";
 
   users.users.root.initialPassword = "changeme"; # change after first login
 
-  boot.kernelParams = [ "console=tty1" ];
+  boot.kernelParams = ["console=tty1"];
 
   # ------------------------------------------------------------------
   # (Optional) Enable SSH for post-install configuration
@@ -98,5 +97,4 @@
   #  settings.PermitRootLogin = "yes";
   #};
   system.stateVersion = "26.05";
-
 }
