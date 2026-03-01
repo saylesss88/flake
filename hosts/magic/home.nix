@@ -16,7 +16,9 @@
     nh.enable = true;
     helix.enable = true;
     yazi.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+    };
     ghostty.enable = true;
     gpg.enable = true;
   };
