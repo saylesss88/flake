@@ -48,6 +48,8 @@ in
         swappy
         cliphist
         wl-clipboard-rs
+        brightnessctl
+        libnotify
       ];
 
       wayland.windowManager.mango = {
@@ -71,12 +73,17 @@ in
 
           # reload config(after rebuilding, reload_config)
           bind=SUPER,r,reload_config
+          # We use spawn to run notify-send, then call reload_config (the internal command)
+          # bind=SUPER,r,spawn,${pkgs.libnotify}/bin/notify-send -a "MangoWC" "System Refreshed" "Configuration reloaded successfully" && reload_config
 
           bind=SUPER,Return,spawn,ghostty
           bind=SUPER,T,spawn,foot
           bind=SUPER,O,spawn,firefox
-          bind=SUPER,d,spawn,wofi --show drun
+          bind=SUPER,D,spawn_shell,pkill wofi || wofi --normal-window --show drun --allow-images
           bind=SUPER,Q,killclient
+          bind=SUPER,V,spawn_shell,cliphist list | wofi --dmenu | cliphist decode | wl-copy
+          bind=SUPER+SHIFT,N,spawn_shell,killall -9 wpaperd && wpaperd
+          bind=ALT+Return,spawn,mmsg -d togglefullscreen
           #==================================================#
           # Scroller
           #==================================================#
@@ -116,6 +123,31 @@ in
           #==================================================#
           bind=SUPER,equal,setmfact,-0.05
           bind=SUPER+SHIFT,equal,setmfact,+0.05
+          # Inside wayland.windowManager.mango.settings string:
+
+          # 1. Entry Bind: Enter mode and notify the user
+          # bind=SUPER+SHIFT,r,setkeymode,resize
+
+          # 2. The Resize Mode logic
+          keymode=resize
+          # Vim-style resizing via mmsg IPC
+          bind=NONE,h,moveresize,left,-30
+          bind=NONE,j,moveresize,down,30
+          bind=NONE,k,moveresize,up,-30
+          bind=NONE,l,moveresize,right,30
+
+          # Exit Bind: Return to default and notify the user
+          bind=NONE,Escape,spawn,mmsg "setkeymode default" && notify-send -t 1000 "Mode: Default" "Resizing finished"
+          bind=NONE,Return,spawn,mmsg "setkeymode default" && notify-send -t 1000 "Mode: Default" "Resizing finished"
+          # Arrows as a backup
+          bind=NONE,left,moveresize,left,-20
+          bind=NONE,down,moveresize,down,20
+          bind=NONE,up,moveresize,up,-20
+          bind=NONE,right,moveresize,right,20
+
+          # 3. Escape the mode
+          bind=NONE,Escape,setkeymode,default
+          bind=NONE,Return,setkeymode,default
 
           #==================================================#
           # Mouse Binds
@@ -335,13 +367,11 @@ in
           #=========================================================#
           # Cursor Size & Theme
           #=========================================================#
-
-
-              cursor_size=48
-              cursor_theme=Adwaita
-              env=GTK_THEME,Adwaita:dark
-              env=XCURSOR_SIZE,48
-              env=GDK_SCALE,2
+          cursor_size=24
+          cursor_theme=Adwaita
+          env=GTK_THEME,Adwaita:dark
+          env=XCURSOR_SIZE,24
+          env=GDK_SCALE,2
         '';
       };
 
