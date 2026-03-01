@@ -47,15 +47,15 @@
         efiSysMountPoint = "/boot";
       };
     };
-    plymouth = {
-      enable = true;
-      theme = "rings";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
-    };
+    # plymouth = {
+    #   enable = true;
+    #   theme = "rings";
+    #   themePackages = with pkgs; [
+    #     (adi1090x-plymouth-themes.override {
+    #       selected_themes = [ "rings" ];
+    #     })
+    #   ];
+    # };
   };
 
   boot.supportedFilesystems = [ "zfs" ];
