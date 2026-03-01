@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ self, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -60,6 +58,13 @@
     # periodically runs `zpool trim`
     trim.enable = true;
     # autoSnapshot = true;
+  };
+
+  security = {
+    sudo.configFile = ''
+      Defaults lecture=always
+      Defaults lecture_file=${misc/groot.txt}
+    '';
   };
 
   boot.initrd.luks.devices = {

@@ -32,9 +32,7 @@ in
 
     # --- Home Manager Level (The Dendritic Branch) ---
     home-manager.users.${username} = {
-      imports = [
-        inputs.mango.hmModules.mango
-      ];
+      imports = [ inputs.mango.hmModules.mango ];
 
       home.packages = with pkgs; [
         grim

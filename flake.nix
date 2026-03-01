@@ -93,6 +93,7 @@
             host
             username
             myLib
+            self
             ;
         };
 
