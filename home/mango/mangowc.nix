@@ -30,6 +30,7 @@
       #=========================================================#
       # Animations
       #=========================================================#
+      # --- mangowc flags (1 = enabled, 0 = disabled) ---
       animations=1
       layer_animations=1
       animation_type_open=slide
@@ -54,7 +55,7 @@
       animation_curve_opafadeout=0.5,0.5,0.5,0.5
       animation_curve_opafadein=0.46,1.0,0.29,1
       #=========================================================#
-      # Blur (NOTE: Blur = High GPU use)
+      # Blur (NOTE: Blur has a high impact on performance)
       #=========================================================#
       blur=0
       blur_layer=0
@@ -66,8 +67,11 @@
       blur_params_contrast = 0.9
       blur_params_saturation = 1.2
 
-      shadows = 0
-      layer_shadows = 0
+      #=========================================================#
+      # Shadows (Distinguish floating windows from bg)
+      #=========================================================#
+      shadows = 1
+      layer_shadows = 1
       shadow_only_floating = 1
       shadows_size = 10
       shadows_blur = 15
@@ -78,7 +82,7 @@
       border_radius=6
       no_radius_when_single=0
       focused_opacity=1.0
-      unfocused_opacity=0.8
+      unfocused_opacity=0.9
       #=========================================================#
       # Scroller Layout Settings
       #=========================================================#
