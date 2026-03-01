@@ -24,11 +24,6 @@ in
 
     environment.systemPackages = with pkgs; [
       foot
-      wofi
-      wmenu
-      wl-clipboard
-      grim
-      slurp
       swaybg
       firefox
     ];
@@ -36,17 +31,23 @@ in
     fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
     # --- Home Manager Level (The Dendritic Branch) ---
-    # home-manager sandbox
     home-manager.users.${username} = {
       imports = [
         inputs.mango.hmModules.mango
       ];
 
       home.packages = with pkgs; [
+        grim
+        slurp
         nixfmt
         taplo
         wpaperd
         networkmanagerapplet
+        pavucontrol
+        blueman
+        swappy
+        cliphist
+        wl-clipboard-rs
       ];
 
       wayland.windowManager.mango = {
