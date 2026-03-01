@@ -245,7 +245,7 @@
     };
     ".config/wpaperd/config.toml".text = ''
       [default]
-       path = "/home/jr/Pictures/wallpapers/"
+       path = "/home/jr/Pictures/Wallpapers/"
        duration = "30m"
        transition-time = 600
     '';

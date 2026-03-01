@@ -259,7 +259,8 @@
         "mango": "mango",
         "nixpkgs": "nixpkgs_3",
         "quickshell": "quickshell",
-        "randpaper": "randpaper"
+        "randpaper": "randpaper",
+        "wallpapers": "wallpapers"
       }
     },
     "rust-overlay": {
@@ -337,6 +338,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753532623,
+        "narHash": "sha256-3cjJU4BL1HIFsH3npGkzia2PJNG2ubqnPkbfbAy/Sl4=",
+        "owner": "saylesss88",
+        "repo": "wallpapers2",
+        "rev": "5df28b167efc2395d4db55906783001e75b00633",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saylesss88",
+        "repo": "wallpapers2",
         "type": "github"
       }
     }
