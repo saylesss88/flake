@@ -11,6 +11,7 @@
     pkgs.nixfmt
     pkgs.taplo
     pkgs.wpaperd
+    pkgs.wl-clipboard
     pkgs.swaybg
     pkgs.networkmanagerapplet
   ];
@@ -53,7 +54,7 @@
       animation_curve_opafadeout=0.5,0.5,0.5,0.5
       animation_curve_opafadein=0.46,1.0,0.29,1
       #=========================================================#
-      # Blur
+      # Blur (NOTE: Blur = High GPU use)
       #=========================================================#
       blur=0
       blur_layer=0
@@ -78,7 +79,9 @@
       no_radius_when_single=0
       focused_opacity=1.0
       unfocused_opacity=0.8
-
+      #=========================================================#
+      # Scroller Layout Settings
+      #=========================================================#
       # Scroller Layout Setting
       scroller_structs=20
       scroller_default_proportion=0.8
@@ -88,20 +91,26 @@
       scroller_default_proportion_single=1.0
       scroller_proportion_preset=0.5,0.8,1.0
 
+      #=========================================================#
       # Master-Stack Layout Setting
+      #=========================================================#
       # new_is_master=1
       # default_mfact=0.55
       # default_nmaster=1
       smartgaps=0
 
+      #=========================================================#
       # Overview Setting
+      #=========================================================#
       hotarea_size=1
       enable_hotarea=1
       ov_tab_mode=0
       overviewgappi=5
       overviewgappo=30
 
+      #=========================================================#
       # Misc
+      #=========================================================#
       no_border_when_single=0
       axis_bind_apply_timeout=100
       focus_on_activate=1
@@ -115,7 +124,9 @@
       cursor_size=24
       drag_tile_to_tile=1
 
+      #=========================================================#
       # keyboard
+      #=========================================================#
       repeat_rate=50
       repeat_delay=300
       numlockon=0
@@ -124,7 +135,9 @@
       xkb_rules_options=caps:escape
 
 
+      #=========================================================#
       # Trackpad
+      #=========================================================#
       # need relogin to make it apply
       disable_trackpad=0
       tap_to_click=1
@@ -136,11 +149,15 @@
       middle_button_emulation=0
       swipe_min_threshold=1
 
+      #=========================================================#
       # mouse
+      #=========================================================#
       # need relogin to make it apply
       mouse_natural_scrolling=0
 
+      #=========================================================#
       # Appearance
+      #=========================================================#
       gappih=5
       gappiv=5
       gappoh=10
@@ -157,7 +174,9 @@
       # globalcolor=0xb153a7ff
       # overlaycolor=0x14a57cff
 
+      #=========================================================#
       # Tokyo Night - Night (OLED / ultra dark)
+      #=========================================================#
 
       # Compositor background
       rootcolor=0x1a1b26ff
@@ -184,9 +203,9 @@
       # Overlays, menus, effects
       overlaycolor=0x9d7cd8ff
 
-
-
-      # layout support:
+      #=========================================================#
+      # Layout Support:
+      #=========================================================#
       # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
       tagrule=id:1,layout_name:tile
       tagrule=id:2,layout_name:tile
@@ -209,10 +228,11 @@
       wl-paste --type text --watch cliphist store &
       wl-paste --type image --watch cliphist store &
       # xwayland-satellite &
-      swww-daemon &
+      awww-daemon &
       # battery-monitor &
       # darkman run &
       # swaync &
+      mako &
       kanshi &
       # quickshell &
       waybar &
