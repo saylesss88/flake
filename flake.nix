@@ -6,6 +6,7 @@
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
     mango = {
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +18,7 @@
     randpaper.url = "github:saylesss88/randpaper";
     helix.url = "github:helix-editor/helix";
     awww.url = "git+https://codeberg.org/LGFae/awww";
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v1.0.0";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +27,6 @@
       url = "github:saylesss88/wallpapers2";
       flake = false;
     };
-    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = {

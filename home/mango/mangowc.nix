@@ -223,10 +223,10 @@
       #=========================================================#
       # Cursor Size & Theme
       #=========================================================#
-      cursor_size=24
+      cursor_size=48
       cursor_theme=Adwaita
       env=GTK_THEME,Adwaita:dark
-      env=XCURSOR_SIZE,24
+      env=XCURSOR_SIZE,48
 
     '';
   };
