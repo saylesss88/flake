@@ -22,7 +22,8 @@ with lib; {
         ];
         modules-left = [
           "custom/startmenu"
-          "hyprland/window"
+          "ext/workspaces"
+          "dwl/window"
           "pulseaudio"
           "cpu"
           "memory"
@@ -35,8 +36,7 @@ with lib; {
           "tray"
           "custom/exit"
         ];
-
-        "hyprland/workspaces" = {
+        "ext/workspaces" = {
           format = "{name}";
           on-click = "activate";
           all-outputs = true;
@@ -46,8 +46,8 @@ with lib; {
             active = "";
             default = "";
           };
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
+          # on-scroll-up = "hyprctl dispatch workspace e+1";
+          # on-scroll-down = "hyprctl dispatch workspace e-1";
         };
         "custom/separator" = {
           format = "|";

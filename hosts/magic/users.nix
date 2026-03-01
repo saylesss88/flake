@@ -22,12 +22,13 @@
     packages = with pkgs; [
       zoxide
       ripgrep
+      btop
+      tokei
+      tealdeer
       #  thunderbird
     ];
     shell = pkgs.zsh;
     initialHashedPassword = "$y$j9T$AFAZpGibYMDWpL33h843d0$k1RwRXxHt2vOgXpnAM1zSaGUWKWsPaVi7pGc6QIGAW7";
-
-
   };
   users.mutableUsers = false;
 

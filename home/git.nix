@@ -62,8 +62,20 @@ in {
         git_protocol = "ssh";
         editor = "hx";
         aliases = {
-          co = "pr checkout";
-          pv = "pr view";
+          s = "status";
+          co = "checkout";
+          # Create branch & switch to it
+          cob = "checkout -b";
+          # Delete a branch
+          del = "branch -D";
+          pv = "view";
+          br = "branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate";
+          save = "!git add -A && git commit -m 'chore: commit save point'";
+          # Rollback changes (place back in staging area)
+          undo = "reset HEAD~1 --mixed";
+          # Clean all changes
+          res = "!git reset --hard";
+          lg = "    lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30";
         };
       };
       hosts."github.com".user = cfg.settings.user.name or "saylesss88";

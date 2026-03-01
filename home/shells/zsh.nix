@@ -101,11 +101,10 @@
                 export NIX_PATH="$NIX_PATH:flake=flake:/home/jr/flake"
     '';
     shellAliases = {
-      sv = "sudo nvim";
       fr = "nh os switch --hostname magic /home/jr/flake";
       # fr = "run0 nixos-rebuild switch --flake /home/jr/flake";
-      ft = "run0 nixos-rebuild switch --flake /home/jr/flake";
-      # ft = "nh os test --hostname magic /home/jr/flake"; # dont save generation to boot menu
+      # ft = "run0 nixos-rebuild switch --flake /home/jr/flake";
+      ft = "nh os test --hostname magic /home/jr/flake"; # dont save generation to boot menu
       fu = "nh os switch --hostname magic --update /home/jr/flake";
       rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg = "nix-collect-garbage --delete-older-than 3d && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
@@ -130,8 +129,8 @@
       vc = "nix run /home/jr/flake/modules/nixCats";
       cat = "bat --style snip --style changes --style header";
       l = "eza -lh --icons=auto"; # long list
-      # ls = "eza --icons=auto --group-directories-first --icons"; # short list
-      ls = "ls --color=tty";
+      ls = "eza --icons=auto --group-directories-first --icons"; # short list
+      # ls = "ls --color=tty";
       ll = "eza -lh --icons --grid --group-directories-first --icons";
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
@@ -164,6 +163,7 @@
       j = "just";
       # sudo = "run0";
       fmt = "git ls-files -z '*.nix' | xargs -0 -r nix fmt";
+      g = "git";
     };
   };
 }
