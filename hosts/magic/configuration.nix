@@ -1,4 +1,4 @@
-{ self, ... }:
+{ pkgs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -34,15 +34,27 @@
   # services.displayManager.autoLogin.enable = true;
   # services.displayManager.autoLogin.user = "jr";
 
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      consoleMode = "max";
-      editor = false;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "max";
+        editor = false;
+        configurationLimit = 15;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
     };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
     };
   };
 
