@@ -14,6 +14,7 @@
   environment.systemPackages = [ ];
 
   custom = {
+    mangowc.enable = true;
     magic = {
       enable = true;
       # timezone = "America/New_York";

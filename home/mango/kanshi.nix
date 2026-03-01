@@ -10,7 +10,7 @@ in
   home.packages = with pkgs; [ kanshi ];
 
   services.kanshi = {
-    enable = true;
+    enable = false;
     # "sway-session.target" won't work for mangowc.
     # This generic target ensures it starts on any Wayland session.
     systemdTarget = "wayland-session.target";
