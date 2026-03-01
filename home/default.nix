@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     # ./quickshell.nix
+    ./packages.nix
     ./nh.nix
     ./fd.nix
     ./fzf.nix
