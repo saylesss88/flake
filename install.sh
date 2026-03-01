@@ -131,12 +131,12 @@ chmod 755 /mnt/home
 # 3. Create your user directory in /home and /persist now
 # Replace 'jr' with your intended username
 mkdir -p /mnt/home/jr
-mkdir -p /mnt/persist/home/jr
+mkdir -p /mnt/persist/home/$USER
 
 # 4. CRITICAL: Set ownership to UID 1000 (standard for the first NixOS user)
 # We use numeric IDs because the user 'jr' doesn't exist in the Live ISO yet.
-chown -R 1000:100 /mnt/home/jr
-chown -R 1000:100 /mnt/persist/home/jr
+chown -R 1000:100 /mnt/home/$USER
+chown -R 1000:100 /mnt/persist/home/$USER
 
 # 5. Set /persist permissions
 # /persist usually needs 777 or 755 depending on what you store, 
