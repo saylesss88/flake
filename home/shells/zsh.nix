@@ -165,6 +165,8 @@
       # sudo = "run0";
       fmt = "git ls-files -z '*.nix' | xargs -0 -r nix fmt";
       g = "git";
+      mdb = "mdbook build";
+      mdc = "mdbook clean";
     };
   };
 }
