@@ -119,6 +119,30 @@ mount -t zfs rpool/local/nix /mnt/nix
 mount -t zfs rpool/safe/home /mnt/home
 mount -t zfs rpool/safe/persist /mnt/persist
 
+echo -e "${GREEN}[7/6] Adjusting permissions for Impermanence...${NC}"
+
+# 1. Set /mnt/root permissions (usually 755 for system root)
+chmod 755 /mnt
+
+# 2. Fix /home permissions
+# We want /home to be 755 so users can exist inside it.
+chmod 755 /mnt/home
+
+# 3. Create your user directory in /home and /persist now
+# Replace 'jr' with your intended username
+mkdir -p /mnt/home/jr
+mkdir -p /mnt/persist/home/jr
+
+# 4. CRITICAL: Set ownership to UID 1000 (standard for the first NixOS user)
+# We use numeric IDs because the user 'jr' doesn't exist in the Live ISO yet.
+chown -R 1000:100 /mnt/home/jr
+chown -R 1000:100 /mnt/persist/home/jr
+
+# 5. Set /persist permissions
+# /persist usually needs 777 or 755 depending on what you store, 
+# but 755 is safer for a start.
+chmod 755 /mnt/persist
+
 # Capture UUID for configuration
 LUKS_UUID=$(blkid -s UUID -o value "$PART2")
 

@@ -25,6 +25,7 @@
       btop
       tokei
       tealdeer
+      eza
       #  thunderbird
     ];
     shell = pkgs.zsh;

@@ -26,7 +26,7 @@
       url = "github:saylesss88/wallpapers2";
       flake = false;
     };
-    # impermanence.url = "github:nix-community/impermanence";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = {

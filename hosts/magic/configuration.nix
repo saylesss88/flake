@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     ../../nixos
     ./users.nix
-    # ./impermanence.nix
+    ./impermanence.nix
   ];
   #============================#
   #      Lanzaboote
