@@ -12,7 +12,13 @@
   environment.persistence."/persist" = {
     directories = [
       # "/var/lib/sbctl"
-      "/var/lib/nixos"
+      "/etc/NetworkManager/system-connections" # This is where Wi-Fi/Ethernet profiles live
+      "/var/lib/bluetooth" # While you're at it, keep your Bluetooth pairs
+      "/var/lib/nixos" # Keeps track of UID/GIDs
+      "/var/lib/systemd/coredump"
+    ];
+    files = [
+      "/etc/machine-id"
     ];
   };
 }
