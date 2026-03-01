@@ -14,6 +14,7 @@
   };
 
   custom = {
+    magic.hm.enable = true;
     nh.enable = true;
     helix.enable = true;
     yazi.enable = true;

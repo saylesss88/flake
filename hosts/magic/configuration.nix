@@ -5,7 +5,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../nixos
     ./users.nix
     ./impermanence.nix
   ];
@@ -15,6 +14,12 @@
   environment.systemPackages = [ ];
 
   custom = {
+    magic = {
+      enable = true;
+      # timezone = "America/New_York";
+      # hostname = "magic";
+      # locale = "en_US.UTF-8";
+    };
     nix.enable = true;
   };
 

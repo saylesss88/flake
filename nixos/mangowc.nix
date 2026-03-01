@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  # imports = [
-  #   inputs.mangowc.nixosModules.default
-  # ];
+  imports = [
+    inputs.mango.nixosModules.mango
+  ];
   programs.mango.enable = true;
 
   environment.systemPackages = with pkgs; [

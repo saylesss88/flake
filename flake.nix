@@ -100,7 +100,7 @@
           nixosModules # add all modules from ./nixos
           ./hosts/${host}/configuration.nix
           home-manager.nixosModules.home-manager
-          inputs.mango.nixosModules.mango
+          # inputs.mango.nixosModules.mango
           caches
 
           # inputs.lanzaboote.nixosModules.lanzaboote

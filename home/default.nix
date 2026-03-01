@@ -1,19 +1,17 @@
-{ ... }:
 {
-  imports = [
-    # ./quickshell.nix
-    ./packages.nix
-    ./nh.nix
-    # ./gtk_theme.nix
-    ./fd.nix
-    ./fzf.nix
-    ./jj.nix
-    ./git.nix
-    ./gpg-agent.nix
-    ./yazi.nix
-    ./helix
-    ./terms
-    ./shells
-    ./mango
-  ];
+  myLib,
+  lib,
+  ...
+}:
+{
+  imports = myLib.scanPaths ./.;
+
+  options.custom.magic.hm = {
+    enable = lib.mkEnableOption "Enable Custom Home-Manager Modules Globally";
+  };
+
+  config = {
+    custom.magic.hm.enable = lib.mkDefault false;
+    home.stateVersion = "26.05";
+  };
 }

@@ -2,7 +2,7 @@
 {
   home.packages = [ inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   programs.quickshell = {
-    enable = true;
+    enable = false;
     package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
     systemd.enable = true;
     configs = {
