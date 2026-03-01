@@ -1,13 +1,14 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.custom.helix;
-in {
-  imports = [./languages.nix];
+in
+{
+  imports = [ ./languages.nix ];
   options.custom.helix.enable = lib.mkEnableOption "Enable Helix Module";
 
   config = lib.mkIf cfg.enable {
@@ -21,6 +22,8 @@ in {
         # helix-gpt
         # codeium
         nixpkgs-fmt
+        nixfmt
+        nixd
         nodePackages.prettier
         taplo
         vscode-langservers-extracted

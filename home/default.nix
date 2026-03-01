@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     # ./quickshell.nix
     ./packages.nix

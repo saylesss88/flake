@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.git;
-in {
+in
+{
   options.custom.git = {
     enable = lib.mkEnableOption "custom Git configuration";
 
@@ -29,13 +31,16 @@ in {
 
     settings = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
       description = "Extra Git configuration for extraConfig.";
     };
 
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = with pkgs; [lazygit delta];
+      default = with pkgs; [
+        lazygit
+        delta
+      ];
     };
   };
 

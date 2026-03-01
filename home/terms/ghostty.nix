@@ -4,9 +4,11 @@
   config,
   # inputs,
   ...
-}: let
+}:
+let
   cfg = config.custom.ghostty;
-in {
+in
+{
   options.custom.ghostty = {
     enable = lib.mkOption {
       type = lib.types.bool;

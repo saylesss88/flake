@@ -1,9 +1,6 @@
+{ inputs, lib, ... }:
 {
-  inputs,
-  lib,
-  ...
-}: {
-  imports = [inputs.impermanence.nixosModules.impermanence];
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     # 1. Wait for LUKS
     udevadm settle

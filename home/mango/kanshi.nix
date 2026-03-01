@@ -1,18 +1,19 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 let
   monitors = {
-    left = "DP-1";      # The 4K Sceptre
+    left = "DP-1"; # The 4K Sceptre
     right = "HDMI-A-1"; # The 1080p ViewSonic
-  }; 
-in {
+  };
+in
+{
   home.packages = with pkgs; [ kanshi ];
 
   services.kanshi = {
     enable = true;
-    # "sway-session.target" won't work for mangowc. 
+    # "sway-session.target" won't work for mangowc.
     # This generic target ensures it starts on any Wayland session.
-    systemdTarget = "wayland-session.target"; 
+    systemdTarget = "wayland-session.target";
 
     settings = [
       {
@@ -29,7 +30,7 @@ in {
             mode = "1920x1080";
             scale = 1.0;
             # Logical width of left monitor is 3840 / 2 = 1920
-            position = "1920,0"; 
+            position = "1920,0";
           }
         ];
       }

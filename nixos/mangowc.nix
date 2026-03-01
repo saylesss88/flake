@@ -1,4 +1,5 @@
-{config, pkgs, ... }: {
+{ pkgs, ... }:
+{
   # imports = [
   #   inputs.mangowc.nixosModules.default
   # ];
@@ -15,7 +16,5 @@
     firefox
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 }

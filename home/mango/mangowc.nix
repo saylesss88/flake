@@ -1,8 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     inputs.mango.hmModules.mango
     ./keybinds.nix
@@ -26,8 +23,6 @@
       # Monitor Layout DP-1 left, HDMI-A-1 right
       #=========================================================#
       # Logical layout: 4K (Scale 2) starts at 0,0. 1080p starts at 1920,0.
-      # monitorrule=name:DP-1,res:3840x2160,pos:0,0,scale:2,enabled:1
-      # monitorrule=name:HDMI-A-1,res:1920x1080,pos:1920,0,scale:1,enabled:1
       monitorrule=name:DP-1,width:3840,height:2160,refresh:60,x:0,y:0,scale:2
       monitorrule=name:HDMI-A-1,width:1920,height:1080,refresh:60,x:1920,y:0,scale:1
       #=========================================================#

@@ -1,10 +1,7 @@
 {
-  config,
-  lib,
-  pkgs,
-  inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -15,7 +12,7 @@
   #============================#
   #      Lanzaboote
   # ===========================#
-  environment.systemPackages = [];
+  environment.systemPackages = [ ];
 
   custom = {
     nix.enable = true;
@@ -45,7 +42,7 @@
     };
   };
 
-  boot.supportedFilesystems = ["zfs"];
+  boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/"; # Critical for VMs
   # Not needed with LUKS
   boot.zfs.requestEncryptionCredentials = false;
@@ -87,7 +84,7 @@
 
   users.users.root.initialPassword = "changeme"; # change after first login
 
-  boot.kernelParams = ["console=tty1"];
+  boot.kernelParams = [ "console=tty1" ];
 
   # ------------------------------------------------------------------
   # (Optional) Enable SSH for post-install configuration

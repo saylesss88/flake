@@ -1,16 +1,17 @@
 {
   lib,
   pkgs,
+  homeManagerModules,
   ...
-}: {
-  imports = [
-    ../../home
-  ];
-  # Change your-user
-  home.username = "jr";
-  # Change your-user
-  home.homeDirectory = lib.mkDefault "/home/jr";
-  home.stateVersion = "26.05";
+}:
+{
+  imports = [ homeManagerModules ];
+
+  home = {
+    username = "jr";
+    homeDirectory = lib.mkDefault "/home/jr";
+    stateVersion = "26.05";
+  };
 
   custom = {
     nh.enable = true;
@@ -24,11 +25,7 @@
   };
 
   programs.home-manager.enable = true;
-  home.packages = [
-    pkgs.git
-  ];
-  # xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; config.common.default = [ "gtk" ];
-  # };
+  home.packages = [ pkgs.git ];
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
 }

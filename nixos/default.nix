@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./mangowc.nix
     ./greetd.nix

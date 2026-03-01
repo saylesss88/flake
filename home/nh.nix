@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.nh;
-in {
+in
+{
   options.custom.nh = {
     enable = lib.mkOption {
       type = lib.types.bool;

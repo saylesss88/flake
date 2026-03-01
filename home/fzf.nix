@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ ... }:
+{
   programs.fzf = {
     enable = true;
     # colors = lib.mkForce { };

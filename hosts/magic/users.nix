@@ -1,8 +1,5 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   users.users.jr = {
     isNormalUser = true;
     description = "jr";
@@ -42,7 +39,7 @@
   users.users.admin = {
     isNormalUser = true;
     description = "admin account";
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     group = "admin";
     packages = with pkgs; [
       #  thunderbird
@@ -50,5 +47,5 @@
     initialHashedPassword = "$y$j9T$AFAZpGibYMDWpL33h843d0$k1RwRXxHt2vOgXpnAM1zSaGUWKWsPaVi7pGc6QIGAW7";
   };
 
-  users.groups.admin = {};
+  users.groups.admin = { };
 }

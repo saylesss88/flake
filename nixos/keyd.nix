@@ -2,7 +2,7 @@ _: {
   services.keyd = {
     enable = true;
     keyboards.default = {
-      ids = ["*"];
+      ids = [ "*" ];
       settings.main = {
         capslock = "overload(control, esc)";
       };

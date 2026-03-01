@@ -4,7 +4,8 @@
   pkgs,
   # inputs,
   ...
-}: {
+}:
+{
   options.custom.yazi.enable = lib.mkEnableOption "Enable Yazi file manager module";
 
   config = lib.mkIf config.custom.yazi.enable {
