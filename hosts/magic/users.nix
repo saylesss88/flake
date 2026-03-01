@@ -16,6 +16,9 @@
       # "libvirtd"
       # "kvm"
       "wheel"
+      "networkmanager"
+      "video"
+      "audio"
     ];
     group = "jr";
     ignoreShellProgramCheck = true;
