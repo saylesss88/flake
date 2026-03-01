@@ -57,9 +57,9 @@ in {
         cursor-style = "block";
         cursor-style-blink = false;
 
-        unfocused-split-opacity = 0.9;
-        background-opacity = 0.9;
-        background-blur-radius = 20;
+        unfocused-split-opacity = "0.9";
+        background-opacity = "0.9";
+        background-blur-radius = "20";
         # command = "${pkgs.nushell}/bin/nu";
         command = "${pkgs.zsh}/bin/zsh";
 
