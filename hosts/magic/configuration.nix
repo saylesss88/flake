@@ -23,6 +23,7 @@
 
   time.timeZone = "America/New_York";
   services.chrony.enableNTS = true;
+  services.fstrim.enable = true;
 
   # systemd handles mounting
   systemd.services.zfs-mount.enable = false;
