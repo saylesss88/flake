@@ -22,7 +22,7 @@ in
 
     programs.mango.enable = true;
 
-    environment.sessionVariables = rec {
+    environment.sessionVariables = {
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
@@ -69,7 +69,7 @@ in
           #=========================================================#
           # Execs
           #=========================================================#
-          # exec-once=~/.config/mango/autostart.sh
+          exec-once=~/.config/mango/autostart.sh
           #=========================================================#
           # Monitor Layout DP-1 left, HDMI-A-1 right
           #=========================================================#
@@ -400,19 +400,6 @@ in
       };
 
       home.file = {
-        # ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
-        #   # wl-paste --type text --watch cliphist store &
-        #   # Keep clipboard content after app closes
-        #   wl-clip-persist --clipboard regular --reconnect-tries 0 &
-        #   # Watch clipboard and store history
-        #   wl-paste --type text --watch cliphist store &
-        #   wl-paste --type image --watch cliphist store &
-        #   mako &
-        #   dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
-        #   # kanshi &
-        #   waybar &
-        #   wpaperd &
-        # '';
         "Pictures/Wallpapers".source = inputs.wallpapers;
         ".config/wpaperd/config.toml".text = ''
           [default]

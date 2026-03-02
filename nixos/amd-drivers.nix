@@ -35,8 +35,7 @@ in
           vulkan-tools # Vulkan utilities (optional)
           gpu-viewer
         ];
-        extraPackages32 = with pkgs; [
-        ];
+        extraPackages32 = with pkgs; [ ];
       };
 
       # CPU microcode updates
