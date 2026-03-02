@@ -9,56 +9,42 @@ let
   cfg = config.custom.drivers.amdgpu;
 in
 {
-  options.custom.drivers.amdgpu = {
-    enable = mkEnableOption "Enable AMD GPU and CPU Drivers";
-  };
+  options.custom.drivers.amdgpu.enable = mkEnableOption "AMD GPU/CPU optimized for AM06 Pro";
 
   config = mkIf cfg.enable {
-    # Systemd tmpfiles rules for ROCm HIP
+    # Modern ROCm/HIP support
     systemd.tmpfiles.rules = [ "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}" ];
 
-    # Video drivers configuration for X server
-    services.xserver.videoDrivers = [ "amdgpu" ];
-
-    # Hardware configuration for AMD GPU and CPU
     hardware = {
-      # amdgpu.amdvlk.enable = true;
+      # Use the newer NixOS 24.11+ option for early loading
+      amdgpu.initrd.enable = true;
+
       graphics = {
         enable = true;
-        # Enable 32-bit support. This should correctly pull in 32-bit Mesa.
         enable32Bit = true;
         extraPackages = with pkgs; [
-          mesa # This includes the 64-bit Mesa and should trigger 32-bit Mesa when enable32Bit is true
-          rocmPackages.clr.icd # OpenCL
-          vulkan-loader # Vulkan runtime
-          vulkan-validation-layers # Vulkan debugging (optional)
-          vulkan-tools # Vulkan utilities (optional)
-          gpu-viewer
+          rocmPackages.clr.icd # For OpenCL/Compute
+          amdvlk # Optional: some games prefer this over the default RADV
+          vaapiVdpau
+          libvdpau-va-gl
         ];
-        extraPackages32 = with pkgs; [ ];
       };
 
-      # CPU microcode updates
-      cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+      cpu.amd.updateMicrocode = true;
     };
 
-    # Boot configuration for AMD GPU and CPU support
     boot = {
       kernelModules = [
         "kvm-amd"
         "amdgpu"
-        "v4l2loopback"
       ];
       kernelParams = [
-        "amd_pstate=active"
-        "tsc=unstable"
-        "radeon.si_support=0"
-        "radeon.cik_support=0"
-        "amdgpu.si_support=1"
-        "amdgpu.cik_support=1"
+        "amd_pstate=active" # Best for Ryzen 5000+ power management
       ];
-      extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-      blacklistedKernelModules = [ "radeon" ];
     };
+
+    # For AceMagician's dual-ethernet or specific Wi-Fi chips,
+    # using the latest kernel is highly recommended.
+    boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 }

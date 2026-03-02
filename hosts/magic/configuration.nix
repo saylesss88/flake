@@ -13,13 +13,16 @@
     utils.enable = true;
     magic = {
       enable = true;
-      # timezone = "America/New_York";
-      # hostname = "magic";
-      # locale = "en_US.UTF-8";
+      timezone = "America/New_York";
+      hostname = "magic";
+      locale = "en_US.UTF-8";
     };
     nix.enable = true;
     drivers.amdgpu.enable = true;
   };
+
+  time.timeZone = "America/New_York";
+  services.chrony.enableNTS = true;
 
   # systemd handles mounting
   systemd.services.zfs-mount.enable = false;
