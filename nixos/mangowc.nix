@@ -27,7 +27,7 @@ in
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
-      XCURSOR_SIZE = "48";
+      XCURSOR_SIZE = "24";
       GTK_THEME = "Adwaita:dark";
     };
 
@@ -280,7 +280,7 @@ in
           focus_cross_tag=0
           enable_floating_snap=0
           snap_distance=30
-          cursor_size=48
+          cursor_size=24
           drag_tile_to_tile=1
 
           #=========================================================#
