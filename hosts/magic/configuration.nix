@@ -11,6 +11,7 @@
   custom = {
     mangowc.enable = true;
     utils.enable = true;
+    zram.enable = true;
     magic = {
       enable = true;
       timezone = "America/New_York";
