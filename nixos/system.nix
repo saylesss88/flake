@@ -43,6 +43,10 @@ in
       gawk # awk implementation
       coreutils # coreutils implementation
       bash-completion # Add bash-completion package
+      pkg-config
+      openssl
+      unzip
+      duf
 
     ];
 
