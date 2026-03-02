@@ -69,7 +69,7 @@ in
           #=========================================================#
           # Execs
           #=========================================================#
-          exec-once=~/.config/mango/autostart.sh
+          # exec-once=~/.config/mango/autostart.sh
           #=========================================================#
           # Monitor Layout DP-1 left, HDMI-A-1 right
           #=========================================================#
@@ -282,6 +282,8 @@ in
           snap_distance=30
           cursor_size=24
           drag_tile_to_tile=1
+          layerrule=animation_type_open:zoom,layer_name:wofi
+          layerrule=animation_type_close:zoom,layer_name:wofi
 
           #=========================================================#
           # Keyboard
@@ -382,6 +384,18 @@ in
           # env=GTK_THEME,Adwaita:dark
           # env=XCURSOR_SIZE,24
           # env=GDK_SCALE,2
+        '';
+        autostart_sh = ''
+          # Keep clipboard content after app closes
+          wl-clip-persist --clipboard regular --reconnect-tries 0 &
+          # Watch clipboard and store history
+          wl-paste --type text --watch cliphist store &
+          wl-paste --type image --watch cliphist store &
+          mako &
+          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+          # kanshi &
+          waybar &
+          wpaperd &
         '';
       };
 
