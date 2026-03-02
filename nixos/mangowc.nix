@@ -80,7 +80,7 @@ in
 
           bind=SUPER,Return,spawn,ghostty
           bind=SUPER,T,spawn,foot
-          bind=SUPER,O,spawn,firefox
+          bind=SUPER,O,spawn,brave
           bind=SUPER,D,spawn_shell,pkill wofi || wofi --normal-window --show drun --allow-images
           bind=SUPER,Q,killclient
           bind=SUPER,V,spawn_shell,cliphist list | wofi --dmenu | cliphist decode | wl-copy

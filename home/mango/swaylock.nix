@@ -1,17 +1,39 @@
 {
   pkgs,
-  lib,
-  inputs,
+  # lib,
+  # inputs,
   ...
 }:
 {
+  systemd.user.services.swayidle = {
+    Unit = {
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+  services.swayidle = {
+    enable = true;
+    events = {
+      "before-sleep" = "${pkgs.swaylock-effects}/bin/swaylock";
+      "lock" = "${pkgs.swaylock-effects}/bin/swaylock";
+    };
+    timeouts = [
+      {
+        timeout = 500;
+        command = "${pkgs.swaylock-effects}/bin/swaylock -fF";
+      }
+    ];
+  };
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
 
     settings = {
-      image = lib.mkDefault "${inputs.wallpapers}/wallpaper-theme-converter24.png";
-      # image = "/home/jr/Pictures/Wallpapers/space.jpg";
+      # image = lib.mkDefault "${inputs.wallpapers}/wallpaper-theme-converter24.png";
+      image = "/home/jr/Pictures/Wallpapers/space.jpg";
 
       clock = true;
       timestr = "%T";

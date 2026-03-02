@@ -38,7 +38,7 @@
   # Ensure software hasn't been tampered with
   nix.settings.require-sigs = true;
 
-  services.displayManager.autoLogin.enable = false;
+  # services.displayManager.autoLogin.enable = false;
 
   security = {
     protectKernelImage = true;
