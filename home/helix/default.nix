@@ -17,13 +17,31 @@ in
       # package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix;
       defaultEditor = true;
       extraPackages = [
+        marksman
+        markdown-oxide
+        markdownlint-cli
+        markdownlint-cli2
+        nodePackages.prettier
+        prettierd
+        shfmt
+        shellcheck
+        nixd
+        nixfmt
+        nixpkgs-fmt
+        nodejs_22
+        nil
+        # lua-language-server
+        bash-language-server
+        stylua
+        jq
+        taplo
+        # deadnix
+        # alejandra
+        # nixfmt-rfc-style
         biome
         clang-tools
         # helix-gpt
         # codeium
-        nixpkgs-fmt
-        nixfmt
-        nixd
         nodePackages.prettier
         taplo
         vscode-langservers-extracted
