@@ -44,10 +44,14 @@ in
         pavucontrol
         blueman
         swappy
-        cliphist
+        cliphist # Clipboard manager
         wl-clipboard-rs
+        wl-clip-persist # Keep Wayland clipboard even after programs close (avoids crashes)
         brightnessctl
-        libnotify
+        libnotify # Desktop notification lib
+        wayland # for wayland support
+        egl-wayland # for wayland support
+        # xwayland   # for x11 support
       ];
 
       wayland.windowManager.mango = {
