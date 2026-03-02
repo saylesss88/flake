@@ -49,6 +49,7 @@ in
         nixfmt
         taplo
         wpaperd
+        wlsunset
         networkmanagerapplet
         pavucontrol
         blueman
@@ -92,9 +93,38 @@ in
           bind=SUPER,O,spawn,brave
           bind=SUPER,D,spawn_shell,pkill wofi || wofi --normal-window --show drun --allow-images
           bind=SUPER,Q,killclient
+          bind=SUPER,N,spawn,thunar
           bind=SUPER,V,spawn_shell,cliphist list | wofi -S --dmenu | cliphist decode | wl-copy
           bind=SUPER+SHIFT,N,spawn_shell,killall -9 wpaperd && wpaperd
           bind=ALT+Return,spawn,mmsg -d togglefullscreen
+
+          # Screenshots and recording
+          bind=SUPER,P,spawn,${pkgs.writeScriptBin "screenshot" ''
+            #!/usr/bin/env bash
+            GEOM=$(slurp) || exit 1
+            mkdir -p ~/Pictures/Screenshots
+            grim -g "$GEOM" - | satty --filename -
+          ''}/bin/screenshot
+          bind=SUPER+SHIFT,P,spawn,${pkgs.writeScriptBin "screenrecord-start" ''
+            #!/usr/bin/env bash
+            mkdir -p ~/Videos/Recordings
+            GEOM=$(slurp) || exit 1
+            FILENAME=~/Videos/Recordings/$(date +%y%m%d_%Hh%Mm%Ss)_recording.mp4
+            wf-recorder -g "$GEOM" -f "$FILENAME" &
+            WF_PID=$!
+            echo $WF_PID > /tmp/wf-recorder.pid
+            notify-send "Recording started" "Saving to $FILENAME"
+          ''}/bin/screenrecord-start
+          bind=SUPER+SHIFT,O,spawn,${pkgs.writeScriptBin "screenrecord-stop" ''
+            #!/usr/bin/env bash
+            if [ -f /tmp/wf-recorder.pid ]; then
+              kill -INT $(cat /tmp/wf-recorder.pid)
+              rm /tmp/wf-recorder.pid
+              notify-send "Recording stopped" "Saved to ~/Videos/Recordings/"
+            else
+              notify-send "No recording in progress" "No PID file found"
+            fi
+          ''}/bin/screenrecord-stop
           #==================================================#
           # Scroller
           #==================================================#
@@ -396,6 +426,12 @@ in
           # kanshi &
           waybar &
           wpaperd &
+          ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
+          swayidle &
+          nm-applet &
+          blueman-applet &
+          wlsunset -l 49.1 -L -123.1
+          udiskie -t &
         '';
       };
 
