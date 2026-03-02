@@ -92,7 +92,7 @@ in
           bind=SUPER,O,spawn,brave
           bind=SUPER,D,spawn_shell,pkill wofi || wofi --normal-window --show drun --allow-images
           bind=SUPER,Q,killclient
-          bind=SUPER,V,spawn_shell,cliphist list | wofi --dmenu | cliphist decode | wl-copy
+          bind=SUPER,V,spawn_shell,cliphist list | wofi -S --dmenu | cliphist decode | wl-copy
           bind=SUPER+SHIFT,N,spawn_shell,killall -9 wpaperd && wpaperd
           bind=ALT+Return,spawn,mmsg -d togglefullscreen
           #==================================================#

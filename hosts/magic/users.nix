@@ -41,9 +41,6 @@
     description = "admin account";
     extraGroups = [ "wheel" ];
     group = "admin";
-    packages = with pkgs; [
-      #  thunderbird
-    ];
     initialHashedPassword = "$y$j9T$AFAZpGibYMDWpL33h843d0$k1RwRXxHt2vOgXpnAM1zSaGUWKWsPaVi7pGc6QIGAW7";
   };
 
