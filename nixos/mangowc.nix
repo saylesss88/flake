@@ -387,9 +387,14 @@ in
 
       home.file = {
         ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
+          # wl-paste --type text --watch cliphist store &
+          # Keep clipboard content after app closes
+          wl-clip-persist --clipboard regular --reconnect-tries 0 &
+          # Watch clipboard and store history
           wl-paste --type text --watch cliphist store &
           wl-paste --type image --watch cliphist store &
           mako &
+          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
           # kanshi &
           waybar &
           wpaperd &
