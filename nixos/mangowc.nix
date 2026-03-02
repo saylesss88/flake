@@ -22,6 +22,15 @@ in
 
     programs.mango.enable = true;
 
+    environment.sessionVariables = rec {
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
+      XCURSOR_SIZE = "48";
+      GTK_THEME = "Adwaita:dark";
+    };
+
     environment.systemPackages = with pkgs; [
       foot
       swaybg
@@ -271,19 +280,18 @@ in
           focus_cross_tag=0
           enable_floating_snap=0
           snap_distance=30
-          cursor_size=24
+          cursor_size=48
           drag_tile_to_tile=1
 
           #=========================================================#
-          # keyboard
+          # Keyboard
           #=========================================================#
           repeat_rate=50
           repeat_delay=300
-          numlockon=0
+          numlockon=1
           xkb_rules_layout=us
           # map escape to Caps lock
           xkb_rules_options=caps:escape
-
 
           #=========================================================#
           # Trackpad
@@ -300,7 +308,7 @@ in
           swipe_min_threshold=1
 
           #=========================================================#
-          # mouse
+          # Mouse
           #=========================================================#
           # need relogin to make it apply
           mouse_natural_scrolling=0
@@ -367,13 +375,13 @@ in
           tagrule=id:8,layout_name:tile
           tagrule=id:9,layout_name:tile
           #=========================================================#
-          # Cursor Size & Theme
+          # Environment Variables (Cursor Size & Theme)
           #=========================================================#
-          cursor_size=24
-          cursor_theme=Adwaita
-          env=GTK_THEME,Adwaita:dark
-          env=XCURSOR_SIZE,24
-          env=GDK_SCALE,2
+          # cursor_size=48
+          # cursor_theme=Adwaita
+          # env=GTK_THEME,Adwaita:dark
+          # env=XCURSOR_SIZE,24
+          # env=GDK_SCALE,2
         '';
       };
 
