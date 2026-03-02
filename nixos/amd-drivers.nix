@@ -16,7 +16,6 @@ in
     systemd.tmpfiles.rules = [ "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}" ];
 
     hardware = {
-      # Use the newer NixOS 24.11+ option for early loading
       amdgpu.initrd.enable = true;
 
       graphics = {
@@ -24,9 +23,14 @@ in
         enable32Bit = true;
         extraPackages = with pkgs; [
           rocmPackages.clr.icd # For OpenCL/Compute
-          amdvlk # Optional: some games prefer this over the default RADV
-          vaapiVdpau
+          # Hardware Acceleration (Video Encoding/Decoding)
+          libva
+          libva-vdpau-driver
           libvdpau-va-gl
+
+          # debugging/info tools
+          # vulkan-tools # Provides 'vulkaninfo'
+          # clinfo # Provides 'clinfo' to check OpenCL status
         ];
       };
 
@@ -43,8 +47,6 @@ in
       ];
     };
 
-    # For AceMagician's dual-ethernet or specific Wi-Fi chips,
-    # using the latest kernel is highly recommended.
     boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 }
