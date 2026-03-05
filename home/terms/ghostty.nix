@@ -24,6 +24,7 @@ in
       enableZshIntegration = true;
       installVimSyntax = true;
       settings = {
+        gtk-titlebar = false;
         # "config-file" = "/home/jr/.config/randpaper/themes/ghostty.config";
         # theme = "/home/jr/.config/randpaper/themes/ghostty.config";
         # theme = "catppuccin-mocha";

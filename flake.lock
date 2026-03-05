@@ -96,11 +96,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1772360266,
-        "narHash": "sha256-MJ5rT98FR7A5ekJIXpnaIXnuxRk91PzPizi/TwsxBG4=",
+        "lastModified": 1772653894,
+        "narHash": "sha256-/8hQLVH3X7I6Rr62V2cL01NkLYh3YHJ6kZB2fY6IysE=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "2910a7cc92c9132df1a69493628339f85e52eb07",
+        "rev": "51ec572a27a8c1267afbc07e6c1583585c6363dc",
         "type": "github"
       },
       "original": {
@@ -116,11 +116,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772380461,
-        "narHash": "sha256-O3ukj3Bb3V0Tiy/4LUfLlBpWypJ9P0JeUgsKl2nmZZY=",
+        "lastModified": 1772633327,
+        "narHash": "sha256-jl+DJB2DUx7EbWLRng+6HNWW/1/VQOnf0NsQB4PlA7I=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f140aa04d7d14f8a50ab27f3691b5766b17ae961",
+        "rev": "5a75730e6f21ee624cbf86f4915c6e7489c74acc",
         "type": "github"
       },
       "original": {
@@ -178,11 +178,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1772456032,
-        "narHash": "sha256-QSbTGcfBlcjFYNvxhbV8DDMLP9CEfJJOEckJL34+T48=",
+        "lastModified": 1772722981,
+        "narHash": "sha256-YMVcFd6hWtVh1SOxWfSlF26uIP0A4T9uK+FP9J1zIa4=",
         "owner": "DreamMaoMao",
         "repo": "mangowc",
-        "rev": "46e867deb9dfd58abb22ec92b19461d3761b1f3d",
+        "rev": "9df273cdf98cb28057ce20fd9adb9a73215800b1",
         "type": "github"
       },
       "original": {
@@ -271,11 +271,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1772433332,
-        "narHash": "sha256-izhTDFKsg6KeVBxJS9EblGeQ8y+O8eCa6RcW874vxEc=",
+        "lastModified": 1772624091,
+        "narHash": "sha256-QKyJ0QGWBn6r0invrMAK8dmJoBYWoOWy7lN+UHzW1jc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cf59864ef8aa2e178cccedbe2c178185b0365705",
+        "rev": "80bdc1e5ce51f56b19791b52b2901187931f5353",
         "type": "github"
       },
       "original": {
@@ -324,11 +324,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771926182,
-        "narHash": "sha256-QbXuSLhiSxOq6ydBL3+KGe1aiYWBW+e3J6qjJZaRMq0=",
+        "lastModified": 1772695593,
+        "narHash": "sha256-kS8IgyBauCuOIgUcX4ajko6Szn4FPLCfwcEGfTv7RDc=",
         "ref": "refs/heads/master",
-        "rev": "cddb4f061bab495f4473ca5f2c571b6c710efef7",
-        "revCount": 744,
+        "rev": "5721955686a474b814c27bc0ec743f86e473ac4f",
+        "revCount": 747,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
@@ -470,11 +470,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1770228511,
-        "narHash": "sha256-wQ6NJSuFqAEmIg2VMnLdCnUc0b7vslUohqqGGD+Fyxk=",
+        "lastModified": 1772660329,
+        "narHash": "sha256-IjU1FxYqm+VDe5qIOxoW+pISBlGvVApRjiw/Y/ttJzY=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "337a4fe074be1042a35086f15481d763b8ddc0e7",
+        "rev": "3710e0e1218041bbad640352a0440114b1e10428",
         "type": "github"
       },
       "original": {

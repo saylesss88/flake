@@ -14,6 +14,7 @@ in
   config = mkIf cfg.enable {
     # Modern ROCm/HIP support
     systemd.tmpfiles.rules = [ "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}" ];
+    services.xserver.videoDrivers = [ "amdgpu" ];
 
     hardware = {
       amdgpu.initrd.enable = true;
@@ -25,6 +26,7 @@ in
           rocmPackages.clr.icd # For OpenCL/Compute
           # Hardware Acceleration (Video Encoding/Decoding)
           libva
+          libva-utils
           libva-vdpau-driver
           libvdpau-va-gl
 

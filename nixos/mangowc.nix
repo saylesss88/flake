@@ -37,8 +37,6 @@ in
       firefox
     ];
 
-    fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
     # --- Home Manager Level (The Dendritic Branch) ---
     home-manager.users.${username} = {
       imports = [ inputs.mango.hmModules.mango ];
@@ -53,6 +51,7 @@ in
         networkmanagerapplet
         pavucontrol
         blueman
+        polkit_gnome
         swappy
         cliphist # Clipboard manager
         wl-clipboard-rs
@@ -424,7 +423,7 @@ in
           mako &
           dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
           # kanshi &
-          waybar &
+          # waybar &
           wpaperd &
           ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
           swayidle &
@@ -432,6 +431,7 @@ in
           blueman-applet &
           wlsunset -l 49.1 -L -123.1
           udiskie -t &
+          quickshell &
         '';
       };
 

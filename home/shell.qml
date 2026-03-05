@@ -1,57 +1,59 @@
 import QtQuick
 import Quickshell
-// import Quickshell.Services.System
 
 ShellRoot {
-    // This automatically handles the bar for each connected monitor
-    Variants {
+    Instantiator {
         model: Quickshell.screens
 
-        PanelWindow {
-            property var screenModel: modelData
-            screen: screenModel
-            
-            // Anchors the bar to the top and spans the width
-            anchors {
-                top: true
-                left: true
-                right: true
-            }
-            
+        delegate: PanelWindow {
+            screen: modelData
+            anchors { top: true; left: true; right: true }
             height: 32
-            color: "#1e1e2e" // Catppuccin Mocha base
+            color: "#1e1e2e"
 
             Row {
+                id: barRow
                 anchors.fill: parent
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
                 spacing: 20
 
                 Text {
+                    id: logo
                     text: "❄️ NixOS"
                     color: "#cdd6f4"
                     anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: 14
                 }
 
                 Text {
-                    text: screenModel.name
+                    id: screenName
+                    text: modelData.name 
                     color: "#89b4fa"
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
-                // Spacer to push clock to the right
+                // --- THE SPACER ---
+                // We use one clean calculation to push the clock to the right
                 Item {
-                    width: parent.width - childrenRect.width - 150 
+                    width: barRow.width - (logo.width + screenName.width + clock.width + (barRow.spacing * 3) + 20)
                     height: parent.height
                 }
 
+                // --- THE CLOCK ---
                 Text {
-                    // Simple clock using Quickshell's built-in timer logic if needed, 
-                    // or just a static placeholder for now
-                    text: Qt.formatDateTime(new Date(), "hh:mm:ss")
+                    id: clock
+                    property var time: new Date()
+                    text: Qt.formatDateTime(time, "hh:mm:ss")
                     color: "#a6adc8"
                     anchors.verticalCenter: parent.verticalCenter
+
+                    // This makes the clock tick every 1000ms (1 second)
+                    Timer {
+                        interval: 1000
+                        repeat: true
+                        running: true
+                        onTriggered: clock.time = new Date()
+                    }
                 }
             }
         }
