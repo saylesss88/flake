@@ -51,10 +51,6 @@
         #   foo = config.packages.foo;
         # };
         {
-          config,
-          self',
-          inputs',
-          pkgs,
           system,
           ...
         }:

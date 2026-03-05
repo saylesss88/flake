@@ -27,7 +27,7 @@ in
         gtk-titlebar = false;
         # "config-file" = "/home/jr/.config/randpaper/themes/ghostty.config";
         # theme = "/home/jr/.config/randpaper/themes/ghostty.config";
-        # theme = "catppuccin-mocha";
+        theme = "TokyoNight";
         keybind = [
           # "alt+n=new_window"
           # "alt+t=new_tab"
