@@ -1,55 +1,78 @@
-{ inputs, self, lib, config, ... }:
 {
-  flake =
-    let
-      host = "magic";
-      username = "jr";
-      myLib = import ./lib/default.nix { inherit (inputs.nixpkgs) lib; };
-      nixosModules = import ./nixos;
-      homeManagerModules = import ./home;
+  inputs,
+  self,
+  lib,
+  config,
+  ...
+}:
+let
+  # Global factory logic
+  myLib = import "${self}/lib/default.nix" { inherit (inputs.nixpkgs) lib; };
+  nixosModules = import "${self}/nixos";
+  homeManagerModules = import "${self}/home";
 
-      caches = {
-        nix.settings = {
-          builders-use-substitutes = true;
-          substituters = [ "https://cache.nixos.org" ];
-          trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+  caches = {
+    nix.settings = {
+      builders-use-substitutes = true;
+      substituters = [ "https://cache.nixos.org" ];
+      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+    };
+  };
+in
+{
+  options.hosts = lib.mkOption {
+    type = lib.types.attrsOf (
+      lib.types.submodule {
+        options = {
+          username = lib.mkOption {
+            type = lib.types.str;
+            default = "jr";
+          };
+          system = lib.mkOption {
+            type = lib.types.str;
+            default = "x86_64-linux";
+          };
         };
+      }
+    );
+  };
+
+  config.flake.nixosConfigurations = lib.mapAttrs (
+    host: cfg:
+    inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit
+          inputs
+          self
+          host
+          myLib
+          ;
+        username = cfg.username;
       };
-    in
-    {
-      # Notice we can't use 'pkgs' here directly because this is system-agnostic
-      # But we can reference the system-specific pkgs via 'self.nixosConfigurations'
-      nixosConfigurations.${host} = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit
-            inputs
-            host
-            username
-            myLib
-            self
-            ;
-        };
 
-        modules = [
-          nixosModules
-          ./hosts/${host}/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          caches
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = ./hosts/${host}/home.nix;
-            home-manager.extraSpecialArgs = {
+      modules = [
+        nixosModules
+        "${self}/hosts/${host}/configuration.nix"
+        inputs.home-manager.nixosModules.home-manager
+        caches
+        {
+          nixpkgs.hostPlatform = cfg.system;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${cfg.username} = import "${self}/hosts/${host}/home.nix";
+            extraSpecialArgs = {
               inherit
                 inputs
                 homeManagerModules
                 myLib
                 host
-                username
                 ;
+              username = cfg.username;
             };
-          }
-        ];
-      };
-    };
+          };
+        }
+      ];
+    }
+  ) config.hosts;
 }

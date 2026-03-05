@@ -42,6 +42,15 @@
         ./nixos.nix
       ];
 
+      hosts = {
+        magic = {
+          username = "jr";
+          system = "x86_64-linux";
+        };
+        # Adding a second machine is now 4 lines of code:
+        # secondary = { username = "jr"; system = "aarch64-linux"; };
+      };
+
       perSystem =
         {
           system,
