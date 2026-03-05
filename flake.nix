@@ -28,7 +28,6 @@
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       flake-parts,
       ...
@@ -40,16 +39,10 @@
       imports = [
         # Optional: use external flake logic, e.g.
         inputs.treefmt-nix.flakeModule
+        ./nixos.nix
       ];
 
       perSystem =
-        # Per-system outputs (pkgs, devShells, apps, etc.)
-        # Recommended: move all package definitions here.
-        # e.g. (assuming you have a nixpkgs input)
-        # packages.foo = pkgs.callPackage ./foo/package.nix { };
-        # packages.bar = pkgs.callPackage ./bar/package.nix {
-        #   foo = config.packages.foo;
-        # };
         {
           system,
           ...
@@ -70,60 +63,6 @@
             config.allowUnfree = false;
           };
         };
-      # end perSystem---------------------------------------------------------------------
 
-      # Top-level flake outputs (NixOS configurations, etc.)
-      flake =
-        let
-          host = "magic";
-          username = "jr";
-          myLib = import ./lib/default.nix { inherit (nixpkgs) lib; };
-          nixosModules = import ./nixos;
-          homeManagerModules = import ./home;
-
-          caches = {
-            nix.settings = {
-              builders-use-substitutes = true;
-              substituters = [ "https://cache.nixos.org" ];
-              trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
-            };
-          };
-        in
-        {
-          # Notice we can't use 'pkgs' here directly because this is system-agnostic
-          # But we can reference the system-specific pkgs via 'self.nixosConfigurations'
-          nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit
-                inputs
-                host
-                username
-                myLib
-                self
-                ;
-            };
-
-            modules = [
-              nixosModules
-              ./hosts/${host}/configuration.nix
-              inputs.home-manager.nixosModules.home-manager
-              caches
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.${username} = ./hosts/${host}/home.nix;
-                home-manager.extraSpecialArgs = {
-                  inherit
-                    inputs
-                    homeManagerModules
-                    myLib
-                    host
-                    username
-                    ;
-                };
-              }
-            ];
-          };
-        };
     };
 }

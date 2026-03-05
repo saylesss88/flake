@@ -95,7 +95,7 @@ in
           bind=SUPER,N,spawn,thunar
           bind=SUPER,V,spawn_shell,cliphist list | wofi -S --dmenu | cliphist decode | wl-copy
           bind=SUPER+SHIFT,N,spawn_shell,killall -9 wpaperd && wpaperd
-          bind=ALT+Return,spawn,mmsg -d togglefullscreen
+          bind=ALT+Return,,togglefullscreen,
 
           # Screenshots and recording
           bind=SUPER,P,spawn,${pkgs.writeScriptBin "screenshot" ''
