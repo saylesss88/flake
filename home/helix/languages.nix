@@ -7,22 +7,6 @@
         args = [ "lsp-proxy" ];
       };
 
-      language-server.gpt = {
-        command = "helix-gpt";
-        args = [
-          "--handler"
-          "codeium"
-        ];
-      };
-      language-server.codeium = {
-        # Your Codeium handler
-        command = "helix-gpt";
-        args = [
-          "--handler"
-          "codeium"
-        ];
-      };
-
       language-server.rust-analyzer.config = {
         check = {
           command = "clippy";
@@ -166,8 +150,8 @@
           language-servers = [
             "marksman"
             "markdown-oxide"
-            "gpt"
-            "codeium"
+            # "gpt"
+            # "codeium"
             "harper-ls"
             # "ltex-ls"
           ];
@@ -191,8 +175,8 @@
             "nil"
             "typos"
             "nixd"
-            "gpt"
-            "codeium"
+            # "gpt"
+            # "codeium"
           ];
           file-types = [ "nix" ];
           formatter = {
@@ -286,8 +270,8 @@
           name = "bash";
           language-servers = [
             "bash-language-server"
-            "gpt"
-            "codeium"
+            # "gpt"
+            # "codeium"
           ];
           file-types = [ "sh" ];
         }
@@ -304,6 +288,21 @@
           auto-format = true;
         }
       ];
+      # language-server.gpt = {
+      #   command = "helix-gpt";
+      #   args = [
+      #     "--handler"
+      #     "codeium"
+      #   ];
+      # };
+      # language-server.codeium = {
+      #   # Your Codeium handler
+      #   command = "helix-gpt";
+      #   args = [
+      #     "--handler"
+      #     "codeium"
+      #   ];
+      # };
     };
   };
 }

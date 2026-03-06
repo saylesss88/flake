@@ -1,5 +1,4 @@
-_:
-{
+_: {
   services.udiskie = {
     enable = true;
     settings = {

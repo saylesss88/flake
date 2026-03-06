@@ -1,21 +1,19 @@
 {
+  pkgs,
   config,
   lib,
-  pkgs,
   ...
 }:
 let
   cfg = config.custom.helix;
 in
 {
-  options.custom.helix.enable = lib.mkEnableOption "Enable Helix Module";
-
   imports = [ ./languages.nix ];
+  options.custom.helix.enable = lib.mkEnableOption "Enable Helix Module";
 
   config = lib.mkIf cfg.enable {
     programs.helix = with pkgs; {
       enable = true;
-      # package = inputs'.helix.packages.default;
       # package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix;
       defaultEditor = true;
       extraPackages = [

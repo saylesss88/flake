@@ -27,12 +27,8 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      flake-parts,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       # This tells flake-parts which systems to generate outputs for
       systems = import inputs.systems;
 
@@ -40,6 +36,8 @@
         # Optional: use external flake logic, e.g.
         inputs.treefmt-nix.flakeModule
         ./nixos.nix
+        ./lib/dev-shell.nix
+        ./lib/treefmt.nix
       ];
 
       hosts = {
@@ -58,16 +56,13 @@
         }:
         {
 
-          treefmt = {
-            projectRootFile = "flake.nix";
-            imports = [ ./lib/treefmt.nix ];
-          };
-
-          # Your development shell
-          devShells.default = import ./lib/dev-shell.nix { inherit inputs; };
+          # treefmt = {
+          #   projectRootFile = "flake.nix";
+          #   imports = [ ./lib/treefmt.nix ];
+          # };
 
           # Access pkgs with your specific config
-          _module.args.pkgs = import nixpkgs {
+          _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
             config.allowUnfree = false;
           };
