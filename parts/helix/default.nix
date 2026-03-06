@@ -11,9 +11,6 @@
     in
     {
       options.custom.helix.enable = lib.mkEnableOption "Enable Helix Module";
-
-      # imports = [ ./languages.nix ];
-
       config = lib.mkIf cfg.enable {
         programs.helix = with pkgs; {
           enable = true;
@@ -25,7 +22,6 @@
             markdown-oxide
             markdownlint-cli
             markdownlint-cli2
-            nodePackages.prettier
             prettierd
             shfmt
             shellcheck
@@ -38,7 +34,6 @@
             bash-language-server
             stylua
             jq
-            taplo
             # deadnix
             # alejandra
             # nixfmt-rfc-style
@@ -66,7 +61,6 @@
             # theme = "rose_pine";
             theme = "tokyonight";
             # theme = "gruvbox";
-
             editor = {
               # shell = [
               #   "nu"
@@ -82,44 +76,36 @@
               ];
               true-color = true;
               default-yank-register = "+";
-
               soft-wrap = {
                 enable = false;
                 # max-wrap = 10;
                 # max-indent-retain = 14;
                 # wrap-at-text-width = true;
               };
-
               auto-save = {
                 focus-lost = true;
                 after-delay.enable = true;
               };
-
               cursor-shape = {
                 insert = "bar";
                 normal = "block";
                 select = "underline";
               };
-
               file-picker = {
                 hidden = false;
                 ignore = false;
               };
-
               indent-guides = {
                 character = "┊";
                 render = true;
                 skip-levels = 1;
               };
-
               end-of-line-diagnostics = "hint";
               inline-diagnostics.cursor-line = "warning";
-
               lsp = {
                 display-inlay-hints = true;
                 display-messages = true;
               };
-
               statusline = {
                 left = [
                   "mode"
@@ -128,7 +114,6 @@
                   "spinner"
                   "file-name"
                 ];
-
                 right = [
                   "workspace-diagnostics"
                   "spacer"
@@ -191,6 +176,8 @@
                 ];
               };
             };
+          };
+          languages = {
             language-server.biome = {
               command = "biome";
               args = [ "lsp-proxy" ];
@@ -369,7 +356,7 @@
                 ];
                 file-types = [ "nix" ];
                 formatter = {
-                  command = "nixfmt";
+                  command = "${pkgs.nixfmt}/bin/nixfmt";
                 };
               }
               {
@@ -492,24 +479,37 @@
             #     "codeium"
             #   ];
             # };
-            #   };
-            # };
           };
-
-          # themes = {
-          #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
-          #   gruvbox_community = {
-          #     inherits = "gruvbox";
-          #     "variable" = "blue1";
-          #     "variable.parameter" = "blue1";
-          #     "function.macro" = "red1";
-          #     "operator" = "orange1";
-          #     "comment" = "gray";
-          #     "constant.builtin" = "orange1";
-          #     "ui.background" = {};
-          #   };
-          # };
         };
+
+        # themes = {
+
+        #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
+
+        #   gruvbox_community = {
+
+        #     inherits = "gruvbox";
+
+        #     "variable" = "blue1";
+
+        #     "variable.parameter" = "blue1";
+
+        #     "function.macro" = "red1";
+
+        #     "operator" = "orange1";
+
+        #     "comment" = "gray";
+
+        #     "constant.builtin" = "orange1";
+
+        #     "ui.background" = {};
+
+        #   };
+
+        # };
+
       };
+
     };
+
 }
