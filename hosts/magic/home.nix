@@ -2,10 +2,14 @@
   lib,
   pkgs,
   homeManagerModules,
+  inputs,
   ...
 }:
 {
-  imports = [ homeManagerModules ];
+  imports = [
+    homeManagerModules
+    inputs.self.homeModules.helix
+  ];
 
   home = {
     username = "jr";
