@@ -20,6 +20,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default-linux";
+    import-tree.url = "github:vic/import-tree";
     wallpapers = {
       url = "github:saylesss88/wallpapers2";
       flake = false;
@@ -36,9 +37,10 @@
         # Optional: use external flake logic, e.g.
         inputs.treefmt-nix.flakeModule
         ./nixos.nix
-        ./lib/dev-shell.nix
-        ./lib/treefmt.nix
-      ];
+        # ./lib/dev-shell.nix
+        # ./lib/treefmt.nix
+      ]
+      ++ (inputs.import-tree ./parts).imports;
 
       hosts = {
         magic = {
