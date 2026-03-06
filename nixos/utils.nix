@@ -26,6 +26,7 @@ in
       resvg # SVG rendering library and tools
       envsubst # Environment variable substitution utility
       killall # Process termination utility
+      mpv
       gnumake # Build automation tool
       just # Build automation tool
       fzf # command line fuzzy finder

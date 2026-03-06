@@ -56,6 +56,7 @@ in
         cliphist # Clipboard manager
         wl-clipboard-rs
         wl-clip-persist # Keep Wayland clipboard even after programs close (avoids crashes)
+        wf-recorder
         brightnessctl
         libnotify # Desktop notification lib
         wayland # for wayland support
