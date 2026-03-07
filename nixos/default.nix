@@ -35,6 +35,6 @@
     i18n.defaultLocale = lib.mkIf (config.custom.magic.locale != "") config.custom.magic.locale;
     networking.hostName = lib.mkIf (config.custom.magic.hostname != "") config.custom.magic.hostname;
 
-    system.stateVersion = "26.05";
+    system.stateVersion = "25.11";
   };
 }

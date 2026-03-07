@@ -8,6 +8,6 @@
 
   config = {
     custom.magic.hm.enable = lib.mkDefault false;
-    home.stateVersion = "26.05";
+    home.stateVersion = "25.11";
   };
 }

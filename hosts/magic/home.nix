@@ -14,7 +14,6 @@
   home = {
     username = "jr";
     homeDirectory = lib.mkDefault "/home/jr";
-    stateVersion = "26.05";
   };
 
   custom = {
