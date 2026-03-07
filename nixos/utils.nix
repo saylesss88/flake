@@ -31,6 +31,8 @@ in
       just # Build automation tool
       fzf # command line fuzzy finder
       polkit_gnome # authentication agent for privilege escalation
+      bat
+      mat2
       # dbus # inter-process communication daemon
       upower # power management/battery status daemon
       dconf # configuration storage system
