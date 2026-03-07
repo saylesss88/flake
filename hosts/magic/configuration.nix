@@ -6,6 +6,7 @@
     ./impermanence.nix
     inputs.self.nixosModules.amd-drivers
     inputs.self.nixosModules.mangowc
+    inputs.self.nixosModules.my-fonts
   ];
   environment.systemPackages = [ ];
 
@@ -13,6 +14,7 @@
     mangowc.enable = true;
     utils.enable = true;
     zram.enable = true;
+    my-fonts.enable = true;
     magic = {
       enable = true;
       timezone = "America/New_York";
