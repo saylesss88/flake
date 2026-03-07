@@ -1,17 +1,26 @@
 {
-  flake.homeModules.fzf = _: {
-    programs.fzf = {
-      enable = true;
-      # colors = lib.mkForce { };
+  flake.homeModules.fzf =
+    { lib, config, ... }:
+    let
+      cfg = config.custom.fzf;
+    in
+    {
+      options.custom.fzf.enable = lib.mkEnableOption "Enable fzf module";
 
-      defaultOptions = [
-        "--height 40%"
-        "--reverse"
-        "--border"
-        "--color=16"
-      ];
+      config = lib.mkIf cfg.enable {
+        programs.fzf = {
+          enable = true;
+          # colors = lib.mkForce { };
 
-      defaultCommand = "rg --files --hidden --glob=!.git/";
+          defaultOptions = [
+            "--height 40%"
+            "--reverse"
+            "--border"
+            "--color=16"
+          ];
+
+          defaultCommand = "rg --files --hidden --glob=!.git/";
+        };
+      };
     };
-  };
 }

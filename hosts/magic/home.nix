@@ -22,6 +22,7 @@
     nh.enable = true;
     helix.enable = true;
     yazi.enable = true;
+    fzf.enable = true;
     git = {
       enable = true;
     };
