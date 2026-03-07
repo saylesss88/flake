@@ -1,20 +1,19 @@
 { lib, ... }:
 {
-  attrs = import ./attrs.nix { inherit lib; };
-  # use path relative to the root of the project
-  relativeToRoot = lib.path.append ../.;
+  # Returns a list of all .nix files and directories in a path,
+  # skipping default.nix. Perfect for the 'imports' list.
   scanPaths =
     path:
-    map (f: (path + "/${f}")) (
+    let
+      content = builtins.readDir path;
+    in
+    map (name: path + "/${name}") (
       builtins.attrNames (
-        lib.attrsets.filterAttrs (
-          path: _type:
-          (_type == "directory") # include directories
-          || (
-            (path != "default.nix") # ignore default.nix
-            && (lib.strings.hasSuffix ".nix" path) # include .nix files
-          )
-        ) (builtins.readDir path)
+        lib.filterAttrs (
+          name: type: (type == "directory") || (name != "default.nix" && lib.hasSuffix ".nix" name)
+        ) content
       )
     );
+
+  relativeToRoot = lib.path.append ../.;
 }
