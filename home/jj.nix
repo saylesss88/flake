@@ -18,7 +18,9 @@ _: {
       revset-aliases = {
         "closest_bookmark(to)" = "heads(::to & bookmarks())";
         "immutable_heads()" = "builtin_immutable_heads() | remote_bookmarks()";
-        "recent()" = "committer_date(after: '1 month ago')";
+        # "recent()" = "committer_date(after: '1 month ago')";
+        # This finds all ancestors of the current head, limited to 50 revisions
+        "recent()" = "latest(mine(), 10)";
         trunk = "main@origin";
       };
       template-aliases = {
@@ -112,6 +114,21 @@ _: {
         si = [
           "squash"
           "--interactive"
+        ];
+        finish-feat = [
+          "do"
+          "--"
+          "rebase"
+          "-b"
+          "@-"
+          "-d"
+          "main"
+          "||"
+          "bookmark"
+          "set"
+          "main"
+          "-r"
+          "@-"
         ];
       };
     };
