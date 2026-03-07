@@ -14,6 +14,7 @@
     mangowc.enable = true;
     utils.enable = true;
     zram.enable = true;
+    zsh.enable = true;
     my-fonts.enable = true;
     magic = {
       enable = true;
