@@ -36,9 +36,9 @@
       imports = [
         # Optional: use external flake logic, e.g.
         inputs.treefmt-nix.flakeModule
+        # Import home-manager's flake module
+        inputs.home-manager.flakeModules.home-manager
         ./nixos.nix
-        # ./lib/dev-shell.nix
-        # ./lib/treefmt.nix
       ]
       ++ (inputs.import-tree ./parts).imports;
 
@@ -57,11 +57,6 @@
           ...
         }:
         {
-
-          # treefmt = {
-          #   projectRootFile = "flake.nix";
-          #   imports = [ ./lib/treefmt.nix ];
-          # };
 
           # Access pkgs with your specific config
           _module.args.pkgs = import inputs.nixpkgs {

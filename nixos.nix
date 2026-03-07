@@ -55,18 +55,6 @@ in
       }
     );
   };
-
-  # options.flake.nixosModules = lib.mkOption {
-  #   type = lib.types.attrsOf lib.types.deferredModule;
-  #   default = { };
-  #   description = "NixOS modules exported by this flake.";
-  # };
-
-  options.flake.homeModules = lib.mkOption {
-    type = lib.types.attrsOf lib.types.deferredModule;
-    default = { };
-    description = "Home Manager modules exported by this flake.";
-  };
   /**
     CONFIGURATION GENERATION
     Iterates through the 'config.hosts' defined above and maps them to
