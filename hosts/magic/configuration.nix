@@ -5,6 +5,7 @@
     ./users.nix
     ./impermanence.nix
     inputs.self.nixosModules.amd-drivers
+    inputs.self.nixosModules.mangowc
   ];
   environment.systemPackages = [ ];
 
