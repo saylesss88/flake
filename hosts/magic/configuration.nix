@@ -1,10 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./users.nix
     ./impermanence.nix
+    inputs.self.nixosModules.amd-drivers
   ];
   environment.systemPackages = [ ];
 
@@ -19,7 +19,7 @@
       locale = "en_US.UTF-8";
     };
     nix.enable = true;
-    drivers.amdgpu.enable = true;
+    amd-drivers.enable = true;
   };
 
   time.timeZone = "America/New_York";
