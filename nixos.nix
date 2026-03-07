@@ -91,7 +91,11 @@ in
         {
           nixpkgs.hostPlatform = cfg.system;
           home-manager = {
+            # By default, Home Manager uses a private pkgs instance that is configured
+            #  via the home-manager.users.<name>.nixpkgs options. To instead use the
+            #  global pkgs that is configured via the system level nixpkgs options, set
             useGlobalPkgs = true;
+            # Install packages to /etc/profiles rather than $HOME/.nix-profile
             useUserPackages = true;
             # Dynamically import the user's home configuration based on host/username
             users.${cfg.username} = {
@@ -101,7 +105,6 @@ in
               ++ (builtins.attrValues config.flake.homeModules);
             };
 
-            # Pass unique context down to Home Manager modules
             extraSpecialArgs = {
               inherit
                 inputs
