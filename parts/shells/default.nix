@@ -1,8 +1,9 @@
+{ lib, ... }:
+let
+  # prevents infinite recursion error
+  myLib = import ../../lib { inherit lib; };
+in
 {
-  ...
-}:
-{
-  imports = [
-    ./zsh.nix
-  ];
+  # Now we can use it safely
+  imports = myLib.scanPaths ./.;
 }
