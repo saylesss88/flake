@@ -210,12 +210,6 @@ def jj-squash [] {
 def fr [] {
     run0 nixos-rebuild switch --flake $"/home/($env.USER)/flake#((hostname))"
 }
-# def jj-squash [] {
-#   let msg = (input "Enter commit message: ")
-#   jj squash -r @
-#   jj describe -m $msg
-#   jj bookmark set main
-# }
 # load scripts
 # use /home/jr/flake/home/shells/nushell/starship.nu
 use $EXTRACTOR extract

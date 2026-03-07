@@ -74,7 +74,7 @@
               #=========================================================#
               exec-once=~/.config/mango/autostart.sh
               #=========================================================#
-              # Monitor Layout DP-1 left, HDMI-A-1 right
+              # Monitor Layout DP-1 left (4k), HDMI-A-1 right (1080p)
               #=========================================================#
               # Logical layout: 4K (Scale 2) starts at 0,0. 1080p starts at 1920,0.
               monitorrule=name:DP-1,width:3840,height:2160,refresh:60,x:0,y:0,scale:2
@@ -98,7 +98,7 @@
               bind=SUPER,N,spawn,thunar
               bind=SUPER,V,spawn_shell,cliphist list | wofi -S --dmenu | cliphist decode | wl-copy
               bind=SUPER+SHIFT,N,spawn_shell,killall -9 wpaperd && wpaperd
-              bind=ALT+Return,,togglefullscreen,
+              bind=ALT,Return,togglefullscreen,
 
               # Screenshots and recording
               bind=SUPER,P,spawn,${pkgs.writeScriptBin "screenshot" ''

@@ -36,13 +36,13 @@
   users.groups.jr = {
     # gid = lib.mkForce 1000;
   };
-  users.users.admin = {
-    isNormalUser = true;
-    description = "admin account";
-    extraGroups = [ "wheel" ];
-    group = "admin";
-    initialHashedPassword = "$y$j9T$AFAZpGibYMDWpL33h843d0$k1RwRXxHt2vOgXpnAM1zSaGUWKWsPaVi7pGc6QIGAW7";
-  };
+  # users.users.admin = {
+  #   isNormalUser = true;
+  #   description = "admin account";
+  #   extraGroups = [ "wheel" ];
+  #   group = "admin";
+  #   initialHashedPassword = "$y$j9T$AFAZpGibYMDWpL33h843d0$k1RwRXxHt2vOgXpnAM1zSaGUWKWsPaVi7pGc6QIGAW7";
+  # };
 
-  users.groups.admin = { };
+  # users.groups.admin = { };
 }
