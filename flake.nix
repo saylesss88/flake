@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
+    devshell.url = "github:numtide/devshell";
     mango = {
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +37,7 @@
       imports = [
         # Optional: use external flake logic, e.g.
         inputs.treefmt-nix.flakeModule
+        inputs.devshell.flakeModule
         # Import home-manager's flake module
         inputs.home-manager.flakeModules.home-manager
         ./nixos.nix
