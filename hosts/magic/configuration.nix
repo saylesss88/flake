@@ -1,12 +1,12 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ./users.nix
     ./impermanence.nix
-    inputs.self.nixosModules.amd-drivers
-    inputs.self.nixosModules.mangowc
-    inputs.self.nixosModules.my-fonts
+    # inputs.self.nixosModules.amd-drivers
+    # inputs.self.nixosModules.mangowc
+    # inputs.self.nixosModules.my-fonts
   ];
   environment.systemPackages = [ ];
 

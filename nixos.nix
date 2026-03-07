@@ -125,8 +125,8 @@ in
             };
           };
         }
-      ];
-      #++ (builtins.attrValues config.flake.nixosModules);
+      ]
+      ++ (builtins.attrValues config.flake.nixosModules);
     }
   ) config.hosts;
 }
