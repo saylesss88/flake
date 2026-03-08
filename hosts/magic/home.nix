@@ -23,6 +23,7 @@
     helix.enable = true;
     yazi.enable = true;
     fzf.enable = true;
+    nushell.enable = true;
     git = {
       enable = true;
     };

@@ -1,0 +1,40 @@
+{
+  colorscheme ? "tokyonight_night",
+  xargb ? false,
+  alpha ? "ff",
+  lib,
+  ...
+}:
+let
+  convert-color =
+    color:
+    let
+      pure-hex = builtins.substring 1 (builtins.stringLength color) color;
+    in
+    if xargb then "x${alpha}${pure-hex}" else color;
+
+  palettes = {
+    tokyonight_night = {
+      black = "#111726";
+      blue = "#769ff0";
+      white = "#a3aed2";
+      grey = "#394260";
+      dark_grey = "#212736";
+      yellow = "#e0af68";
+      warn = "#ff4b14";
+      red = "#f7768e";
+      green = "#9ece6a";
+      purple = "#bb9af7";
+      light_red = "#ff899d";
+      light_yellow = "#faba4a";
+      light_blue = "#a4daff";
+      light_green = "#0dcf6f";
+      cyan = "#7dcfff";
+      magenta = "#c7a9ff";
+    };
+  };
+
+  # Resulting palette
+  theme = lib.mapAttrs (name: value: convert-color value) palettes.${colorscheme};
+in
+theme

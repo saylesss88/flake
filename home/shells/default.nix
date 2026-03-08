@@ -2,6 +2,5 @@
 {
   imports = [
     ./starship.nix
-    ./nushell
   ];
 }
