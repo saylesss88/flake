@@ -34,19 +34,8 @@
               "alt+four=goto_tab:4"
               "alt+five=goto_tab:5"
               "alt+six=goto_tab:6"
-              "ctrl+comma=open_config"
               "ctrl+enter=toggle_fullscreen"
               "ctrl+shift+q=close_window"
-              "ctrl+shift+r>h=resize_split:left"
-              "ctrl+shift+r>l=resize_split:right"
-              "ctrl+r>j=resize_split:bottom"
-              "ctrl+r>k=resize_split:top"
-              "ctrl+h=goto_split:left"
-              "ctrl+j=goto_split:bottom"
-              "ctrl+k=goto_split:top"
-              "ctrl+l=goto_split:right"
-              "ctrl+page_up=jump_to_prompt:-1"
-              "ctrl+shift+z toggle_split_zoom"
             ];
             font-size = lib.mkForce 12;
             font-family = "Fira-Code-Mono Nerd Font";
