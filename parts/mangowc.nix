@@ -31,6 +31,8 @@
           XDG_STATE_HOME = "$HOME/.local/state";
           XCURSOR_SIZE = "24";
           GTK_THEME = "Adwaita:dark";
+          QT_QPA_PLATFORM = "wayland;xcb";
+          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         };
 
         environment.systemPackages = with pkgs; [
@@ -87,7 +89,6 @@
 
               # reload config(after rebuilding, reload_config)
               bind=SUPER,r,reload_config
-              # We use spawn to run notify-send, then call reload_config (the internal command)
               # bind=SUPER,r,spawn,${pkgs.libnotify}/bin/notify-send -a "MangoWC" "System Refreshed" "Configuration reloaded successfully" && reload_config
 
               bind=SUPER,Return,spawn,ghostty
