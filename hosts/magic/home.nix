@@ -24,6 +24,7 @@
     yazi.enable = true;
     fzf.enable = true;
     nushell.enable = true;
+    mako.enable = true;
     git = {
       enable = true;
     };
