@@ -18,6 +18,10 @@
       };
 
       config = lib.mkIf cfg.enable {
+        systemd.user.services.quickshell = {
+          restartIfChanged = false;
+        };
+
         environment.systemPackages = with pkgs; [
           # Qt6 dependencies for quickshell
           qt6.qtbase
@@ -41,6 +45,7 @@
               "shell.qml" = ./shell.qml;
             };
           };
+
         };
       };
     };
