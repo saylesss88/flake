@@ -28,6 +28,7 @@
     git = {
       enable = true;
     };
+    jj.enable = true;
     ghostty.enable = true;
     gpg.enable = true;
   };
