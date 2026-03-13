@@ -31,6 +31,7 @@
     jj.enable = true;
     ghostty.enable = true;
     gpg.enable = true;
+    # zed.enable = true;
   };
 
   programs.home-manager.enable = true;

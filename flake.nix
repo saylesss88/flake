@@ -63,7 +63,7 @@
           # Access pkgs with your specific config
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            config.allowUnfree = false;
+            config.allowUnfree = true;
           };
         };
 
