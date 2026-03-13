@@ -16,7 +16,7 @@
     zram.enable = true;
     zsh.enable = true;
     my-fonts.enable = true;
-    quickshell.enable = true;
+    quickshell.enable = false;
     magic = {
       enable = true;
       timezone = "America/New_York";

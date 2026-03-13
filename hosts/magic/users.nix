@@ -6,7 +6,7 @@
     # uid = 1000;
     openssh = {
       authorizedKeys.keys = [
-        # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEUpPGBjTU900F2h8xqgpx8Tty8tdeqnz3n6QCaF3NQQ"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVsTKGkVTU3XQgCgVaebly/qQV5p0MtuCNezJNjaIX6 (none)"
       ];
     };
     extraGroups = lib.mkForce [

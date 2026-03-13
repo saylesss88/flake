@@ -24,6 +24,7 @@ in
       jq # Command-line JSON processor
       imagemagick # Image manipulation tools
       resvg # SVG rendering library and tools
+      chafa
       envsubst # Environment variable substitution utility
       killall # Process termination utility
       tree

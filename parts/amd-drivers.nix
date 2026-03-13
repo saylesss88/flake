@@ -31,6 +31,7 @@
               libva-utils
               libva-vdpau-driver
               libvdpau-va-gl
+              mesa-demos # OpenGL info
 
               # debugging/info tools
               # vulkan-tools # Provides 'vulkaninfo'
@@ -52,6 +53,14 @@
         };
 
         boot.kernelPackages = pkgs.linuxPackages_latest;
+
+        environment.sessionVariables = {
+          # Force VA-API detection
+          LIBVA_DRIVER_NAME = "radeonsi"; # Ryzen 7000 iGPU
+
+          # mpv terminal-friendly defaults
+          MPV_VO = "tct"; # Terminal playback
+        };
       };
     };
 }

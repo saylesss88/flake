@@ -64,6 +64,17 @@ in
       enable = true;
 
       lfs.enable = true;
+      signing = {
+        signByDefault = true;
+        key = "6DCB 7493 05C0 49BC 9183  ED46 4FAC BE3C 06A1 F31D";
+      };
+      # profiles = {
+      #   private = {
+      #     name = "saylesss88";
+      #     email = "saylesss87@proton.me";
+      #     signingKey = "6DCB 7493 05C0 49BC 9183  ED46 4FAC BE3C 06A1 F31D";
+      #   };
+      # };
       inherit (cfg) ignores;
 
       settings = lib.mkMerge [
