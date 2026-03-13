@@ -58,6 +58,12 @@
               setopt pushdminus
             '';
             initContent = ''
+                        export PATH="$HOME/projects/px2ansi-rs/target/debug:$PATH"
+
+                        # Inject completions dynamically if the binary exists
+                        if command -v px2ansi-rs >/dev/null; then
+                          source <(px2ansi-rs completions zsh)
+                        fi
                         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
                         source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
                         source <(jj util completion zsh)
