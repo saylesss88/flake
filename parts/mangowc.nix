@@ -33,6 +33,8 @@
           GTK_THEME = "Adwaita:dark";
           QT_QPA_PLATFORM = "wayland;xcb";
           QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+          MPV_WAYLAND_OPTS = "app-id=mpv";
+          ANV_VIDEO_DECODE = "1";
         };
 
         environment.systemPackages = with pkgs; [

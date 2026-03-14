@@ -29,7 +29,7 @@
   #   sudo.enable = false;
   #   polkit.enable = true;
   # };
-  xdg.portal.wlr.enable = false;
+  # xdg.portal.wlr.enable = true;
 
   # Ensure software hasn't been tampered with
   nix.settings.require-sigs = true;

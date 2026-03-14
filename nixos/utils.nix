@@ -115,11 +115,26 @@ in
     # For proper XDG desktop integration
     xdg.portal = {
       enable = true;
-      # wlr.enable = true;
+      wlr.enable = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
-        # pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-wlr
       ];
+      config = {
+        common = {
+          default = [
+            "wlr"
+            "gtk"
+          ];
+        };
+        # This specifically tells portals to use wlr for mangowc
+        mangowc = {
+          default = [
+            "wlr"
+            "gtk"
+          ];
+        };
+      };
     };
 
   };
