@@ -90,7 +90,12 @@
               l = [
                 "log"
                 "-r"
-                "::@ | ::main"
+                "trunk()..@"
+              ];
+              ll = [
+                "log"
+                "-r"
+                "trunk()..@ | (trunk()..main) | trunk() | (trunk()-..trunk())"
               ];
               # Shows everything that isn't abandoned
               la = [

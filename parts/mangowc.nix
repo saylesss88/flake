@@ -233,6 +233,10 @@
                 bind=SUPER+SHIFT,l,exchange_client,right
                 bind=SUPER+SHIFT,k,exchange_client,up
                 bind=SUPER+SHIFT,j,exchange_client,down
+
+                # Move active window to the next physical monitor
+                bind=SUPER+CONTROL,l,movetooutput,right
+                bind=SUPER+CONTROL,h,movetooutput,left
                 #=========================================================#
                 # Animations
                 #=========================================================#
@@ -327,8 +331,8 @@
                 idleinhibit_ignore_visible=0
                 sloppyfocus=1
                 warpcursor=1
-                focus_cross_monitor=0
-                focus_cross_tag=0
+                focus_cross_monitor=1
+                focus_cross_tag=1
                 enable_floating_snap=0
                 snap_distance=30
                 cursor_size=24
