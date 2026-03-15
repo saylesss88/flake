@@ -86,6 +86,18 @@
                 "-r"
                 "@"
               ];
+              # Only shows the current working copy, main, and their ancestors
+              l = [
+                "log"
+                "-r"
+                "::@ | ::main"
+              ];
+              # Shows everything that isn't abandoned
+              la = [
+                "log"
+                "-r"
+                "all()"
+              ];
               log-recent = [
                 "log"
                 "-r"
