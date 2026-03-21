@@ -21,7 +21,7 @@
             };
             ui = {
               default-command = [
-                "status"
+                "log"
                 "--no-pager"
               ];
               diff-editor = "gitpatch";
@@ -87,8 +87,16 @@
               mb = [
                 "bookmark"
                 "set"
+                "main"
                 "-r"
                 "@"
+              ];
+              mp = [
+                "bookmark"
+                "set"
+                "main"
+                "-r"
+                "@-"
               ];
               # Only shows the current working copy, main, and their ancestors
               l = [

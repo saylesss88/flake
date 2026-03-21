@@ -174,6 +174,20 @@
                   ":open %sh{cat /tmp/unique-file}"
                   ":redraw"
                 ];
+                "p" = [
+                  "paste_after"
+                  "collapse_selection"
+                ]; # Normal paste
+                "P" = [
+                  "paste_before"
+                  "collapse_selection"
+                ]; # Paste before
+                "R" = "replace_with_yanked"; # Swap selection with clipboard
+                # The "Guaranteed Line" Paste
+                "C-p" = [
+                  "open_below"
+                  "paste_after"
+                ];
               };
             };
           };
