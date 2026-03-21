@@ -10,6 +10,7 @@
   environment.systemPackages = [ ];
 
   custom = {
+    boot.enable = true;
     mangowc.enable = true;
     utils.enable = true;
     zram.enable = true;
