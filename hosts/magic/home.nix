@@ -22,6 +22,7 @@
     fzf.enable = true;
     nushell.enable = true;
     mako.enable = true;
+    mpv.enable = true;
     git = {
       enable = true;
     };
