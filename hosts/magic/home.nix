@@ -2,14 +2,11 @@
   lib,
   pkgs,
   homeManagerModules,
-  # inputs,
   ...
 }:
 {
   imports = [
     homeManagerModules
-    # inputs.self.homeModules.helix
-    # inputs.self.homeModules.fzf
   ];
 
   home = {
