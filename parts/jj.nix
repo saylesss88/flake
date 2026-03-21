@@ -28,6 +28,10 @@
               merge-editor = ":builtin";
               conflict-marker-style = "diff";
             };
+
+            bookmarks = {
+              push-on-new = true;
+            };
             revset-aliases = {
               "closest_bookmark(to)" = "heads(::to & bookmarks())";
               "immutable_heads()" = "builtin_immutable_heads() | remote_bookmarks()";
