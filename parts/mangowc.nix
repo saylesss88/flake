@@ -457,7 +457,7 @@
               blueman-applet &
               wlsunset -l 49.1 -L -123.1
               udiskie -t &
-              quickshell &
+              # quickshell &
             '';
           };
 
