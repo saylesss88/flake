@@ -131,46 +131,11 @@
                 "set"
                 "main"
               ];
-              squash-desc = [
-                "squash"
-                "::@"
-                "-d"
-                "@"
-              ];
-              rebase-main = [
-                "rebase"
-                "-d"
-                "main"
-              ];
-              amend = [
-                "describe"
-                "-m"
-              ];
-              pushall = [
-                "git"
-                "push"
-                "--all"
-              ];
               r = [ "rebase" ];
               s = [ "squash" ];
               si = [
                 "squash"
                 "--interactive"
-              ];
-              finish-feat = [
-                "do"
-                "--"
-                "rebase"
-                "-b"
-                "@-"
-                "-d"
-                "main"
-                "||"
-                "bookmark"
-                "set"
-                "main"
-                "-r"
-                "@-"
               ];
             };
           };
