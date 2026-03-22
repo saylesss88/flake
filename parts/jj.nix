@@ -24,6 +24,8 @@
                 "log"
                 "--no-pager"
               ];
+              color = "always";
+              diff.format = "color-words";
               diff-editor = "gitpatch";
               merge-editor = ":builtin";
               conflict-marker-style = "diff";
@@ -136,6 +138,10 @@
               si = [
                 "squash"
                 "--interactive"
+              ];
+              sp = [
+                "split"
+                "--interavtive"
               ];
             };
           };
