@@ -24,7 +24,9 @@ in
       jq # Command-line JSON processor
       imagemagick # Image manipulation tools
       resvg # SVG rendering library and tools
-      chafa
+      chafa # Terminal graphics for the 21st century
+      commitlint-rs # Lint commit messages with conventional commit messages
+      semantic-release # Fully automated version management and package publishing
       envsubst # Environment variable substitution utility
       killall # Process termination utility
       tree
