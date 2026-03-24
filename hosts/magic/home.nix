@@ -24,6 +24,7 @@
     mako.enable = true;
     mpv.enable = true;
     foot.enable = true;
+    waybar.enable = true;
     git = {
       enable = true;
     };
