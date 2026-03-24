@@ -23,6 +23,7 @@
     nushell.enable = true;
     mako.enable = true;
     mpv.enable = true;
+    foot.enable = true;
     git = {
       enable = true;
     };
