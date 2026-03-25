@@ -114,11 +114,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1774028838,
-        "narHash": "sha256-1zylMvReaWs4ICEq773PvJFXglsEq5BC2YKv0fNa81k=",
+        "lastModified": 1774418580,
+        "narHash": "sha256-M/s/XF7FRsKU8TjkjnE/5u7HOwv9QqXaARxUbIZfSoM=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "3d68e0a32617d1844543219f6790a2b3fa169170",
+        "rev": "33d0bca24d216dfffe2e57a5a91a0176feec2f07",
         "type": "github"
       },
       "original": {
@@ -134,11 +134,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774293042,
-        "narHash": "sha256-OEBV+Y5I4Ldu98k0KvGXRfJYh+jjE8ocCSL/dxTGs1s=",
+        "lastModified": 1774379316,
+        "narHash": "sha256-0nGNxWDUH2Hzlj/R3Zf4FEK6fsFNB/dvewuboSRZqiI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bc357c75e3142a31b849ba49c5299fb52c61cf59",
+        "rev": "1eb0549a1ab3fe3f5acf86668249be15fa0e64f7",
         "type": "github"
       },
       "original": {
@@ -211,11 +211,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1774275328,
-        "narHash": "sha256-i720jTHSXeP+jj/Frj+Z4btfDzdpg8Q+M/USKW+Vdd8=",
+        "lastModified": 1774440717,
+        "narHash": "sha256-8F6hUKf4XbeQqccimENIhyyJn5Q+XKAsOfOq73PtvUk=",
         "owner": "DreamMaoMao",
         "repo": "mangowc",
-        "rev": "0d944d9578a3618a35f94385e7c15e6933effff3",
+        "rev": "91e10b239f65d9e0d0d04c85829fb85ded15a231",
         "type": "github"
       },
       "original": {
