@@ -201,7 +201,7 @@
               };
             }
           ];
-          style = concatStrings [
+          style = lib.concatStrings [
             ''
               @import "/home/jr/.config/randpaper/themes/waybar.css";
                       * {
