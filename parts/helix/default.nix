@@ -264,7 +264,7 @@
                     "file.css"
                   ];
                 };
-                auto-format = true;
+                auto-format = false;
               }
               # {
               #   name = "go";
@@ -356,7 +356,7 @@
                     # "file.md"
                   ];
                 };
-                auto-format = true;
+                auto-format = false;
               }
               {
                 name = "nix";

@@ -26,6 +26,7 @@
       tokei
       tealdeer
       eza
+      vim
       #  thunderbird
     ];
     shell = pkgs.zsh;

@@ -26,9 +26,12 @@ in
       resvg # SVG rendering library and tools
       chafa # Terminal graphics for the 21st century
       commitlint-rs # Lint commit messages with conventional commit messages
+      file
       semantic-release # Fully automated version management and package publishing
       envsubst # Environment variable substitution utility
+      ansilove
       killall # Process termination utility
+      fontconfig
       tree
       mpv
       gnumake # Build automation tool
