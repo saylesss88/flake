@@ -40,8 +40,8 @@
         programs = {
           carapace.enable = true;
           carapace.enableNushellIntegration = true;
-          atuin.enable = true;
-          atuin.enableNushellIntegration = true;
+          atuin.enable = false;
+          # atuin.enableNushellIntegration = true;
           direnv.enable = true;
           direnv.enableNushellIntegration = true;
           direnv.nix-direnv.enable = true;

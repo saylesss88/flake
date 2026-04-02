@@ -58,7 +58,7 @@
               setopt pushdminus
             '';
             initContent = ''
-                        eval "$(atuin init zsh --disable-up-arrow)"
+                        # eval "$(atuin init zsh --disable-up-arrow)"
                         
                         export PATH="$HOME/projects/px2ansi-rs/target/debug:$PATH"
 

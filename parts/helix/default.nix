@@ -41,7 +41,7 @@
             clang-tools
             # helix-gpt
             # codeium
-            nodePackages.prettier
+            prettier
             taplo
             vscode-langservers-extracted
             vscode-extensions.vadimcn.vscode-lldb

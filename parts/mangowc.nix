@@ -468,7 +468,15 @@
               path = "/home/${username}/Pictures/Wallpapers/"
               duration = "30m"
             '';
+            # ".config/px2ansi-rs/default-config.toml".text = ''
+            #   filter = "nearest"
+            #   latency = true
+            # '';
           };
+          # xdg.configFile."px2ansi-rs/default-config.toml".text = ''
+          #   filter = "nearest"
+          #   latency = true
+          # '';
         };
       };
     };

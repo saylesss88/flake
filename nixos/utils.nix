@@ -29,7 +29,8 @@ in
       file
       semantic-release # Fully automated version management and package publishing
       envsubst # Environment variable substitution utility
-      ansilove
+      asciinema # Terminal session recorder
+      asciinema-agg # CLI tool for generating animated GIF files
       killall # Process termination utility
       fontconfig
       tree

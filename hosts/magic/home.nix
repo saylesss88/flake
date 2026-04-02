@@ -37,5 +37,7 @@
   programs.home-manager.enable = true;
   home.packages = [ pkgs.git ];
   xdg.userDirs.enable = true;
+
+  xdg.userDirs.setSessionVariables = false;
   xdg.userDirs.createDirectories = true;
 }
