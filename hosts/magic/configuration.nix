@@ -54,6 +54,8 @@
   networking.networkmanager.enable = true;
   networking.hostName = "magic";
 
+  nixpkgs.config.allowUnfree = true;
+
   users.users.root.initialPassword = "changeme"; # change after first login
 
   boot.kernelParams = [ "console=tty1" ];

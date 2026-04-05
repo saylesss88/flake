@@ -17,6 +17,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     randpaper.url = "github:saylesss88/randpaper";
+    px2ansi-rs.url = "github:saylesss88/px2ansi-rs";
     helix.url = "github:helix-editor/helix";
     awww.url = "git+https://codeberg.org/LGFae/awww";
     treefmt-nix.url = "github:numtide/treefmt-nix";

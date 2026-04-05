@@ -106,36 +106,37 @@
                 # Screenshots and recording
                 bind=SUPER,P,spawn,${pkgs.writeScriptBin "screenshot" ''
                   #!/usr/bin/env bash
-                  GEOM=$(slurp) || exit 1
-                  mkdir -p ~/Pictures/Screenshots
-                  grim -g "$GEOM" - | satty --filename -
+                    GEOM=$(slurp) || exit 1
+                    mkdir -p ~/Pictures/Screenshots
+                    grim -g "$GEOM" - | satty --filename -
                 ''}/bin/screenshot
-              bind=SUPER+SHIFT,P,spawn,${pkgs.writeScriptBin "screenrecord-start" ''
-                #!/usr/bin/env bash
-                mkdir -p ~/Videos/Recordings
-                GEOM=$(slurp) || exit 1
-                FILENAME=~/Videos/Recordings/$(date +%y%m%d_%Hh%Mm%Ss)_recording.mp4
-                wf-recorder -g "$GEOM" \
-                  -c libx264rgb \
-                  -p preset=veryslow \
-                  -p crf=0 \
-                  -r 60 \
-                  -f "$FILENAME" &
-                WF_PID=$!
-                echo $WF_PID > /tmp/wf-recorder.pid
-                notify-send "Recording started (High Quality)" "Saving to $FILENAME"
-              ''}/bin/screenrecord-start
 
-                # bind=SUPER+SHIFT,P,spawn,${pkgs.writeScriptBin "screenrecord-start" ''
-                  #   #!/usr/bin/env bash
-                  #   mkdir -p ~/Videos/Recordings
-                  #   GEOM=$(slurp) || exit 1
-                  #   FILENAME=~/Videos/Recordings/$(date +%y%m%d_%Hh%Mm%Ss)_recording.mp4
-                  #   wf-recorder -g "$GEOM" -f "$FILENAME" &
-                  #   WF_PID=$!
-                  #   echo $WF_PID > /tmp/wf-recorder.pid
-                  #   notify-send "Recording started" "Saving to $FILENAME"
-                  # ''}/bin/screenrecord-start
+              # bind=SUPER+SHIFT,P,spawn,${pkgs.writeScriptBin "screenrecord-start" ''
+                #   #!/usr/bin/env bash
+                #   mkdir -p ~/Videos/Recordings
+                #   GEOM=$(slurp) || exit 1
+                #   FILENAME=~/Videos/Recordings/$(date +%y%m%d_%Hh%Mm%Ss)_recording.mp4
+                #   wf-recorder -g "$GEOM" \
+                #     -c libx264rgb \
+                #     -p preset=veryslow \
+                #     -p crf=0 \
+                #     -r 60 \
+                #     -f "$FILENAME" &
+                #   WF_PID=$!
+                #   echo $WF_PID > /tmp/wf-recorder.pid
+                #   notify-send "Recording started (High Quality)" "Saving to $FILENAME"
+                # ''}/bin/screenrecord-start
+
+                bind=SUPER+SHIFT,P,spawn,${pkgs.writeScriptBin "screenrecord-start" ''
+                  #!/usr/bin/env bash
+                  mkdir -p ~/Videos/Recordings
+                  GEOM=$(slurp) || exit 1
+                  FILENAME=~/Videos/Recordings/$(date +%y%m%d_%Hh%Mm%Ss)_recording.mp4
+                  wf-recorder -g "$GEOM" -f "$FILENAME" &
+                  WF_PID=$!
+                  echo $WF_PID > /tmp/wf-recorder.pid
+                  notify-send "Recording started" "Saving to $FILENAME"
+                ''}/bin/screenrecord-start
                 bind=SUPER+SHIFT,O,spawn,${pkgs.writeScriptBin "screenrecord-stop" ''
                   #!/usr/bin/env bash
                   if [ -f /tmp/wf-recorder.pid ]; then
@@ -468,10 +469,12 @@
               path = "/home/${username}/Pictures/Wallpapers/"
               duration = "30m"
             '';
-            # ".config/px2ansi-rs/default-config.toml".text = ''
-            #   filter = "nearest"
-            #   latency = true
-            # '';
+            ".config/px2ansi-rs/default-config.toml".text = ''
+              filter = "nearest"
+              latency = true
+              index = "/home/jr/pokesprite/pokemon-gen8/shiny/index.json"
+              raster_theme = "tokyo-night"
+            '';
           };
           # xdg.configFile."px2ansi-rs/default-config.toml".text = ''
           #   filter = "nearest"

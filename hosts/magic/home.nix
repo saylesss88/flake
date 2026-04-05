@@ -25,6 +25,7 @@
     mpv.enable = true;
     foot.enable = true;
     waybar.enable = true;
+    vscode.enable = true;
     git = {
       enable = true;
     };

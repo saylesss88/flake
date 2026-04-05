@@ -91,7 +91,7 @@
 
                         eval "$(zoxide init zsh)"
                         # eval "$(mcfly init zsh)"
-                        # eval "$(direnv hook zsh)"
+                        eval "$(direnv hook zsh)"
 
                # if [ -n "$TTY" ]; then
                #   export GPG_TTY=$(tty)
@@ -159,7 +159,7 @@
               vz = "NVIM_APPNAME='lazy' nvim";
               vk = "NVIM_APPNAME='kick' nvim";
               vc = "nix run /home/jr/flake/modules/nixCats";
-              cat = "bat --style snip --style changes --style header";
+              # cat = "bat --style snip --style changes --style header";
               l = "eza -lh --icons=auto"; # long list
               ls = "eza --icons=auto --group-directories-first --icons"; # short list
               # ls = "ls --color=tty";

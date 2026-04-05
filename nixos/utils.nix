@@ -29,8 +29,18 @@ in
       file
       semantic-release # Fully automated version management and package publishing
       envsubst # Environment variable substitution utility
-      asciinema # Terminal session recorder
-      asciinema-agg # CLI tool for generating animated GIF files
+      gnome-keyring
+      libsecret
+      hyperfine
+      perf
+      # asciinema # Terminal session recorder
+      # asciinema-agg # CLI tool for generating animated GIF files
+      # autoconf
+      # automake
+      # libtool
+      # libsixel
+      # gdk-pixbuf
+      # m4
       killall # Process termination utility
       fontconfig
       tree
